@@ -80,9 +80,9 @@ export default function ResultsPage() {
       }
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : "Unknown error";
-      if (message.includes("ANTHROPIC_API_KEY")) {
+      if (message.includes("ANTHROPIC_API_KEY") || message.includes("404") || message.includes("Failed to fetch")) {
         setAiError(
-          "AI advice requires an ANTHROPIC_API_KEY. Add it to your .env.local file to enable this feature."
+          "AI-powered advice requires a server deployment with an Anthropic API key. The rest of your results are fully available above — use the Tactics page for curated improvement strategies."
         );
       } else {
         setAiError("Unable to generate AI advice right now. Please try again.");

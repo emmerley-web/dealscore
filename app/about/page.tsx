@@ -148,33 +148,37 @@ export default function AboutPage() {
               <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <BarChart3 className="w-6 h-6 text-brand-600" />
               </div>
-              <h3 className="font-bold text-slate-900 mb-2">Honesty over hype</h3>
+              <h3 className="font-bold text-slate-900 mb-2">No absolutes</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                The publishing industry has enough people telling writers what they
-                want to hear. We would rather give you an honest number and let you
-                decide what to do with it.
+                There are no universal rules in publishing. The right editor,
+                a well-timed submission, an agent who connects with your
+                voice — these matter enormously and no tool can predict them.
+                DealScore gives you a framework, not a verdict.
               </p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Pen className="w-6 h-6 text-brand-600" />
               </div>
-              <h3 className="font-bold text-slate-900 mb-2">Writers deserve clarity</h3>
+              <h3 className="font-bold text-slate-900 mb-2">The right path, not just the dream path</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                You should not need a $5,000 book proposal consultant to figure out
-                where you stand. The information that agents and editors use to
-                evaluate you should be available to you too.
+                Traditional publishing is one route. Hybrid publishers and
+                self-publishing are serious, legitimate alternatives. The honest
+                consulting value is pointing authors toward the path that actually
+                fits their situation — not just helping them chase a deal they
+                are unlikely to get.
               </p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Mail className="w-6 h-6 text-brand-600" />
               </div>
-              <h3 className="font-bold text-slate-900 mb-2">Free means free</h3>
+              <h3 className="font-bold text-slate-900 mb-2">The knowledge gap is the problem</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                No premium tier, no upsell, no gated features. We built this because
-                we think the publishing world needs it, not because we are trying to
-                build a SaaS company.
+                Authors can ask anyone whether they have a chance. The problem
+                is they do not know which variables to input to get a meaningful
+                answer. That knowledge gap is itself a form of expertise —
+                and it is what DealScore is designed to close.
               </p>
             </div>
           </div>

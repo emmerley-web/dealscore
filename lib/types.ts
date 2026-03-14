@@ -46,25 +46,25 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#ef4444",
     bgColor: "#fef2f2",
     description:
-      "You're at the beginning of the journey. Focus on building foundations.",
+      "A traditional deal is not realistic right now. That is not a judgment — it is useful information. Most authors in this range benefit most from self-publishing or hybrid publishing while building the foundations that a traditional deal requires.",
   },
   {
     min: 21,
     max: 40,
-    label: "Early Explorer",
+    label: "Early Stage",
     color: "#f97316",
     bgColor: "#fff7ed",
     description:
-      "Making progress! Key areas need development before targeting publishers.",
+      "Key variables need significant development before a traditional publisher will take you seriously. Hybrid publishing is a realistic path now. A 12-24 month platform and proposal strategy could change this picture considerably.",
   },
   {
     min: 41,
     max: 60,
-    label: "Rising Contender",
+    label: "Building Momentum",
     color: "#eab308",
     bgColor: "#fefce8",
     description:
-      "Solid foundations in place. Strategic improvements will move the needle significantly.",
+      "You have real foundations. A traditional deal is possible but competitive. Your category breakdown will show you exactly which one or two variables are holding you back — those are where to focus your energy.",
   },
   {
     min: 61,
@@ -73,7 +73,7 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#84cc16",
     bgColor: "#f7fee7",
     description:
-      "Competitive for representation. Targeted refinements will sharpen your edge.",
+      "You are competitive for representation. Agents will take your query seriously. The difference between this and a deal often comes down to one factor — usually platform or a sharper commercial hook.",
   },
   {
     min: 76,
@@ -82,7 +82,7 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#22c55e",
     bgColor: "#f0fdf4",
     description:
-      "Very attractive to publishers. Polish the remaining gaps and you're there.",
+      "Very attractive to publishers. The gaps are small and addressable. At this level, timing, the right agent, and the specific acquisitions editor matter as much as the manuscript itself.",
   },
   {
     min: 89,
@@ -91,7 +91,7 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#10b981",
     bgColor: "#ecfdf5",
     description:
-      "Exceptional readiness. You have the platform, manuscript, and concept to compete at the highest level.",
+      "You have the platform, manuscript, and concept to compete at the highest level. The variables outside your control — timing, editor fit, market conditions — are now the main factors.",
   },
 ];
 
@@ -112,15 +112,15 @@ export const CATEGORY_DISPLAY_NAMES: Record<CategoryKey, string> = {
 
 export const CATEGORY_DESCRIPTIONS: Record<CategoryKey, string> = {
   platform:
-    "Your existing audience, reach, and public presence as an author.",
+    "Your existing public reach: social following, email list, press coverage, speaking, and media presence. Publishers look at this first. A strong concept with a thin platform can still sell — but it needs to be a very strong concept.",
   manuscriptQuality:
-    "The craft, development, and polish of your writing and manuscript.",
+    "The craft, development, and polish of your writing and proposal. Publishers do not acquire rough drafts. A submission-ready manuscript signals professionalism and saves the editor work.",
   conceptUniqueness:
-    "How original, differentiated, and author-specific your book concept is.",
+    "How differentiated your book is — and critically, whether you are the only person who could have written it. 'Only you could write this' is one of the most powerful things an agent can say to an editor.",
   conceptCommercialPotential:
-    "The marketability, audience size, and commercial appeal of your book.",
+    "The size of the potential readership and the strength of your commercial hook. A great story still needs a frame that makes it more than just a story — the pitch question is always: why is this not just another memoir?",
   conceptTimeliness:
-    "How well your concept aligns with current cultural conversations and market gaps.",
+    "Where your concept sits in the cultural moment. Timing is the hardest variable to control. The same book can go from highly sellable to a pass within two years as conversations shift.",
 };
 
 export const GENRES = [

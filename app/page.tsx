@@ -12,27 +12,27 @@ import {
 const FEATURES = [
   {
     icon: BarChart3,
-    title: "Five Real Categories",
+    title: "The variables publishers actually use",
     description:
-      "We score you on Platform, Manuscript Quality, Concept Uniqueness, Commercial Potential, and Timeliness. Platform gets extra weight because that is what publishers look at first.",
+      "Platform, manuscript quality, concept uniqueness, commercial potential, timeliness — and whether you are the only person who could have written this book. These are the real inputs. Most authors never know to ask about them.",
   },
   {
     icon: Star,
-    title: "A Score You Can Act On",
+    title: "An honest score, not a pep talk",
     description:
-      "You get a single number from 0 to 100, plus a full breakdown by category. No vague feedback. You will know exactly where you are strong and where you need work.",
+      "You get a number from 0 to 100, broken down by category. If your platform is thin or your concept is not differentiated enough, the score will show it. That honesty is the point.",
   },
   {
     icon: Lightbulb,
-    title: "Advice Written for Your Book",
+    title: "A clear path forward",
     description:
-      "Our AI reads your specific scores and genre, then writes recommendations you can actually follow. Not boilerplate tips from a blog post.",
+      "Traditional publishing is one path. Hybrid publishers and self-publishing are others. Your score and breakdown help you figure out which route is actually right for you — not just which one you hoped for.",
   },
   {
     icon: TrendingUp,
-    title: "Watch Yourself Improve",
+    title: "Track your progress over time",
     description:
-      "Save your results, retake the assessment after you have made changes, and track your score over time. The dashboard shows your progress in a single chart.",
+      "Building a platform or sharpening a concept takes months. Save your results, retake the assessment as you make changes, and watch your score move as the work accumulates.",
   },
 ];
 
@@ -47,11 +47,11 @@ const SPECTRUM_PREVIEW = [
 
 const WHAT_YOU_GET = [
   "Your DealScore out of 100",
-  "Scores for each of the five categories",
+  "Scores across the five key publishing variables",
   "Where you sit on the readiness spectrum",
-  "A personalized action plan for your genre",
-  "Tactics matched to your weakest areas",
-  "A dashboard that tracks your progress over time",
+  "Which publication path fits your current position",
+  "Tactics and resources matched to your weakest areas",
+  "A dashboard to track your score as you improve",
 ];
 
 export default function Home() {
@@ -82,14 +82,14 @@ export default function Home() {
           </div>
 
           <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-            How close are you to a{" "}
+            Do you know what it actually takes to get a{" "}
             <span className="text-gold-400">traditional book deal?</span>
           </h1>
 
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Most writers have no idea where they actually stand. DealScore measures
-            the five things publishers care about most, then tells you exactly
-            what to work on next.
+            Most authors can feel when something is wrong with their submission
+            but cannot name it. DealScore gives you the framework agents and
+            editors use — and tells you exactly where you stand on each variable.
           </p>
 
           <Link
@@ -142,12 +142,13 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              What you get (and why it matters)
+              The knowledge gap is the problem
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              We built DealScore because we were tired of watching talented writers
-              waste years on the wrong things. This tool gives you the honest
-              picture and the concrete next steps.
+              Authors can ask anyone whether they have a chance at a traditional deal.
+              The problem is they do not know which variables to assess in the first place.
+              DealScore gives you the same framework publishing professionals use — and
+              points you toward the right path, whether that is traditional, hybrid, or self-publishing.
             </p>
           </div>
 
@@ -178,11 +179,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Your full readiness picture in five minutes
+                Know where you stand before you query
               </h2>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                Answer 20 questions. Get a score. See exactly where you need
-                to focus. No fluff, no upsell, no paywall.
+                20 questions. A score out of 100. A breakdown that shows exactly
+                which variables are holding you back. No account, no paywall,
+                no vague feedback.
               </p>
               <ul className="space-y-3">
                 {WHAT_YOU_GET.map((item) => (
@@ -254,11 +256,12 @@ export default function Home() {
       >
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold text-white mb-4">
-            Stop wondering. Start knowing.
+            Most authors query too early, or chase the wrong path.
           </h2>
           <p className="text-white/70 text-lg mb-10">
-            Take the assessment, get your score, and walk away with a plan you
-            can actually follow. It takes five minutes and it is completely free.
+            Five minutes and 20 questions will tell you where you actually stand,
+            which variables to address, and which publishing route makes sense
+            for your book right now.
           </p>
           <Link
             href="/assessment"

@@ -164,9 +164,9 @@ export default function AssessmentPage() {
               What genre are you writing in?
             </h1>
             <p className="text-slate-500 mb-6">
-              This shapes the advice and tactics we give you. Different genres
-              have different expectations for platform, commercial hooks, and
-              timeliness.
+              Genre shapes the benchmarks we use. Platform requirements,
+              commercial hooks, and what counts as a strong concept vary
+              significantly between categories.
             </p>
             <fieldset>
               <legend className="sr-only">Select your genre</legend>
@@ -188,6 +188,15 @@ export default function AssessmentPage() {
                 ))}
               </div>
             </fieldset>
+            {(genre === "Memoir / Personal Essay" || genre === "Narrative Nonfiction") && (
+              <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-800 leading-relaxed">
+                <strong className="text-amber-900">Note on memoir and narrative nonfiction:</strong>{" "}
+                These are among the hardest categories to sell traditionally. Publishers
+                typically require either a very large existing platform, celebrity profile,
+                or a story of singular and urgent relevance. Your results will reflect
+                this reality honestly.
+              </div>
+            )}
           </div>
         )}
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, BookOpen } from "lucide-react";
 import clsx from "clsx";
 import { ASSESSMENT_QUESTIONS, QUESTIONS_BY_CATEGORY } from "@/lib/questions";
@@ -28,7 +27,6 @@ const CATEGORY_ICONS: Record<CategoryKey, string> = {
 type Step = "genre" | 0 | 1 | 2 | 3 | 4 | "calculating";
 
 export default function AssessmentPage() {
-  const router = useRouter();
   const [step, setStep] = useState<Step>("genre");
   const [genre, setGenre] = useState("");
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -78,7 +76,12 @@ export default function AssessmentPage() {
         setStep("calculating");
         const result = buildAssessmentResult(answers, genre);
         setPendingResult(result);
-        setTimeout(() => router.push("/results"), 1200);
+        // Use hard navigation so localStorage is reliably available on the results page
+        // regardless of GitHub Pages / static export routing behaviour
+        setTimeout(() => {
+          const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+          window.location.href = base + "/results/";
+        }, 1200);
       }
     }
   }

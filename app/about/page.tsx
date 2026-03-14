@@ -175,10 +175,10 @@ export default function AboutPage() {
               </div>
               <h3 className="font-bold text-slate-900 mb-2">The knowledge gap is the problem</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Authors can ask anyone whether they have a chance. The problem
-                is they do not know which variables to input to get a meaningful
-                answer. That knowledge gap is itself a form of expertise —
-                and it is what DealScore is designed to close.
+                Nonfiction authors can ask anyone whether they have a chance.
+                The problem is they do not know which variables matter most.
+                That knowledge gap is itself a form of expertise — and it is
+                what DealScore is designed to close.
               </p>
             </div>
           </div>
@@ -192,8 +192,9 @@ export default function AboutPage() {
             Ready to find out where you stand?
           </h2>
           <p className="text-slate-600 mb-6">
-            The assessment takes about five minutes. You do not need to create an
-            account, and your results stay on your device.
+            The assessment takes about five minutes. 20 questions covering the
+            five variables that determine your readiness for a traditional
+            nonfiction deal.
           </p>
           <Link
             href="/assessment"

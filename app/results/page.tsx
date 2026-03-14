@@ -13,8 +13,9 @@ import {
   ExternalLink,
   AlertTriangle,
 } from "lucide-react";
+
 import { AssessmentResult, getSpectrumLevel } from "@/lib/types";
-import { getPendingResult, saveResult } from "@/lib/storage";
+import { getPendingResult, saveResult, getLatestResult } from "@/lib/storage";
 import ScoreSpectrum from "@/components/ScoreSpectrum";
 import CategoryBreakdown from "@/components/CategoryBreakdown";
 import { getWeakestCategories } from "@/lib/scoring";
@@ -105,9 +106,11 @@ export default function ResultsPage() {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    const r = getPendingResult();
+    // Try pending result first (just completed), then fall back to last saved
+    const r = getPendingResult() || getLatestResult();
     if (!r) {
-      router.push("/assessment");
+      const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+      window.location.href = base + "/assessment/";
       return;
     }
     setResult(r);

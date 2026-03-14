@@ -83,13 +83,14 @@ export default function Home() {
 
           <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
             Do you know what it actually takes to get a{" "}
-            <span className="text-gold-400">traditional book deal?</span>
+            <span className="text-gold-400">nonfiction book deal?</span>
           </h1>
 
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Most authors can feel when something is wrong with their submission
-            but cannot name it. DealScore gives you the framework agents and
-            editors use — and tells you exactly where you stand on each variable.
+            Most nonfiction authors can feel when something is wrong with their
+            submission but cannot name it. DealScore gives you the framework
+            agents and editors use — and tells you exactly where you stand on
+            each variable.
           </p>
 
           <Link
@@ -101,7 +102,7 @@ export default function Home() {
           </Link>
 
           <p className="mt-5 text-sm text-white/50">
-            5 minutes. 20 questions. No account needed.
+            5 minutes. 20 questions. For nonfiction authors at any stage.
           </p>
         </div>
       </section>
@@ -182,9 +183,9 @@ export default function Home() {
                 Know where you stand before you query
               </h2>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                20 questions. A score out of 100. A breakdown that shows exactly
-                which variables are holding you back. No account, no paywall,
-                no vague feedback.
+                20 questions. A score out of 100. A breakdown showing exactly
+                which variables are holding you back — and which publishing
+                path makes sense for your book right now.
               </p>
               <ul className="space-y-3">
                 {WHAT_YOU_GET.map((item) => (
@@ -199,7 +200,7 @@ export default function Home() {
             {/* Mock score card */}
             <div className="bg-gradient-to-br from-brand-700 to-brand-900 rounded-2xl p-8 text-white shadow-2xl">
               <p className="text-white/60 text-sm font-medium mb-1 uppercase tracking-wide">
-                Example: Debut Thriller Author
+                Example: Business / Leadership Author
               </p>
               <div className="flex items-end gap-2 mb-4">
                 <span className="text-7xl font-extrabold text-gold-400">
@@ -238,8 +239,9 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-white/40 text-xs mt-4 italic">
-                This author&apos;s biggest opportunity? Building a platform. A newsletter
-                and a few podcast appearances could push them past 80.
+                Biggest opportunity: Platform. A newsletter, speaking engagements,
+                and a few high-profile podcast appearances could push this score
+                into deal-ready territory.
               </p>
             </div>
           </div>
@@ -261,7 +263,7 @@ export default function Home() {
           <p className="text-white/70 text-lg mb-10">
             Five minutes and 20 questions will tell you where you actually stand,
             which variables to address, and which publishing route makes sense
-            for your book right now.
+            for your nonfiction book right now.
           </p>
           <Link
             href="/assessment"

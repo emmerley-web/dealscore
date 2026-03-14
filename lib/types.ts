@@ -112,32 +112,28 @@ export const CATEGORY_DISPLAY_NAMES: Record<CategoryKey, string> = {
 
 export const CATEGORY_DESCRIPTIONS: Record<CategoryKey, string> = {
   platform:
-    "Your existing public reach: social following, email list, press coverage, speaking, and media presence. Publishers look at this first. A strong concept with a thin platform can still sell — but it needs to be a very strong concept.",
+    "Your existing public reach: social following, email list, press coverage, speaking engagements, and media presence. For nonfiction, publishers look at this first. A strong concept with thin platform can sell — but the concept has to be exceptional.",
   manuscriptQuality:
-    "The craft, development, and polish of your writing and proposal. Publishers do not acquire rough drafts. A submission-ready manuscript signals professionalism and saves the editor work.",
+    "The development and polish of your manuscript and book proposal. Nonfiction is acquired on proposal, not finished manuscript — but a weak proposal signals an unprepared author. Strong comps, a sharp overview, and sample chapters matter enormously.",
   conceptUniqueness:
-    "How differentiated your book is — and critically, whether you are the only person who could have written it. 'Only you could write this' is one of the most powerful things an agent can say to an editor.",
+    "How differentiated your book is — and critically, whether you are the only person who could have written it. 'Only you could write this' is one of the most powerful things an agent can say to an acquisitions editor.",
   conceptCommercialPotential:
-    "The size of the potential readership and the strength of your commercial hook. A great story still needs a frame that makes it more than just a story — the pitch question is always: why is this not just another memoir?",
+    "The size of the potential readership and the strength of your commercial hook. The pitch question every editor asks is: why is this book necessary, and who is buying it? A compelling answer to both is what gets a deal.",
   conceptTimeliness:
-    "Where your concept sits in the cultural moment. Timing is the hardest variable to control. The same book can go from highly sellable to a pass within two years as conversations shift.",
+    "Where your concept sits in the cultural moment. Timing is the hardest variable to control. The same book can go from highly sellable to a pass within two years as conversations shift and market conditions change.",
 };
 
 export const GENRES = [
-  "Literary Fiction",
-  "Commercial Fiction",
-  "Mystery / Thriller",
-  "Romance",
-  "Science Fiction",
-  "Fantasy",
-  "Historical Fiction",
   "Narrative Nonfiction",
+  "Memoir / Personal Essay",
   "Self-Help / Personal Development",
   "Business / Finance",
-  "Memoir / Personal Essay",
-  "YA / Middle Grade",
-  "Children's Books",
+  "Leadership / Management",
+  "Health / Wellness",
+  "History / Biography",
+  "Politics / Current Affairs",
+  "Science / Technology",
   "True Crime",
   "Humor / Satire",
-  "Other",
+  "Other Nonfiction",
 ];

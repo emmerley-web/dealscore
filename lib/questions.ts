@@ -205,32 +205,32 @@ export const ASSESSMENT_QUESTIONS: AssessmentQuestion[] = [
     id: "manuscript_3",
     category: "manuscriptQuality",
     question:
-      "How developed is your writing craft through formal study or training?",
+      "How developed is your book proposal?",
     options: [
       {
         value: 1,
-        label: "Self-taught, minimal study",
-        description: "Writing without deliberate craft development",
+        label: "No proposal yet",
+        description: "Have not started the proposal",
       },
       {
         value: 2,
-        label: "Some books on craft read",
-        description: "Beginning to study craft intentionally",
+        label: "Basic outline only",
+        description: "Early stage, not submission-ready",
       },
       {
         value: 3,
-        label: "Workshops or online courses taken",
-        description: "Actively developing craft",
+        label: "Draft proposal in progress",
+        description: "Working through the key sections",
       },
       {
         value: 4,
-        label: "MFA or equivalent deep training",
-        description: "Serious, sustained craft development",
+        label: "Complete draft proposal",
+        description: "All major sections written, needs refinement",
       },
       {
         value: 5,
-        label: "Published short work, awards, or industry recognition",
-        description: "Craft validated externally by the industry",
+        label: "Polished, agent-ready proposal",
+        description: "Professionally refined and ready to submit",
       },
     ],
   },

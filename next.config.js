@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
+const basePath = process.env.GITHUB_ACTIONS ? "/dealscore" : "";
+
 const nextConfig = {
   output: "export",
   trailingSlash: true,
   images: { unoptimized: true },
-  // basePath for GitHub Pages project site (username.github.io/dealscore)
-  basePath: process.env.GITHUB_ACTIONS ? "/dealscore" : "",
-  assetPrefix: process.env.GITHUB_ACTIONS ? "/dealscore/" : "",
+  basePath,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
 };
 module.exports = nextConfig;

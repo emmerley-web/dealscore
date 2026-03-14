@@ -82,10 +82,10 @@ export default function ResultsPage() {
       const message = err instanceof Error ? err.message : "Unknown error";
       if (message.includes("ANTHROPIC_API_KEY") || message.includes("404") || message.includes("Failed to fetch")) {
         setAiError(
-          "AI-powered advice requires a server deployment with an Anthropic API key. The rest of your results are fully available above — use the Tactics page for curated improvement strategies."
+          "AI-powered advice needs a server with an Anthropic API key. Your scores and category breakdown are fully available above. Head to the Tactics page for curated strategies matched to your weakest areas."
         );
       } else {
-        setAiError("Unable to generate AI advice right now. Please try again.");
+        setAiError("Could not generate AI advice right now. Try again in a moment.");
       }
     } finally {
       setAiLoading(false);
@@ -139,6 +139,7 @@ export default function ResultsPage() {
             <div
               className="w-2 h-2 rounded-full"
               style={{ backgroundColor: level.color }}
+              aria-hidden="true"
             />
             {level.label}
           </div>
@@ -153,16 +154,17 @@ export default function ResultsPage() {
         {/* Spectrum */}
         <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
           <h2 className="font-bold text-slate-900 mb-4">
-            Where You Fall on the Readiness Spectrum
+            Where you fall on the spectrum
           </h2>
           <ScoreSpectrum score={result.dealScore} />
         </div>
 
         {/* Category Breakdown */}
         <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <h2 className="font-bold text-slate-900 mb-1">Category Breakdown</h2>
+          <h2 className="font-bold text-slate-900 mb-1">Category breakdown</h2>
           <p className="text-sm text-slate-500 mb-5">
-            Platform is weighted 20% higher in your final score.
+            Platform carries 20% more weight in the final score because it is
+            what publishers look at first.
           </p>
           <CategoryBreakdown categoryScores={result.categoryScores} />
         </div>
@@ -173,11 +175,12 @@ export default function ResultsPage() {
             <div className="flex items-center gap-2 mb-3">
               <TrendingUp className="w-5 h-5 text-amber-600" />
               <h2 className="font-bold text-amber-900">
-                Your Biggest Opportunities
+                Your biggest opportunities
               </h2>
             </div>
             <p className="text-sm text-amber-800 mb-3">
-              Focusing on these two areas will move your DealScore the most:
+              These two categories have the most room for improvement. Working on
+              them will move your score the fastest.
             </p>
             <div className="grid sm:grid-cols-2 gap-3">
               {weakest.map((cat) => (
@@ -205,10 +208,10 @@ export default function ResultsPage() {
             </div>
             <div>
               <h2 className="font-bold text-slate-900">
-                Your Personalized Action Plan
+                Your personalized action plan
               </h2>
               <p className="text-xs text-slate-500">
-                AI-generated advice based on your specific results
+                AI-written advice based on your specific scores and genre
               </p>
             </div>
           </div>
@@ -217,7 +220,7 @@ export default function ResultsPage() {
             <div className="flex items-center gap-3 py-4 text-slate-500">
               <Loader2 className="w-5 h-5 animate-spin text-brand-500" />
               <span className="text-sm">
-                Analyzing your results and generating personalized advice…
+                Reading your results and writing recommendations...
               </span>
             </div>
           )}
@@ -239,7 +242,7 @@ export default function ResultsPage() {
           )}
 
           {aiLoading && aiText !== "" && (
-            <span className="inline-block w-1 h-4 bg-brand-500 animate-pulse ml-0.5 rounded" />
+            <span className="inline-block w-1 h-4 bg-brand-500 animate-pulse ml-0.5 rounded" aria-label="Loading" />
           )}
         </div>
 
@@ -257,12 +260,12 @@ export default function ResultsPage() {
             {saved ? (
               <>
                 <CheckCircle className="w-4 h-4" />
-                Saved!
+                Saved
               </>
             ) : (
               <>
                 <BookmarkPlus className="w-4 h-4" />
-                Save My Results
+                Save Results
               </>
             )}
           </button>
@@ -272,7 +275,7 @@ export default function ResultsPage() {
             className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-slate-50 border border-slate-200 hover:border-brand-300 text-slate-700 hover:text-brand-700 font-semibold text-sm rounded-xl transition-all"
           >
             <Lightbulb className="w-4 h-4" />
-            View My Tactics
+            View Tactics
           </Link>
 
           <Link
@@ -280,7 +283,7 @@ export default function ResultsPage() {
             className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-600 font-semibold text-sm rounded-xl transition-all"
           >
             <RotateCcw className="w-4 h-4" />
-            Retake Assessment
+            Retake
           </Link>
         </div>
       </div>

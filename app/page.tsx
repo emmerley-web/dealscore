@@ -12,46 +12,46 @@ import {
 const FEATURES = [
   {
     icon: BarChart3,
-    title: "5-Category Assessment",
+    title: "Five Real Categories",
     description:
-      "Get scored across Platform, Manuscript Quality, Concept Uniqueness, Commercial Potential, and Timeliness — with Platform weighted for maximum accuracy.",
+      "We score you on Platform, Manuscript Quality, Concept Uniqueness, Commercial Potential, and Timeliness. Platform gets extra weight because that is what publishers look at first.",
   },
   {
     icon: Star,
-    title: "Your DealScore",
+    title: "A Score You Can Act On",
     description:
-      "See exactly where you fall on the readiness spectrum from 'Just Getting Started' to 'Deal-Ready' — with full category breakdown.",
+      "You get a single number from 0 to 100, plus a full breakdown by category. No vague feedback. You will know exactly where you are strong and where you need work.",
   },
   {
     icon: Lightbulb,
-    title: "AI-Powered Personal Advice",
+    title: "Advice Written for Your Book",
     description:
-      "Claude analyzes your specific score breakdown and generates tailored, genre-specific recommendations you won't find in any generic guide.",
+      "Our AI reads your specific scores and genre, then writes recommendations you can actually follow. Not boilerplate tips from a blog post.",
   },
   {
     icon: TrendingUp,
-    title: "Track Your Progress",
+    title: "Watch Yourself Improve",
     description:
-      "Save your results, retake the assessment as you improve, and watch your score climb over time with a visual progress dashboard.",
+      "Save your results, retake the assessment after you have made changes, and track your score over time. The dashboard shows your progress in a single chart.",
   },
 ];
 
 const SPECTRUM_PREVIEW = [
-  { range: "0–20", label: "Just Getting Started", color: "#ef4444" },
-  { range: "21–40", label: "Early Explorer", color: "#f97316" },
-  { range: "41–60", label: "Rising Contender", color: "#eab308" },
-  { range: "61–75", label: "Strong Candidate", color: "#84cc16" },
-  { range: "76–88", label: "Near Deal-Ready", color: "#22c55e" },
-  { range: "89–100", label: "Deal-Ready", color: "#10b981" },
+  { range: "0\u201320", label: "Just Getting Started", color: "#ef4444" },
+  { range: "21\u201340", label: "Early Explorer", color: "#f97316" },
+  { range: "41\u201360", label: "Rising Contender", color: "#eab308" },
+  { range: "61\u201375", label: "Strong Candidate", color: "#84cc16" },
+  { range: "76\u201388", label: "Near Deal-Ready", color: "#22c55e" },
+  { range: "89\u2013100", label: "Deal-Ready", color: "#10b981" },
 ];
 
 const WHAT_YOU_GET = [
   "Your DealScore out of 100",
-  "Breakdown across 5 key categories",
-  "Where you fall on the readiness spectrum",
-  "AI-generated personalized action plan",
-  "Curated tactics matched to your weaknesses",
-  "Progress tracking over multiple assessments",
+  "Scores for each of the five categories",
+  "Where you sit on the readiness spectrum",
+  "A personalized action plan for your genre",
+  "Tactics matched to your weakest areas",
+  "A dashboard that tracks your progress over time",
 ];
 
 export default function Home() {
@@ -65,7 +65,6 @@ export default function Home() {
             "linear-gradient(135deg, #2e1065 0%, #4c1d95 35%, #6d28d9 65%, #7c3aed 100%)",
         }}
       >
-        {/* Subtle background pattern */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -78,19 +77,19 @@ export default function Home() {
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
             <BookOpen className="w-4 h-4 text-gold-400" />
             <span className="text-sm text-white/90 font-medium">
-              For Aspiring Authors Pursuing Traditional Publishing
+              Built by publishing insiders for aspiring authors
             </span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-            What Are Your Real Odds of a{" "}
-            <span className="text-gold-400">Traditional Book Deal?</span>
+            How close are you to a{" "}
+            <span className="text-gold-400">traditional book deal?</span>
           </h1>
 
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            The DealScore assessment measures the five factors that matter most
-            to publishers — and gives you a personalized roadmap for improving
-            your odds.
+            Most writers have no idea where they actually stand. DealScore measures
+            the five things publishers care about most, then tells you exactly
+            what to work on next.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -98,19 +97,19 @@ export default function Home() {
               href="/assessment"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all group"
             >
-              Get My DealScore Free
+              Take the Free Assessment
               <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link
-              href="/dashboard"
+              href="/about"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold rounded-xl text-lg transition-all"
             >
-              View My Dashboard
+              Meet the Team
             </Link>
           </div>
 
           <p className="mt-5 text-sm text-white/50">
-            Takes 5 minutes · No account required
+            5 minutes. 20 questions. No account needed.
           </p>
         </div>
       </section>
@@ -151,11 +150,12 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              Everything You Need to Level Up Your Readiness
+              What you get (and why it matters)
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              DealScore combines a rigorous assessment framework with AI-powered
-              coaching to give you a clear picture and a concrete path forward.
+              We built DealScore because we were tired of watching talented writers
+              waste years on the wrong things. This tool gives you the honest
+              picture and the concrete next steps.
             </p>
           </div>
 
@@ -186,12 +186,11 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                Your Complete Readiness Picture
+                Your full readiness picture in five minutes
               </h2>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                In just 5 minutes, you&apos;ll have a clear, honest assessment
-                of where you stand — and a personalized plan to move the
-                needle.
+                Answer 20 questions. Get a score. See exactly where you need
+                to focus. No fluff, no upsell, no paywall.
               </p>
               <ul className="space-y-3">
                 {WHAT_YOU_GET.map((item) => (
@@ -206,7 +205,7 @@ export default function Home() {
             {/* Mock score card */}
             <div className="bg-gradient-to-br from-brand-700 to-brand-900 rounded-2xl p-8 text-white shadow-2xl">
               <p className="text-white/60 text-sm font-medium mb-1 uppercase tracking-wide">
-                Your DealScore
+                Example: Debut Thriller Author
               </p>
               <div className="flex items-end gap-2 mb-4">
                 <span className="text-7xl font-extrabold text-gold-400">
@@ -244,6 +243,10 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              <p className="text-white/40 text-xs mt-4 italic">
+                This author&apos;s biggest opportunity? Building a platform. A newsletter
+                and a few podcast appearances could push them past 80.
+              </p>
             </div>
           </div>
         </div>
@@ -259,11 +262,11 @@ export default function Home() {
       >
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-extrabold text-white mb-4">
-            Ready to Know Where You Stand?
+            Stop wondering. Start knowing.
           </h2>
           <p className="text-white/70 text-lg mb-10">
-            Stop guessing. Get your DealScore in 5 minutes and leave with a
-            clear, personalized action plan.
+            Take the assessment, get your score, and walk away with a plan you
+            can actually follow. It takes five minutes and it is completely free.
           </p>
           <Link
             href="/assessment"
@@ -276,16 +279,23 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 py-8 px-4 sm:px-6 text-center">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <BookOpen className="w-4 h-4 text-brand-400" />
-          <span className="font-bold text-white">
-            Deal<span className="text-brand-400">Score</span>
-          </span>
+      <footer className="bg-slate-900 py-8 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <BookOpen className="w-4 h-4 text-brand-400" />
+            <span className="font-bold text-white">
+              Deal<span className="text-brand-400">Score</span>
+            </span>
+          </div>
+          <div className="flex gap-6 text-sm text-slate-400">
+            <Link href="/about" className="hover:text-white transition-colors">About</Link>
+            <Link href="/assessment" className="hover:text-white transition-colors">Assessment</Link>
+            <Link href="/tactics" className="hover:text-white transition-colors">Tactics</Link>
+          </div>
+          <p className="text-slate-500 text-sm">
+            Built by Tim Vandehey and Emily Liao.
+          </p>
         </div>
-        <p className="text-slate-500 text-sm">
-          Helping aspiring authors understand and improve their path to traditional publishing.
-        </p>
       </footer>
     </div>
   );

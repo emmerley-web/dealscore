@@ -38,6 +38,7 @@ function ScoreBadge({ score }: { score: number }) {
       <span
         className="w-1.5 h-1.5 rounded-full"
         style={{ backgroundColor: level.color }}
+        aria-hidden="true"
       />
       {level.label}
     </span>
@@ -70,11 +71,11 @@ export default function DashboardPage() {
             <BarChart3 className="w-8 h-8 text-brand-400" />
           </div>
           <h1 className="text-2xl font-bold text-slate-900 mb-3">
-            No Saved Results Yet
+            Nothing saved yet
           </h1>
           <p className="text-slate-500 mb-6">
-            Take the assessment and save your results to start tracking your
-            progress over time.
+            Take the assessment and save your results to start tracking how
+            your score changes over time.
           </p>
           <Link
             href="/assessment"
@@ -91,19 +92,8 @@ export default function DashboardPage() {
 
   const latest = results[0];
   const previous = results[1];
-  const latestLevel = getSpectrumLevel(latest.dealScore);
   const improvement =
     previous ? latest.dealScore - previous.dealScore : null;
-
-  // Best category scores across all assessments for "all-time best" callout
-  const bestScores: Record<string, number> = {};
-  results.forEach((r) => {
-    r.categoryScores.forEach((c) => {
-      if (!bestScores[c.key] || c.score > bestScores[c.key]) {
-        bestScores[c.key] = c.score;
-      }
-    });
-  });
 
   return (
     <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6">
@@ -112,7 +102,7 @@ export default function DashboardPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 className="text-3xl font-extrabold text-slate-900">
-              My Dashboard
+              My Results
             </h1>
             <p className="text-slate-500 mt-1">
               {results.length} assessment{results.length !== 1 ? "s" : ""} saved
@@ -153,7 +143,7 @@ export default function DashboardPage() {
 
           <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
             <p className="text-xs text-slate-500 font-semibold uppercase tracking-wide mb-1">
-              Score Change
+              Change
             </p>
             {improvement !== null ? (
               <div
@@ -170,12 +160,12 @@ export default function DashboardPage() {
               </div>
             ) : (
               <div className="text-slate-400 text-sm mt-2">
-                Take another assessment to track change
+                Take a second assessment to see your progress
               </div>
             )}
             {improvement !== null && (
               <p className="text-xs text-slate-500 mt-1">
-                vs. previous assessment
+                since previous assessment
               </p>
             )}
           </div>
@@ -188,7 +178,7 @@ export default function DashboardPage() {
               {results.length}
             </div>
             <p className="text-xs text-slate-500 mt-1">
-              First taken: {formatDate(results[results.length - 1].date)}
+              First: {formatDate(results[results.length - 1].date)}
             </p>
           </div>
         </div>
@@ -198,10 +188,10 @@ export default function DashboardPage() {
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
             <div className="flex items-center gap-2 mb-1">
               <TrendingUp className="w-5 h-5 text-brand-500" />
-              <h2 className="font-bold text-slate-900">Score Over Time</h2>
+              <h2 className="font-bold text-slate-900">Score over time</h2>
             </div>
             <p className="text-xs text-slate-500 mb-4">
-              The dashed line marks "Strong Candidate" (75). Keep climbing!
+              The dashed line marks 75 (Strong Candidate).
             </p>
             <ProgressChart results={results} />
           </div>
@@ -212,7 +202,7 @@ export default function DashboardPage() {
           {/* History list */}
           <div className="lg:col-span-2 space-y-3">
             <h2 className="font-bold text-slate-900 mb-3">
-              Assessment History
+              History
             </h2>
             {results.map((r) => (
               <button
@@ -230,7 +220,7 @@ export default function DashboardPage() {
                       {r.dealScore}/100
                     </div>
                     <div className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
-                      <Calendar className="w-3 h-3" />
+                      <Calendar className="w-3 h-3" aria-hidden="true" />
                       {formatDate(r.date)}
                     </div>
                     <div className="text-xs text-slate-500 mt-0.5">
@@ -245,6 +235,7 @@ export default function DashboardPage() {
                         handleDelete(r.id);
                       }}
                       className="text-slate-300 hover:text-red-400 transition-colors"
+                      aria-label={`Delete assessment from ${formatDate(r.date)}`}
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -259,7 +250,7 @@ export default function DashboardPage() {
             <div className="lg:col-span-3 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="font-bold text-slate-900">
-                  Assessment Detail
+                  Detail
                 </h2>
                 <span className="text-xs text-slate-400">
                   {formatDate(selected.date)}
@@ -292,7 +283,7 @@ export default function DashboardPage() {
         {results.length > 1 && (
           <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
             <h2 className="font-bold text-slate-900 mb-4">
-              Category Progress (Latest vs Previous)
+              Category progress (latest vs. previous)
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {latest.categoryScores.map((cat) => {

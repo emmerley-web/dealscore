@@ -25,7 +25,6 @@ const CATEGORY_ICONS: Record<CategoryKey, string> = {
   conceptTimeliness: "⏱️",
 };
 
-// Step -1 = genre selection; Steps 0–4 = categories; Step 5 = calculating
 type Step = "genre" | 0 | 1 | 2 | 3 | 4 | "calculating";
 
 export default function AssessmentPage() {
@@ -44,7 +43,6 @@ export default function AssessmentPage() {
     : [];
 
   const totalQuestions = ASSESSMENT_QUESTIONS.length;
-  const answeredCount = Object.keys(answers).length;
   const overallProgress =
     step === "genre"
       ? 0
@@ -77,11 +75,10 @@ export default function AssessmentPage() {
       if (step < CATEGORY_ORDER.length - 1) {
         setStep((step + 1) as Step);
       } else {
-        // Last category done
         setStep("calculating");
         const result = buildAssessmentResult(answers, genre);
         setPendingResult(result);
-        setTimeout(() => router.push("/results"), 1000);
+        setTimeout(() => router.push("/results"), 1200);
       }
     }
   }
@@ -100,10 +97,10 @@ export default function AssessmentPage() {
             <BookOpen className="w-8 h-8 text-brand-600" />
           </div>
           <h2 className="text-2xl font-bold text-slate-900 mb-2">
-            Calculating Your DealScore…
+            Scoring your answers...
           </h2>
           <p className="text-slate-500">
-            Analyzing your responses across all 5 categories.
+            Calculating scores across all five categories.
           </p>
         </div>
       </div>
@@ -118,14 +115,20 @@ export default function AssessmentPage() {
           <div className="flex justify-between text-xs text-slate-500 mb-2 font-medium">
             <span>
               {step === "genre"
-                ? "Step 1 of 6: Genre"
+                ? "Step 1 of 6: Pick your genre"
                 : typeof step === "number"
                 ? `Step ${step + 2} of 6: ${CATEGORY_DISPLAY_NAMES[CATEGORY_ORDER[step]]}`
                 : "Complete"}
             </span>
-            <span>{Math.round(overallProgress)}% complete</span>
+            <span>{Math.round(overallProgress)}% done</span>
           </div>
-          <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
+          <div
+            className="h-2 bg-slate-200 rounded-full overflow-hidden"
+            role="progressbar"
+            aria-valuenow={Math.round(overallProgress)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+          >
             <div
               className="h-full bg-brand-500 rounded-full transition-all duration-500"
               style={{ width: `${overallProgress}%` }}
@@ -134,10 +137,11 @@ export default function AssessmentPage() {
         </div>
 
         {/* Category step indicators */}
-        <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-1">
+        <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-1" role="list" aria-label="Assessment categories">
           {CATEGORY_ORDER.map((cat, i) => (
             <div
               key={cat}
+              role="listitem"
               className={clsx(
                 "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all",
                 typeof step === "number" && step === i
@@ -160,25 +164,30 @@ export default function AssessmentPage() {
               What genre are you writing in?
             </h1>
             <p className="text-slate-500 mb-6">
-              This helps us personalize your AI advice and tactics to your
-              specific market.
+              This shapes the advice and tactics we give you. Different genres
+              have different expectations for platform, commercial hooks, and
+              timeliness.
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {GENRES.map((g) => (
-                <button
-                  key={g}
-                  onClick={() => setGenre(g)}
-                  className={clsx(
-                    "px-3 py-2.5 rounded-xl text-sm font-medium border text-left transition-all",
-                    genre === g
-                      ? "bg-brand-500 text-white border-brand-500 shadow-md"
-                      : "bg-white text-slate-700 border-slate-200 hover:border-brand-300 hover:bg-brand-50"
-                  )}
-                >
-                  {g}
-                </button>
-              ))}
-            </div>
+            <fieldset>
+              <legend className="sr-only">Select your genre</legend>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {GENRES.map((g) => (
+                  <button
+                    key={g}
+                    onClick={() => setGenre(g)}
+                    aria-pressed={genre === g}
+                    className={clsx(
+                      "px-3 py-2.5 rounded-xl text-sm font-medium border text-left transition-all",
+                      genre === g
+                        ? "bg-brand-500 text-white border-brand-500 shadow-md"
+                        : "bg-white text-slate-700 border-slate-200 hover:border-brand-300 hover:bg-brand-50"
+                    )}
+                  >
+                    {g}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
           </div>
         )}
 
@@ -197,16 +206,18 @@ export default function AssessmentPage() {
 
             <div className="space-y-8">
               {currentQuestions.map((q, qi) => (
-                <div key={q.id}>
-                  <p className="font-semibold text-slate-900 mb-3 leading-snug">
+                <fieldset key={q.id}>
+                  <legend className="font-semibold text-slate-900 mb-3 leading-snug">
                     <span className="text-brand-500 font-bold mr-1">{qi + 1}.</span>
                     {q.question}
-                  </p>
-                  <div className="space-y-2">
+                  </legend>
+                  <div className="space-y-2" role="radiogroup" aria-label={q.question}>
                     {q.options.map((opt) => (
                       <button
                         key={opt.value}
                         onClick={() => handleAnswer(q.id, opt.value)}
+                        role="radio"
+                        aria-checked={answers[q.id] === opt.value}
                         className={clsx(
                           "w-full text-left px-4 py-3 rounded-xl border text-sm transition-all",
                           answers[q.id] === opt.value
@@ -222,6 +233,7 @@ export default function AssessmentPage() {
                                 ? "bg-brand-500 border-brand-500"
                                 : "border-slate-300"
                             )}
+                            aria-hidden="true"
                           />
                           <div>
                             <div className="font-medium">{opt.label}</div>
@@ -233,7 +245,7 @@ export default function AssessmentPage() {
                       </button>
                     ))}
                   </div>
-                </div>
+                </fieldset>
               ))}
             </div>
           </div>
@@ -268,7 +280,7 @@ export default function AssessmentPage() {
             {step === "genre"
               ? "Start Assessment"
               : typeof step === "number" && step === CATEGORY_ORDER.length - 1
-              ? "Calculate My DealScore"
+              ? "Calculate My Score"
               : "Next Category"}
             <ChevronRight className="w-4 h-4" />
           </button>

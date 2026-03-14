@@ -61,7 +61,7 @@ function TacticCard({
         <div className="flex items-center gap-1.5 mb-3">
           <Zap className="w-3.5 h-3.5 text-brand-500" />
           <span className="text-xs font-bold text-brand-600 uppercase tracking-wide">
-            Recommended for You
+            High impact for you
           </span>
         </div>
       )}
@@ -84,10 +84,10 @@ function TacticCard({
         {tactic.description}
       </p>
 
-      {/* Expandable actions */}
       <button
         onClick={() => setExpanded(!expanded)}
         className="flex items-center gap-1.5 mt-3 text-xs font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+        aria-expanded={expanded}
       >
         {expanded ? (
           <>
@@ -103,7 +103,7 @@ function TacticCard({
       </button>
 
       {expanded && (
-        <ul className="mt-3 space-y-2 pl-1">
+        <ol className="mt-3 space-y-2 pl-1">
           {tactic.actions.map((action, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-slate-700">
               <span className="mt-1 w-4 h-4 rounded-full bg-brand-100 text-brand-600 text-xs flex items-center justify-center flex-shrink-0 font-bold">
@@ -112,7 +112,7 @@ function TacticCard({
               {action}
             </li>
           ))}
-        </ul>
+        </ol>
       )}
     </div>
   );
@@ -123,7 +123,6 @@ export default function TacticsPage() {
   const [activeCategory, setActiveCategory] = useState<CategoryKey | "all">("all");
 
   useEffect(() => {
-    // Try pending first, then saved
     const r = getPendingResult() || getLatestResult();
     setLatestResult(r);
   }, []);
@@ -132,13 +131,11 @@ export default function TacticsPage() {
     ? getWeakestCategories(latestResult, 2).map((c) => c.key)
     : [];
 
-  // Filter tactics by selected category
   const filteredTactics =
     activeCategory === "all"
       ? ALL_TACTICS
       : ALL_TACTICS.filter((t) => t.category === activeCategory);
 
-  // Sort: priority (weakest) first, then rest
   const sorted = [...filteredTactics].sort((a, b) => {
     const aP = weakestKeys.includes(a.category) ? 0 : 1;
     const bP = weakestKeys.includes(b.category) ? 0 : 1;
@@ -158,12 +155,12 @@ export default function TacticsPage() {
         {/* Header */}
         <div>
           <h1 className="text-3xl font-extrabold text-slate-900 mb-2">
-            Tactics Library
+            Tactics
           </h1>
           <p className="text-slate-500">
             {latestResult
-              ? `Personalized for your latest DealScore (${latestResult.dealScore}/100 · ${latestResult.genre}). Your highest-impact tactics are highlighted first.`
-              : "Actionable strategies for improving every dimension of your book deal readiness."}
+              ? `Sorted for your latest score (${latestResult.dealScore}/100 in ${latestResult.genre}). The tactics that will move your score the most appear first.`
+              : "Concrete strategies for improving every part of your book deal readiness. Take the assessment first and we will prioritize them for you."}
           </p>
         </div>
 
@@ -174,11 +171,11 @@ export default function TacticsPage() {
               <Target className="w-5 h-5 text-brand-600 mt-0.5" />
               <div>
                 <p className="font-semibold text-brand-900">
-                  Get personalized recommendations
+                  Want personalized recommendations?
                 </p>
                 <p className="text-sm text-brand-700">
-                  Take the assessment to see which tactics will move your score
-                  the most.
+                  Take the assessment so we can highlight the tactics that
+                  matter most for your book.
                 </p>
               </div>
             </div>
@@ -193,13 +190,13 @@ export default function TacticsPage() {
           </div>
         )}
 
-        {/* Your weakest areas banner */}
+        {/* Weakest areas banner */}
         {latestResult && weakestKeys.length > 0 && (
           <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
             <div className="flex items-center gap-2 mb-2">
               <Zap className="w-4 h-4 text-amber-600" />
               <span className="font-bold text-amber-900 text-sm">
-                Focus Zones — Your Lowest Scoring Areas
+                Your weakest areas (focus here first)
               </span>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -216,7 +213,7 @@ export default function TacticsPage() {
                     {CATEGORY_ICONS[k]}{" "}
                     {CATEGORY_DISPLAY_NAMES[k]}
                     <span className="ml-1 text-xs text-amber-600 font-bold">
-                      {cat ? Math.round(cat.score) : "—"}/100
+                      {cat ? Math.round(cat.score) : "?"}/100
                     </span>
                   </button>
                 );
@@ -226,9 +223,11 @@ export default function TacticsPage() {
         )}
 
         {/* Category filter tabs */}
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter tactics by category">
           <button
             onClick={() => setActiveCategory("all")}
+            role="tab"
+            aria-selected={activeCategory === "all"}
             className={clsx(
               "px-3 py-1.5 rounded-full text-sm font-medium border transition-all",
               activeCategory === "all"
@@ -236,7 +235,7 @@ export default function TacticsPage() {
                 : "bg-white text-slate-600 border-slate-200 hover:border-brand-300 hover:text-brand-600"
             )}
           >
-            All Tactics ({ALL_TACTICS.length})
+            All ({ALL_TACTICS.length})
           </button>
           {CATEGORY_ORDER.map((cat) => {
             const count = ALL_TACTICS.filter((t) => t.category === cat).length;
@@ -245,6 +244,8 @@ export default function TacticsPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
+                role="tab"
+                aria-selected={activeCategory === cat}
                 className={clsx(
                   "px-3 py-1.5 rounded-full text-sm font-medium border transition-all",
                   activeCategory === cat
@@ -262,13 +263,13 @@ export default function TacticsPage() {
           })}
         </div>
 
-        {/* Tactics grid */}
+        {/* Priority tactics */}
         {latestResult && weakestKeys.length > 0 && priorityTactics.length > 0 && activeCategory === "all" && (
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Lightbulb className="w-5 h-5 text-brand-500" />
               <h2 className="font-bold text-slate-900">
-                Highest Impact for You ({priorityTactics.length} tactics)
+                Highest impact for you ({priorityTactics.length} tactics)
               </h2>
             </div>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -283,7 +284,7 @@ export default function TacticsPage() {
         <div>
           {activeCategory === "all" && latestResult && otherTactics.length > 0 && (
             <h2 className="font-bold text-slate-900 mb-4">
-              All Other Tactics ({otherTactics.length})
+              Everything else ({otherTactics.length})
             </h2>
           )}
           <div className="grid sm:grid-cols-2 gap-4">
@@ -304,7 +305,7 @@ export default function TacticsPage() {
         {filteredTactics.length === 0 && (
           <div className="text-center py-12 text-slate-400">
             <Lightbulb className="w-8 h-8 mx-auto mb-3 opacity-40" />
-            <p>No tactics found for this filter.</p>
+            <p>No tactics for this category yet.</p>
           </div>
         )}
       </div>

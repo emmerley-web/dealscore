@@ -92,21 +92,13 @@ export default function Home() {
             what to work on next.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/assessment"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all group"
-            >
-              Take the Free Assessment
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold rounded-xl text-lg transition-all"
-            >
-              Meet the Team
-            </Link>
-          </div>
+          <Link
+            href="/assessment"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all group"
+          >
+            Take the Free Assessment
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
 
           <p className="mt-5 text-sm text-white/50">
             5 minutes. 20 questions. No account needed.

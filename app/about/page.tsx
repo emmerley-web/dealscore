@@ -1,32 +1,5 @@
 import Link from "next/link";
-import { BookOpen, ArrowRight, Mail, Pen, BarChart3 } from "lucide-react";
-
-const TEAM = [
-  {
-    name: "Tim Vandehey",
-    role: "Co-creator, Publishing Strategy",
-    photo: "/tim-vandehey.jpg",
-    initials: "TV",
-    color: "bg-brand-600",
-    bio: [
-      "Tim is a ghostwriter and collaborative author who has worked on more than 60 published books, including multiple New York Times bestsellers. Over a 20-year career in traditional publishing, he has seen the acquisition process from every angle: as a writer, a book proposal consultant, and an informal advisor to agents and editors trying to evaluate new projects.",
-      "He noticed the same pattern again and again. Talented authors with strong manuscripts would get rejected because they had no platform. Others with huge followings would stall because their concept was not differentiated enough. The problem was rarely the writing itself. It was usually one or two blind spots the author did not know they had.",
-      "DealScore grew out of the informal scoring rubric Tim had been using with his own clients for years. He wanted to make that framework available to any writer, not just the ones who could afford a consultant.",
-    ],
-  },
-  {
-    name: "Emily Liao",
-    role: "Co-creator, Product & Technology",
-    photo: "/emily-liao.jpg",
-    initials: "EL",
-    color: "bg-teal-600",
-    bio: [
-      "Emily is a product builder and technologist who spent the early part of her career at media and edtech companies, working on tools that help people learn and create. She met Tim through a mutual friend in 2022, when she was looking for a ghostwriter for a project of her own.",
-      "What started as a business relationship turned into long conversations about why the publishing industry felt so opaque from the outside. Emily kept hearing the same frustration from writer friends: nobody could give them a straight answer about whether they were ready to query agents or what they should focus on first.",
-      "She saw that Tim already had the framework. It just needed to be turned into something any writer could use on their own. Emily designed the assessment flow, built the scoring model, and created the AI coaching layer that turns raw scores into specific, genre-aware recommendations.",
-    ],
-  },
-];
+import { BookOpen, ArrowRight, Pen, BarChart3, Mail } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -44,9 +17,10 @@ export default function AboutPage() {
             Why we built this
           </h1>
           <p className="text-lg text-white/80 leading-relaxed max-w-2xl mx-auto">
-            DealScore started as a spreadsheet that Tim used with his ghostwriting
-            clients. Emily turned it into a tool that any writer can use for free.
-            Here is the longer version.
+            DealScore was built by two people who have spent years inside the
+            traditional publishing world — one as a ghostwriter who has seen
+            hundreds of submissions, one as a technologist who experienced the
+            opacity of the process firsthand.
           </p>
         </div>
       </section>
@@ -61,39 +35,31 @@ export default function AboutPage() {
             </div>
             <div className="space-y-4 text-slate-700 leading-relaxed">
               <p>
-                In 2019, Tim was reviewing book proposals for a literary agent friend
-                who was drowning in submissions. They spent a Saturday afternoon going
-                through the slush pile, and Tim started explaining how he evaluated
-                projects: not just the writing quality, but the author&apos;s platform,
-                the commercial hook, the timing of the concept, how differentiated it
-                was from what was already on shelves.
+                Tim had been ghostwriting nonfiction books for over fifteen years when
+                he started noticing a pattern. The authors who got deals were not always
+                the ones with the best books. They were the ones who happened to walk
+                in the door already understanding what publishers were actually evaluating:
+                platform, concept differentiation, commercial hook, timeliness, and whether
+                the author was uniquely positioned to write the book.
               </p>
               <p>
-                The agent said something that stuck: &quot;If every writer could see
-                what we see when we look at a submission, half of them would fix the
-                obvious problems before they even queried. The other half would stop
-                querying too early and go build their platform first.&quot;
+                Most authors had no framework for any of this. They would ask their agent
+                for feedback and get something vague. They would hire a book proposal
+                consultant and spend $5,000 to be told their platform was thin. They would
+                query for two years without understanding which one or two variables were
+                actually holding them back.
               </p>
               <p>
-                Tim started writing down the criteria he used. He organized them into
-                five categories, assigned rough weights, and began scoring his own
-                clients&apos; projects. The results were useful. Writers who scored
-                below 50 on platform but above 80 on manuscript quality knew exactly
-                where to focus. Writers with a timely concept but a weak commercial
-                hook could see the gap clearly.
+                Tim built a scoring rubric for his own clients — a structured way to evaluate
+                where an author stood across the five variables that drive acquisition decisions.
+                He used it quietly for years. Authors who saw it found it clarifying in a way
+                that general feedback never was.
               </p>
               <p>
-                For three years, this lived as a Google Sheet that Tim shared with
-                clients and a few agent friends. In early 2023, Emily got hold of
-                the spreadsheet through a mutual connection and asked Tim an obvious
-                question: &quot;Why is this not a website?&quot;
-              </p>
-              <p>
-                They spent six months refining the scoring model, writing better
-                questions, and building the AI coaching layer that turns a set of
-                scores into advice that actually applies to your specific book and
-                genre. DealScore launched in its current form in late 2023. It is
-                free, it does not require an account, and it always will be.
+                Emily came across the framework in 2022 and asked the obvious question: why was
+                this sitting in a private document? They spent the following year refining the
+                scoring model, pressure-testing the questions against real acquisition patterns,
+                and building the tool that became DealScore.
               </p>
             </div>
           </div>
@@ -103,36 +69,128 @@ export default function AboutPage() {
             The team
           </h2>
           <div className="space-y-8">
-            {TEAM.map((person) => (
-              <div
-                key={person.name}
-                className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm"
-              >
-                <div className="flex items-start gap-5 mb-6">
-                  {/* Avatar placeholder */}
-                  <div
-                    className={`w-20 h-20 rounded-2xl ${person.color} flex items-center justify-center flex-shrink-0 shadow-md`}
-                  >
-                    <span className="text-2xl font-bold text-white">
-                      {person.initials}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900">
-                      {person.name}
-                    </h3>
-                    <p className="text-brand-600 font-medium text-sm">
-                      {person.role}
-                    </p>
-                  </div>
+
+            {/* Tim */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+              <div className="flex items-start gap-5 mb-6">
+                <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 shadow-md bg-slate-100">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://lucindaliterary.com/wp-content/uploads/2025/03/Tim-Vandehey-headshot-2.jpeg"
+                    alt="Tim Vandehey"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="space-y-4 text-slate-700 leading-relaxed">
-                  {person.bio.map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Tim Vandehey</h3>
+                  <p className="text-brand-600 font-medium text-sm">
+                    Co-creator, Publishing Strategy
+                  </p>
+                  <div className="flex gap-3 mt-2">
+                    <a
+                      href="https://www.timvandehey.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-500 hover:text-brand-600 transition-colors underline underline-offset-2"
+                    >
+                      timvandehey.com
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/tvandehey/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-500 hover:text-brand-600 transition-colors underline underline-offset-2"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
-            ))}
+              <div className="space-y-4 text-slate-700 leading-relaxed">
+                <p>
+                  Tim Vandehey is a New York Times bestselling ghostwriter and
+                  co-author who has worked on more than 70 nonfiction books, with
+                  over 20 published by Big Five houses including HarperCollins,
+                  Penguin Random House, Simon &amp; Schuster, and Hachette. He has
+                  been a full-time ghostwriter since 2005.
+                </p>
+                <p>
+                  His work spans memoir, business, prescriptive self-help, cultural
+                  commentary, and true crime. Among his credited titles are
+                  {" "}<em>The Wait</em> (Simon &amp; Schuster, NYT bestseller, with
+                  DeVon Franklin and Meagan Good),{" "}
+                  <em>Swipe: The Science Behind Why We Don&apos;t Finish What We Start</em>{" "}
+                  (Amplify Publishing), and{" "}
+                  <em>Saturday Night, Sunday Morning</em> with P.J. Morton (Hachette).
+                </p>
+                <p>
+                  Working directly with publishers and agents on hundreds of projects
+                  over two decades, Tim developed a clear understanding of the variables
+                  that drive acquisition decisions — and the ones that authors consistently
+                  misunderstand or overlook entirely. DealScore is his attempt to make
+                  that framework available to authors before they start querying, not
+                  after they have spent years wondering why the answer was no.
+                </p>
+              </div>
+            </div>
+
+            {/* Emily */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm">
+              <div className="flex items-start gap-5 mb-6">
+                <div className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 shadow-md bg-slate-100 flex items-center justify-center">
+                  <span className="text-2xl font-bold text-slate-400">EL</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Emily Liao</h3>
+                  <p className="text-brand-600 font-medium text-sm">
+                    Co-creator, Product &amp; Technology
+                  </p>
+                  <div className="flex gap-3 mt-2">
+                    <a
+                      href="https://memoirist.co.uk"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-500 hover:text-brand-600 transition-colors underline underline-offset-2"
+                    >
+                      memoirist.co.uk
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/emilytheghost/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-slate-500 hover:text-brand-600 transition-colors underline underline-offset-2"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="space-y-4 text-slate-700 leading-relaxed">
+                <p>
+                  Emily Liao is a ghostwriter and memoirist specialising in business
+                  memoirs and book proposals for traditional publishing. Before pivoting
+                  to writing full-time in 2021, she worked at an AI startup, bringing
+                  a product and technology perspective to how authors navigate the
+                  publishing process.
+                </p>
+                <p>
+                  She has worked with clients across four continents on memoirs,
+                  narrative business books, and proposals aimed at traditional publishers.
+                  She is a member of the Association of Ghostwriters and has a particular
+                  focus on helping authors whose stories are ready before their platform
+                  catches up.
+                </p>
+                <p>
+                  Emily&apos;s experience sitting across the table from both authors and
+                  the submission process — as a collaborator helping writers get to
+                  agent-ready, not just book-ready — shaped the question structure and
+                  scoring logic in DealScore. She designed the assessment flow and
+                  built the scoring model that turns 20 questions into a breakdown
+                  authors can actually act on.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -151,8 +209,8 @@ export default function AboutPage() {
               <h3 className="font-bold text-slate-900 mb-2">No absolutes</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
                 There are no universal rules in publishing. The right editor,
-                a well-timed submission, an agent who connects with your
-                voice — these matter enormously and no tool can predict them.
+                a well-timed submission, an agent who connects with your voice —
+                these matter enormously and no tool can predict them.
                 DealScore gives you a framework, not a verdict.
               </p>
             </div>
@@ -160,13 +218,12 @@ export default function AboutPage() {
               <div className="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Pen className="w-6 h-6 text-brand-600" />
               </div>
-              <h3 className="font-bold text-slate-900 mb-2">The right path, not just the dream path</h3>
+              <h3 className="font-bold text-slate-900 mb-2">The right path, not the dream path</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
                 Traditional publishing is one route. Hybrid publishers and
-                self-publishing are serious, legitimate alternatives. The honest
-                consulting value is pointing authors toward the path that actually
-                fits their situation — not just helping them chase a deal they
-                are unlikely to get.
+                self-publishing are serious, legitimate alternatives. The
+                honest value is pointing authors toward the path that fits
+                their situation — not just the one they hoped for.
               </p>
             </div>
             <div className="text-center">

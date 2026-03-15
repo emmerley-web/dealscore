@@ -189,7 +189,7 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-3 gap-10">
             <div>
               <h3 className="font-serif font-bold text-stone-900 mb-3">No absolutes</h3>
-              <p className="text-sm text-stone-500 leading-relaxed">
+              <p className="text-base text-stone-500 leading-relaxed">
                 There are no universal rules in publishing. The right editor,
                 a well-timed submission, an agent who connects with your voice:
                 these matter enormously and no tool can predict them.
@@ -198,7 +198,7 @@ export default function AboutPage() {
             </div>
             <div>
               <h3 className="font-serif font-bold text-stone-900 mb-3">The right path, not the dream path</h3>
-              <p className="text-sm text-stone-500 leading-relaxed">
+              <p className="text-base text-stone-500 leading-relaxed">
                 Traditional publishing is one route. Hybrid publishers and
                 self-publishing are serious, legitimate alternatives. The
                 honest value is pointing authors toward the path that fits
@@ -207,7 +207,7 @@ export default function AboutPage() {
             </div>
             <div>
               <h3 className="font-serif font-bold text-stone-900 mb-3">The knowledge gap is the problem</h3>
-              <p className="text-sm text-stone-500 leading-relaxed">
+              <p className="text-base text-stone-500 leading-relaxed">
                 Nonfiction authors can ask anyone whether they have a chance.
                 The problem is they do not know which variables matter most.
                 That knowledge gap is itself a form of expertise, and it is

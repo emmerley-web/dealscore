@@ -233,14 +233,14 @@ export default function AssessmentPage() {
                             className={clsx(
                               "w-4 h-4 rounded-full border-2 flex-shrink-0 mt-0.5 transition-all",
                               answers[q.id] === opt.value
-                                ? "bg-stone-500 border-stone-900"
+                                ? "bg-gold-500 border-gold-600"
                                 : "border-stone-300"
                             )}
                             aria-hidden="true"
                           />
                           <div>
                             <div className="font-medium">{opt.label}</div>
-                            <div className="text-xs text-stone-500 mt-0.5">
+                            <div className="text-sm text-stone-500 mt-0.5 leading-snug">
                               {opt.description}
                             </div>
                           </div>

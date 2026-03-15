@@ -175,7 +175,7 @@ export default function Home() {
             </div>
 
             {/* Mock score card */}
-            <div className="bg-stone-900 p-8 text-white">
+            <div className="bg-stone-900 p-6 sm:p-8 text-white">
               <p className="text-stone-400 text-xs font-medium mb-1 uppercase tracking-widest">
                 Example: Business / Leadership Author
               </p>
@@ -253,7 +253,7 @@ export default function Home() {
           </p>
           <Link
             href="/assessment"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-stone-900 hover:bg-stone-700 text-white font-medium text-lg transition-colors group"
+            className="inline-flex w-full sm:w-auto justify-center sm:justify-start items-center gap-2 px-10 py-5 bg-stone-900 hover:bg-stone-700 text-white font-medium text-lg transition-colors group"
           >
             Start the Assessment
             <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />

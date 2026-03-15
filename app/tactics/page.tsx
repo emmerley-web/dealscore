@@ -229,13 +229,13 @@ export default function TacticsPage() {
             role="tab"
             aria-selected={activeCategory === "all"}
             className={clsx(
-              "px-3 py-1.5 rounded-full text-sm font-medium border transition-all",
+              "px-3 py-2 rounded-full text-sm font-medium border transition-all",
               activeCategory === "all"
                 ? "bg-stone-900 text-white border-stone-900"
                 : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:text-stone-700"
             )}
           >
-            All ({ALL_TACTICS.length})
+            All&nbsp;({ALL_TACTICS.length})
           </button>
           {CATEGORY_ORDER.map((cat) => {
             const count = ALL_TACTICS.filter((t) => t.category === cat).length;
@@ -247,7 +247,7 @@ export default function TacticsPage() {
                 role="tab"
                 aria-selected={activeCategory === cat}
                 className={clsx(
-                  "px-3 py-1.5 rounded-full text-sm font-medium border transition-all",
+                  "px-3 py-2 rounded-full text-sm font-medium border transition-all",
                   activeCategory === cat
                     ? "bg-stone-900 text-white border-stone-900"
                     : isWeak

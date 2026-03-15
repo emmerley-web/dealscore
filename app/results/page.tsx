@@ -132,15 +132,15 @@ export default function ResultsPage() {
     <div className="min-h-screen bg-stone-50 py-10 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Score Hero */}
-        <div className="bg-stone-900 p-8 text-center text-white">
+        <div className="bg-stone-900 p-6 sm:p-8 text-center text-white">
           <p className="text-stone-400 text-xs font-medium uppercase tracking-[0.18em] mb-4">
             Your DealScore
           </p>
           <div className="flex items-end justify-center gap-2 mb-3">
-            <span className="font-serif text-8xl font-bold leading-none text-white">
+            <span className="font-serif text-7xl sm:text-8xl font-bold leading-none text-white">
               {result.dealScore}
             </span>
-            <span className="text-3xl text-stone-600 mb-3">/100</span>
+            <span className="text-2xl sm:text-3xl text-stone-600 mb-2 sm:mb-3">/100</span>
           </div>
           <div className="inline-flex items-center gap-2 border border-stone-700 px-4 py-1.5 mb-3">
             <div className="w-1.5 h-1.5 rounded-full bg-stone-400" aria-hidden="true" />
@@ -224,10 +224,10 @@ export default function ResultsPage() {
                     path.fit === "strong" ? "border-stone-300" : "border-stone-200"
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="font-bold text-stone-900">{path.label}</h3>
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                    <h3 className="font-bold text-stone-900 leading-snug">{path.label}</h3>
                     <span
-                      className={`text-xs font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${fit.color} ${fit.bg} ${fit.border}`}
+                      className={`self-start text-xs font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${fit.color} ${fit.bg} ${fit.border}`}
                     >
                       {fit.label}
                     </span>
@@ -261,11 +261,11 @@ export default function ResultsPage() {
         </div>
 
         {/* Actions */}
-        <div className="grid sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <button
             onClick={handleSave}
             disabled={saved}
-            className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all ${
+            className={`flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm transition-all ${
               saved
                 ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
                 : "bg-stone-900 hover:bg-stone-700 text-white"
@@ -286,7 +286,7 @@ export default function ResultsPage() {
 
           <Link
             href="/tactics"
-            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-400 text-stone-700 font-semibold text-sm rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-400 text-stone-700 font-semibold text-sm rounded-xl transition-all"
           >
             <Lightbulb className="w-4 h-4" />
             View Tactics
@@ -294,7 +294,7 @@ export default function ResultsPage() {
 
           <Link
             href="/assessment"
-            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 text-stone-600 font-semibold text-sm rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 text-stone-600 font-semibold text-sm rounded-xl transition-all"
           >
             <RotateCcw className="w-4 h-4" />
             Retake

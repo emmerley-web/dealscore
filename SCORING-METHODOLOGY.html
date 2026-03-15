@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DealScore — Scoring Methodology Review</title>
+<style>
+  body { font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; max-width: 960px; margin: 40px auto; padding: 0 20px; color: #222; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 17px; margin-top: 36px; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+  h3 { font-size: 14px; margin-top: 28px; }
+  h4 { font-size: 13px; margin-top: 20px; font-weight: bold; }
+  p { margin: 8px 0; }
+  blockquote { border-left: 3px solid #aaa; padding-left: 12px; color: #555; margin: 10px 0; font-style: italic; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 12px; }
+  th { background-color: #f0f0f0; font-weight: bold; text-align: left; padding: 7px 8px; border: 1px solid #ccc; }
+  td { padding: 6px 8px; border: 1px solid #ccc; vertical-align: top; }
+  tr:nth-child(even) td { background-color: #fafafa; }
+  .fill { color: #888; font-style: italic; }
+  .note { background: #fffbe6; border: 1px solid #e6d96e; padding: 10px 14px; margin: 10px 0; font-size: 12px; }
+  hr { border: none; border-top: 1px solid #ccc; margin: 32px 0; }
+  code { background: #f4f4f4; padding: 2px 5px; font-size: 11px; }
+  ul { margin: 6px 0; padding-left: 20px; }
+  li { margin: 3px 0; }
+</style>
+</head>
+<body>
+
+<h1>DealScore — Scoring Methodology Review</h1>
+
+<div class="note">
+<strong>How to use this document</strong><br>
+This is a fill-in calibration sheet for the people who actually know publishing. Every section maps directly to code that Claude Code can update. Work through it in order: high-level weights first, then question calibration, then outcome language. Changes here can be implemented without you touching any code — hand the completed document back to Claude Code and ask it to implement.<br><br>
+Anything shown as <span class="fill">[FILL IN]</span> is waiting for your input. Anything shown without brackets is the current live value.
+</div>
+
+<hr>
+
+<h2>1. HOW THE SCORE IS CALCULATED</h2>
+
+<p><strong>Overview of the math:</strong></p>
+<ol>
+  <li>The assessment has 20 questions across 5 categories (4 questions each).</li>
+  <li>Each answer is scored 1–5.</li>
+  <li>Each category's 4 answers are summed and normalized to a 0–100 scale.</li>
+  <li>The 5 category scores are averaged using weights (see Section 2) to produce the final DealScore (0–100).</li>
+  <li>The final score maps to one of 6 spectrum bands (see Section 4).</li>
+</ol>
+
+<p><strong>The 5 categories:</strong></p>
+<table>
+  <tr><th>Code name</th><th>Display name</th><th># of questions</th></tr>
+  <tr><td><code>platform</code></td><td>Platform &amp; Audience</td><td>4</td></tr>
+  <tr><td><code>manuscriptQuality</code></td><td>Manuscript Quality</td><td>4</td></tr>
+  <tr><td><code>conceptUniqueness</code></td><td>Concept Uniqueness</td><td>4</td></tr>
+  <tr><td><code>conceptCommercialPotential</code></td><td>Commercial Potential</td><td>4</td></tr>
+  <tr><td><code>conceptTimeliness</code></td><td>Concept Timeliness</td><td>4</td></tr>
+</table>
+
+<hr>
+
+<h2>2. CATEGORY WEIGHTS</h2>
+
+<p>Weights control how much each category contributes to the final score. A weight of 1.2 means that category counts 20% more than a category at 1.0. Weights are relative to each other — you can use any numbers as long as they're proportional.</p>
+
+<table>
+  <tr><th>Category</th><th>Current weight</th><th>Your revised weight</th><th>Reason for change</th></tr>
+  <tr><td>Platform &amp; Audience</td><td><strong>1.2</strong></td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Manuscript Quality</td><td>1.0</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Concept Uniqueness</td><td>1.0</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Commercial Potential</td><td>1.0</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Concept Timeliness</td><td>1.0</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+
+<p><strong>Notes on weighting:</strong></p>
+<ul>
+  <li>Platform is currently the only category with elevated weight (1.2), reflecting that publishers prioritise it for nonfiction.</li>
+  <li>If you want two categories to count equally, give them the same number.</li>
+  <li>A weight of 0 would remove that category entirely. A weight of 2.0 means it counts twice as much as a 1.0 category.</li>
+  <li>Leave blank any rows you don't want to change.</li>
+</ul>
+
+<hr>
+
+<h2>3. QUESTION CALIBRATION</h2>
+
+<p>For each question, the current answer options are shown. You can:</p>
+<ul>
+  <li><strong>Re-label</strong> any option (e.g. change threshold numbers)</li>
+  <li><strong>Re-describe</strong> any option (the small italic line under the label)</li>
+  <li><strong>Flag</strong> any option as misweighted (e.g. "a 3 here should actually score like a 4")</li>
+  <li><strong>Replace</strong> any question entirely</li>
+</ul>
+<p>Use the "Expert notes" column. Claude Code will implement all of it.</p>
+
+<hr>
+
+<h3>CATEGORY: Platform &amp; Audience</h3>
+
+<p><strong>Current description shown to users:</strong></p>
+<blockquote>Your existing public reach: social following, email list, press coverage, speaking engagements, and media presence. For nonfiction, publishers look at this first. A strong concept with thin platform can sell, but the concept has to be exceptional.</blockquote>
+
+<p>Revised description: <span class="fill">[FILL IN or leave blank to keep]</span></p>
+
+<h4>Q1 — Total social media following (all platforms combined)</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Under 1,000</td><td>Just starting to build an online presence</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>1,000 – 5,000</td><td>A growing but small following</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>5,000 – 25,000</td><td>A meaningful niche audience</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>25,000 – 100,000</td><td>A significant, engaged audience</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>100,000+</td><td>A large, established platform</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q1: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q2 — Email newsletter size</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>No newsletter</td><td>Email list building not started</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Under 500 subscribers</td><td>Just getting started with email</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>500 – 2,000 subscribers</td><td>A growing email audience</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>2,000 – 10,000 subscribers</td><td>A strong, loyal email following</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>10,000+ subscribers</td><td>A powerful, direct-to-reader platform</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q2: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q3 — Speaking / podcast appearances</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Never</td><td>No public speaking or appearances</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Rarely (1–2 times ever)</td><td>Occasional appearances</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Sometimes (3–5 times per year)</td><td>Building a speaking presence</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Regularly (6–12 times per year)</td><td>Recognised voice in the space</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Frequently — major stages or podcasts</td><td>Established thought leader</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q3: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q4 — Published bylines / recognised author brand</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>No published work</td><td>Haven't started building a writing brand</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Personal blog or social posts only</td><td>Writing for yourself, not for audiences</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Guest posts or small publications</td><td>Beginning to get bylines</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Established bylines in mid-tier outlets</td><td>Known and credible in your niche</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Major publications or nationally recognised brand</td><td>Nationally recognised voice</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q4: <span class="fill">[FILL IN]</span></p>
+
+<hr>
+
+<h3>CATEGORY: Manuscript Quality</h3>
+
+<p><strong>Current description shown to users:</strong></p>
+<blockquote>The development and polish of your manuscript and book proposal. Nonfiction is acquired on proposal, not finished manuscript, but a weak proposal signals an unprepared author. Strong comps, a sharp overview, and sample chapters matter enormously.</blockquote>
+
+<p>Revised description: <span class="fill">[FILL IN or leave blank]</span></p>
+
+<h4>Q5 — Stage of manuscript / proposal</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Concept or outline only</td><td>Still in the ideas phase</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>First draft in progress</td><td>Writing but not yet complete</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Complete first draft</td><td>Written but needs significant refinement</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Revised and beta-read</td><td>Has received and incorporated meaningful feedback</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Professionally edited / submission-ready</td><td>Polished and ready for the market</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q5: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q6 — Level of professional feedback received</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>No feedback yet</td><td>Haven't shared with others</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Friends or family only</td><td>Informal feedback only</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Writing group or beta readers</td><td>Community-level feedback received</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Professional editor or manuscript critique</td><td>Expert structural feedback received</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Multiple rounds of professional editing</td><td>Thoroughly vetted and refined</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q6: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q7 — Development of book proposal</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>No proposal yet</td><td>Have not started the proposal</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Basic outline only</td><td>Early stage, not submission-ready</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Draft proposal in progress</td><td>Working through the key sections</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Complete draft proposal</td><td>All major sections written, needs refinement</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Polished, agent-ready proposal</td><td>Professionally refined and ready to submit</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q7: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q8 — Comparable titles (comps)</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Haven't identified comps</td><td>Not yet researched the competitive market</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Comps are vague or very dated (5+ years old)</td><td>Beginning market research</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Solid comps, somewhat dated (3–5 years)</td><td>Good positioning but could be sharper</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Recent, well-matched comps (last 1–3 years)</td><td>Strong and credible market positioning</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Perfect comps — recent bestsellers in your lane</td><td>Ideal, publisher-ready market positioning</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q8: <span class="fill">[FILL IN]</span></p>
+
+<hr>
+
+<h3>CATEGORY: Concept Uniqueness</h3>
+
+<p><strong>Current description shown to users:</strong></p>
+<blockquote>How differentiated your book is, and critically, whether you are the only person who could have written it. 'Only you could write this' is one of the most powerful things an agent can say to an acquisitions editor.</blockquote>
+
+<p>Revised description: <span class="fill">[FILL IN or leave blank]</span></p>
+
+<h4>Q9 — Differentiation from existing books</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Very similar to existing books</td><td>Little differentiation identified</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Somewhat similar with minor twists</td><td>Some overlap with existing books</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Distinct angle on a known topic</td><td>Clear but not dramatic difference</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Fresh perspective that stands out</td><td>Meaningfully different from what's on shelves</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Truly original concept</td><td>Nothing quite like it on the market</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q9: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q10 — Author's unique expertise or lived experience</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>No specific relevant expertise</td><td>Could be written by many people</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Some relevant background</td><td>Modest connection to the material</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Notable expertise or lived experience</td><td>Credible and specific voice on the topic</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Unique, hard-to-replicate perspective</td><td>Distinctly positioned as the right author</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Only you could write this book</td><td>Unparalleled expertise or irreplaceable experience</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q10: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q11 — Innovation in structure, narrative, or voice</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Entirely conventional</td><td>Standard structure for the genre</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Slightly unconventional</td><td>Small departures from genre norms</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Somewhat innovative</td><td>Noticeable structural or voice choices</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Quite innovative</td><td>Distinctly fresh approach to the genre</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Groundbreaking</td><td>Reinvents or meaningfully expands the form</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q11: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q12 — Can you articulate your differentiator in one sentence?</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Can't articulate it yet</td><td>Still working out the core differentiator</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Vague description</td><td>General sense but not yet sharp</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Reasonable but somewhat generic</td><td>Solid but not immediately memorable</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Clear and specific</td><td>Distinctive and easy to remember</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Compelling and irresistible</td><td>The kind of hook that stops an editor in their tracks</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q12: <span class="fill">[FILL IN]</span></p>
+
+<hr>
+
+<h3>CATEGORY: Commercial Potential</h3>
+
+<p><strong>Current description shown to users:</strong></p>
+<blockquote>The size of the potential readership and the strength of your commercial hook. The pitch question every editor asks is: why is this book necessary, and who is buying it? A compelling answer to both is what gets a deal.</blockquote>
+
+<p>Revised description: <span class="fill">[FILL IN or leave blank]</span></p>
+
+<h4>Q13 — Size of potential readership</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Very niche (under 10,000 people)</td><td>Extremely small, specialised target audience</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Niche (10,000 – 100,000)</td><td>Small but clearly defined audience</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Moderate (100,000 – 1 million)</td><td>Meaningful but not mass-market appeal</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Large (1 million – 10 million)</td><td>Broad potential readership</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Mass market (10 million+)</td><td>Universal or near-universal appeal</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q13: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q14 — Film / TV / media adaptation potential</h4>
+<div class="note">Note for Tim &amp; Emily: Is this question a meaningful signal for a nonfiction deal? Or should it be replaced with something more relevant?</div>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>No adaptation potential</td><td>Not suited for other media</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Unlikely</td><td>Minimal crossover or adaptation appeal</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Possible</td><td>Could work in another format with some effort</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Strong potential</td><td>Clear, compelling media adaptation possibilities</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Obvious adaptation potential</td><td>Built for screen, audio, or other media</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q14: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q15 — Strength of commercial hook / one-sentence pitch</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Hard to explain quickly</td><td>Difficult to pitch to a general audience</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Niche pitch</td><td>Clear to insiders but confusing to general readers</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Reasonable hook</td><td>Interesting but not immediately compelling</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Strong hook</td><td>Intriguing to most people who hear it</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Irresistible pitch</td><td>Immediate "I want to read that" reaction from anyone</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q15: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q16 — Series / sequel / franchise potential</h4>
+<div class="note">Note for Tim &amp; Emily: Does series potential actually matter for nonfiction, or is this question more fiction-oriented and should be replaced?</div>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Strictly standalone</td><td>One-and-done concept with no natural continuation</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Possible but unlikely sequel</td><td>Could continue but doesn't naturally call for it</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Natural follow-up possible</td><td>Could expand if the first book succeeds</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Clear series potential</td><td>Designed or well-suited for continuation</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Built-in franchise potential</td><td>World, character, or system actively invites expansion</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q16: <span class="fill">[FILL IN]</span></p>
+
+<hr>
+
+<h3>CATEGORY: Concept Timeliness</h3>
+
+<p><strong>Current description shown to users:</strong></p>
+<blockquote>Where your concept sits in the cultural moment. Timing is the hardest variable to control. The same book can go from highly sellable to a pass within two years as conversations shift and market conditions change.</blockquote>
+
+<p>Revised description: <span class="fill">[FILL IN or leave blank]</span></p>
+
+<h4>Q17 — Relevance to current cultural conversations</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Not culturally relevant right now</td><td>Disconnected from current discourse</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Mildly relevant</td><td>Tangentially connected to current topics</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Somewhat timely</td><td>Related to ongoing but not dominant conversations</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Quite timely</td><td>Connected to active, prominent cultural conversations</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>At the center of a major conversation</td><td>Exactly what people are talking about right now</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q17: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q18 — Connection to emerging trend or unmet market need</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>No emerging trends</td><td>No connection to new or growing movements</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Loosely connected</td><td>Peripheral connection to emerging trends</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Connected to a known trend</td><td>Aligns with an identified movement</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Directly addresses an emerging trend</td><td>Written for this specific moment</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Ahead of a major trend</td><td>Anticipating where the cultural conversation is going</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q18: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q19 — Evergreen longevity</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>Highly time-sensitive — will date quickly</td><td>Tied to a fleeting moment or trend</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Likely to feel dated within 2–3 years</td><td>Shorter commercial shelf life</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Mixed — some evergreen, some dated</td><td>Good now but uncertain longevity</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Mostly evergreen with a timely hook</td><td>Strong balance of now and lasting relevance</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Timeless topic</td><td>Will be as relevant in a decade as today</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q19: <span class="fill">[FILL IN]</span></p>
+
+<h4>Q20 — Identifiable gap in the current market</h4>
+<table>
+  <tr><th>Score</th><th>Current label</th><th>Current description</th><th>Your revised label</th><th>Your revised description</th><th>Notes</th></tr>
+  <tr><td>1</td><td>No obvious gap</td><td>The market seems well-covered already</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>Small gap</td><td>Minor hole in the existing landscape</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>Clear gap</td><td>A visible need not currently being met</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>Significant gap</td><td>Readers are actively looking for this book</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>Obvious, widely acknowledged unmet need</td><td>Everyone in the space knows this book is missing from shelves</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+<p>Expert notes on Q20: <span class="fill">[FILL IN]</span></p>
+
+<hr>
+
+<h2>4. SCORE SPECTRUM — BANDS AND OUTCOMES</h2>
+
+<p>These are the 6 readiness tiers. The descriptions are the most important editorial lever in the whole system — this is where expert voice matters most. The current paragraphs are functional but generic. Replace them with language that reflects how an experienced agent or publisher actually thinks and speaks.</p>
+
+<table>
+  <tr><th>Band</th><th>Current range</th><th>Current label</th><th>Your revised range</th><th>Your revised label</th><th>Notes</th></tr>
+  <tr><td>1</td><td>0 – 20</td><td>Just Getting Started</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>21 – 40</td><td>Early Stage</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>41 – 60</td><td>Building Momentum</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>61 – 75</td><td>Strong Candidate</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>76 – 88</td><td>Near Deal-Ready</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>6</td><td>89 – 100</td><td>Deal-Ready</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+
+<h4>Band descriptions — replace each with your own language:</h4>
+
+<p><strong>Band 1 — Just Getting Started (0–20):</strong><br>
+<em>Current copy:</em> The foundations for a traditional deal are not yet in place. Your category breakdown shows where to focus first. Most authors at this stage benefit from hybrid or self-publishing while building toward traditional.<br>
+<strong>Your revised copy:</strong> <span class="fill">[FILL IN]</span></p>
+
+<p><strong>Band 2 — Early Stage (21–40):</strong><br>
+<em>Current copy:</em> Key variables need significant development before traditional publishing is realistic. Hybrid publishing is a viable path right now. A focused strategy on your weakest areas over 12–18 months could change this picture.<br>
+<strong>Your revised copy:</strong> <span class="fill">[FILL IN]</span></p>
+
+<p><strong>Band 3 — Building Momentum (41–60):</strong><br>
+<em>Current copy:</em> Real foundations are in place and a traditional deal is possible — but competitive. Your category breakdown shows you exactly which one or two variables are holding you back. Those are where to focus your energy.<br>
+<strong>Your revised copy:</strong> <span class="fill">[FILL IN]</span></p>
+
+<p><strong>Band 4 — Strong Candidate (61–75):</strong><br>
+<em>Current copy:</em> You are competitive for representation. Agents will take your query seriously. At this level, the difference between a request and a pass usually comes down to one variable — most often platform or a sharper commercial hook.<br>
+<strong>Your revised copy:</strong> <span class="fill">[FILL IN]</span></p>
+
+<p><strong>Band 5 — Near Deal-Ready (76–88):</strong><br>
+<em>Current copy:</em> Very attractive to agents and publishers. The gaps are small and addressable. At this stage, timing, the right agent relationship, and acquisitions editor fit matter as much as the manuscript.<br>
+<strong>Your revised copy:</strong> <span class="fill">[FILL IN]</span></p>
+
+<p><strong>Band 6 — Deal-Ready (89–100):</strong><br>
+<em>Current copy:</em> You have the platform, manuscript, and concept to compete at the highest level. The variables outside your control — timing, market conditions, editor fit — are now the primary factors.<br>
+<strong>Your revised copy:</strong> <span class="fill">[FILL IN]</span></p>
+
+<hr>
+
+<h2>5. GENRE-SPECIFIC WEIGHT ADJUSTMENTS</h2>
+
+<p>Currently the score is calculated the same way regardless of genre. This section lets you define per-genre weight adjustments. You only need to fill in the categories you want to change for a given genre — the rest stay at their defaults.</p>
+
+<p><em>Example: Memoir / Personal Essay — Platform 0.8 (lower — literary agents care more about voice and concept than follower count for memoir), Manuscript 1.4 (higher — execution quality is far more important for memoir), Timeliness 0.7 (memoir is less tied to the news cycle)</em></p>
+
+<table>
+  <tr><th>Genre</th><th>Platform adj.</th><th>Manuscript adj.</th><th>Uniqueness adj.</th><th>Commercial adj.</th><th>Timeliness adj.</th><th>Notes</th></tr>
+  <tr><td>Narrative Nonfiction</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Memoir / Personal Essay</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Self-Help / Personal Development</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Business / Finance</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Leadership / Management</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Health / Wellness</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>History / Biography</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Politics / Current Affairs</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Science / Technology</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>True Crime</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Humor / Satire</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+
+<hr>
+
+<h2>6. HARD FLOOR RULES</h2>
+
+<p>These are override rules — they cap or adjust the final score if certain conditions are met, regardless of overall total. Use these to catch cases where a single variable makes a traditional deal essentially impossible.</p>
+
+<table>
+  <tr><th>#</th><th>Rule name</th><th>Condition</th><th>Consequence</th><th>Reason</th></tr>
+  <tr><td>1</td><td class="fill">[FILL IN]</td><td class="fill">[e.g. Platform score under 25 AND genre is Business/Finance or Self-Help]</td><td class="fill">[e.g. Cap recommended outcome at Band 2 regardless of total DealScore]</td><td class="fill">[e.g. Business publishers won't touch self-help without demonstrated reach]</td></tr>
+  <tr><td>2</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+
+<hr>
+
+<h2>7. RECOMMENDED NEXT STEPS (shown on results page)</h2>
+
+<p>What would you say to the author if you were on the phone with them? This copy appears above the tactics on the results page. It's distinct from the band description — that explains what the score means. This is the honest, human advice.</p>
+
+<table>
+  <tr><th>Band</th><th>Score range</th><th>What would you tell this author?</th></tr>
+  <tr><td>1</td><td>0 – 20</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>2</td><td>21 – 40</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>3</td><td>41 – 60</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>4</td><td>61 – 75</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>5</td><td>76 – 88</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>6</td><td>89 – 100</td><td class="fill">[FILL IN]</td></tr>
+</table>
+
+<hr>
+
+<h2>8. QUESTIONS TO ADD OR REPLACE</h2>
+
+<p>If any of the 20 current questions feel wrong, redundant, or missing something important, note them here. Each category must keep the same number of questions (currently 4 each) for the scoring math to work — so any addition means a replacement.</p>
+
+<table>
+  <tr><th>Action</th><th>Question # (if replacing)</th><th>Category</th><th>New question text</th><th>New options (1–5, one per line)</th><th>Reason</th></tr>
+  <tr><td>Replace</td><td class="fill">[Q#]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Replace</td><td class="fill">[Q#]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+  <tr><td>Add (replacing)</td><td class="fill">[Q#]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td><td class="fill">[FILL IN]</td></tr>
+</table>
+
+<hr>
+
+<h2>HOW TO HAND THIS BACK</h2>
+
+<p>When you've filled in what you want to change, share this document with Claude Code and say:</p>
+<blockquote><strong>"Implement the scoring methodology changes in SCORING-METHODOLOGY.md."</strong></blockquote>
+
+<p>Claude Code will:</p>
+<ol>
+  <li>Update <code>lib/scoring.ts</code> with new category weights and any hard floor rules</li>
+  <li>Update <code>lib/questions.ts</code> with revised question text, labels, and descriptions</li>
+  <li>Update <code>lib/types.ts</code> with revised spectrum bands, thresholds, and descriptions</li>
+  <li>Add genre-specific weight logic to <code>lib/scoring.ts</code> if you've filled in Section 5</li>
+  <li>Update any results-page copy if you've filled in Section 7</li>
+</ol>
+
+<p>You don't need to fill in every section. Partial input is fine — anything left blank stays as it is.</p>
+
+</body>
+</html>

@@ -7,10 +7,10 @@ function ProfileLink({ href, label }: { href: string; label: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-600 border border-stone-300 px-3 py-1.5 hover:bg-stone-50 hover:border-stone-400 hover:text-stone-900 transition-colors"
+      className="inline-flex items-center gap-1 text-sm text-stone-500 hover:text-stone-900 underline underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition-colors"
     >
-      <ExternalLink className="w-3 h-3" />
       {label}
+      <ExternalLink className="w-3 h-3 flex-shrink-0 no-underline" />
     </a>
   );
 }
@@ -28,9 +28,9 @@ export default function AboutPage() {
             Why we built this
           </h1>
           <p className="text-lg text-stone-500 leading-relaxed max-w-2xl">
-            DealScore was built by two ghostwriters who have spent years inside the
-            traditional publishing world, both of whom have seen hundreds of submissions
-            and experienced the opacity of the process firsthand.
+            DealScore was built by a ghostwriter with two decades of experience working
+            directly with publishers and agents, and a writer and technologist who has
+            helped hundreds of authors navigate the path to publication.
           </p>
         </div>
       </section>
@@ -39,33 +39,39 @@ export default function AboutPage() {
       <section className="py-16 px-4 sm:px-6 border-b border-stone-200">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-2xl font-bold text-stone-900 mb-8">The backstory</h2>
-          <div className="space-y-5 text-stone-600 leading-relaxed">
+          <div className="space-y-5 text-stone-600 leading-relaxed text-base">
             <p>
-              Tim had been ghostwriting nonfiction books for over fifteen years when
-              he started noticing a pattern. The authors who got deals were not always
-              the ones with the best books. They were the ones who happened to walk
-              in the door already understanding what publishers were actually evaluating:
-              platform, concept differentiation, commercial hook, timeliness, and whether
-              the author was uniquely positioned to write the book.
+              Between them, Tim and Emily have shepherded hundreds of authors through the
+              full arc of getting a book published — from the first conversation about an
+              idea, through the proposal process, to submission, acquisition, and release.
+              They have worked across traditional, hybrid, and self-publishing routes, with
+              everyone from first-time authors to executives and public figures.
             </p>
             <p>
-              Most authors had no framework for any of this. They would ask their agent
-              for feedback and get something vague. They would hire a book proposal
-              consultant and spend thousands to be told their platform was thin. They would
-              query for two years without understanding which one or two variables were
-              actually holding them back.
+              What they kept running into, regardless of the author or the book, was a
+              fundamental gap in expectations. Accomplished, intelligent people — people
+              who had built careers, companies, and reputations — routinely arrived
+              believing that a strong idea and the right connections were enough to secure
+              a deal. Many had no idea that a publisher&apos;s decision rests on a small set
+              of concrete, measurable variables. Platform. Manuscript readiness. Concept
+              differentiation. Commercial hook. Timeliness. And whether the author is the
+              only person who could have written this particular book.
             </p>
             <p>
-              Tim built a scoring rubric for his own clients, a structured way to evaluate
-              where an author stood across the five variables that drive acquisition decisions.
-              He used it quietly for years. Authors who saw it found it clarifying in a way
-              that general feedback never was.
+              The misunderstanding is not a failure of intelligence. It is a failure of
+              access. Publishing professionals carry this framework in their heads — they
+              use it on every submission — but they rarely articulate it to authors in any
+              structured way. The result is that most authors go into the process without
+              knowing what they are actually being evaluated on.
             </p>
             <p>
-              Emily came across the framework in 2022 and asked the obvious question: why was
-              this sitting in a private document? They spent the following year refining the
-              scoring model, pressure-testing the questions against real acquisition patterns,
-              and building the tool that became DealScore.
+              Tim had been using a private scoring rubric with his own clients for years —
+              a way to give them an honest, structured read on where they stood before
+              they started querying. Emily recognised that it addressed something authors
+              needed long before they ever engaged a ghostwriter or a consultant. Together
+              they refined it, tested it against real acquisition patterns, and built it
+              into a tool that any author can use at the start of their journey. That tool
+              is DealScore.
             </p>
           </div>
         </div>
@@ -95,7 +101,7 @@ export default function AboutPage() {
                   <p className="text-stone-400 text-sm mt-1">
                     Co-creator, Publishing Strategy
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-3">
+                  <div className="flex flex-wrap gap-4 mt-3">
                     <ProfileLink href="https://www.timvandehey.com" label="timvandehey.com" />
                     <ProfileLink href="https://www.linkedin.com/in/tvandehey/" label="LinkedIn" />
                   </div>
@@ -147,7 +153,7 @@ export default function AboutPage() {
                   <p className="text-stone-400 text-sm mt-1">
                     Co-creator, Product &amp; Technology
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-3">
+                  <div className="flex flex-wrap gap-4 mt-3">
                     <ProfileLink href="https://memoirist.co.uk" label="memoirist.co.uk" />
                     <ProfileLink href="https://www.linkedin.com/in/emilytheghost/" label="LinkedIn" />
                   </div>
@@ -169,8 +175,9 @@ export default function AboutPage() {
                   catches up.
                 </p>
                 <p>
-                  Emily contributed the question framework and scoring logic, informed
-                  by years of helping authors get to agent-ready.
+                  She brought the product and technical foundation that makes DealScore
+                  work, applying the systems thinking from her AI startup background to
+                  the challenge of making Tim&apos;s publishing framework accessible at scale.
                 </p>
               </div>
             </div>
@@ -188,7 +195,7 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-3 gap-10">
             <div>
               <h3 className="font-serif font-bold text-stone-900 mb-3">No absolutes</h3>
-              <p className="text-sm text-stone-500 leading-relaxed">
+              <p className="text-base text-stone-500 leading-relaxed">
                 There are no universal rules in publishing. The right editor,
                 a well-timed submission, an agent who connects with your voice:
                 these matter enormously and no tool can predict them.
@@ -197,7 +204,7 @@ export default function AboutPage() {
             </div>
             <div>
               <h3 className="font-serif font-bold text-stone-900 mb-3">The right path, not the dream path</h3>
-              <p className="text-sm text-stone-500 leading-relaxed">
+              <p className="text-base text-stone-500 leading-relaxed">
                 Traditional publishing is one route. Hybrid publishers and
                 self-publishing are serious, legitimate alternatives. The
                 honest value is pointing authors toward the path that fits
@@ -206,7 +213,7 @@ export default function AboutPage() {
             </div>
             <div>
               <h3 className="font-serif font-bold text-stone-900 mb-3">The knowledge gap is the problem</h3>
-              <p className="text-sm text-stone-500 leading-relaxed">
+              <p className="text-base text-stone-500 leading-relaxed">
                 Nonfiction authors can ask anyone whether they have a chance.
                 The problem is they do not know which variables matter most.
                 That knowledge gap is itself a form of expertise, and it is
@@ -230,7 +237,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/assessment"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium transition-colors group"
+            className="inline-flex w-full sm:w-auto justify-center sm:justify-start items-center gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium transition-colors group"
           >
             Take the Assessment
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

@@ -29,9 +29,6 @@ type PublicationPath = {
 };
 
 function getPublicationPaths(score: number, genre: string): PublicationPath[] {
-  const isMemoirOrNarrative =
-    genre === "Memoir / Personal Essay" || genre === "Narrative Nonfiction";
-
   const traditionalFit: PublicationPath["fit"] =
     score >= 75 ? "strong" : score >= 55 ? "possible" : "unlikely";
 
@@ -48,8 +45,6 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
           ? "Your score puts you in contention. The remaining gaps in your breakdown are worth addressing before you query."
           : score >= 55
           ? "Possible, but you will face significant competition. Publishers will want to see stronger numbers on your weakest variables before committing."
-          : isMemoirOrNarrative
-          ? "Memoir and narrative nonfiction are among the hardest categories to place traditionally unless you have an existing platform, celebrity profile, or a story of truly singular urgency. Your score suggests traditional is not the right path right now."
           : "Unlikely at this stage. The variables that matter most to a Big Five publisher — platform, commercial hook, manuscript readiness — are not yet where they need to be.",
       realities: [
         "Requires a literary agent before any publisher will read your work",
@@ -137,24 +132,24 @@ export default function ResultsPage() {
     <div className="min-h-screen bg-stone-50 py-10 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Score Hero */}
-        <div className="bg-stone-900 p-8 text-center text-white">
+        <div className="bg-stone-900 p-6 sm:p-8 text-center text-white">
           <p className="text-stone-400 text-xs font-medium uppercase tracking-[0.18em] mb-4">
             Your DealScore
           </p>
           <div className="flex items-end justify-center gap-2 mb-3">
-            <span className="font-serif text-8xl font-bold leading-none text-white">
+            <span className="font-serif text-7xl sm:text-8xl font-bold leading-none text-white">
               {result.dealScore}
             </span>
-            <span className="text-3xl text-stone-600 mb-3">/100</span>
+            <span className="text-2xl sm:text-3xl text-stone-600 mb-2 sm:mb-3">/100</span>
           </div>
           <div className="inline-flex items-center gap-2 border border-stone-700 px-4 py-1.5 mb-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-stone-400" aria-hidden="true" />
+            <div className="w-1.5 h-1.5 rounded-full bg-gold-400" aria-hidden="true" />
             <span className="text-sm font-medium text-stone-300 tracking-wide">{level.label}</span>
           </div>
           <p className="text-stone-400 text-sm max-w-lg mx-auto mt-2 leading-relaxed">
             {level.description}
           </p>
-          <div className="mt-4 text-xs text-stone-600">
+          <div className="mt-4 text-xs text-stone-500">
             Genre: {result.genre}
           </div>
         </div>
@@ -229,10 +224,10 @@ export default function ResultsPage() {
                     path.fit === "strong" ? "border-stone-300" : "border-stone-200"
                   }`}
                 >
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="font-bold text-stone-900">{path.label}</h3>
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                    <h3 className="font-bold text-stone-900 leading-snug">{path.label}</h3>
                     <span
-                      className={`text-xs font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${fit.color} ${fit.bg} ${fit.border}`}
+                      className={`self-start text-xs font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${fit.color} ${fit.bg} ${fit.border}`}
                     >
                       {fit.label}
                     </span>
@@ -240,7 +235,7 @@ export default function ResultsPage() {
                   <p className="text-sm text-stone-700 leading-relaxed mb-4">
                     {path.summary}
                   </p>
-                  <div className="space-y-1.5 mb-3">
+                  <div className="space-y-1.5">
                     {path.realities.map((r, i) => (
                       <div key={i} className="flex items-start gap-2 text-sm text-stone-600">
                         <CheckCircle className="w-3.5 h-3.5 text-stone-400 flex-shrink-0 mt-0.5" />
@@ -248,7 +243,6 @@ export default function ResultsPage() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-stone-400 italic">{path.examples}</p>
                 </div>
               );
             })}
@@ -256,22 +250,29 @@ export default function ResultsPage() {
         </div>
 
         {/* Disclaimer */}
-        <div className="bg-white border border-stone-200 rounded-2xl p-5">
+        <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-3">
           <p className="text-xs text-stone-500 leading-relaxed">
             <strong className="text-stone-700">Important:</strong> There are no universal rules in publishing.
-            The right acquisitions editor, a timely cultural moment, an agent who loves your
-            specific voice: these factors are real and outside any scoring tool's ability to
+            The right acquisitions editor, a timely cultural moment, an agent who connects with your
+            specific voice: these factors are real and outside any scoring tool&apos;s ability to
             predict. DealScore gives you a structured framework for understanding where you
             stand, not a definitive verdict. Use it as a starting point, not an endpoint.
+          </p>
+          <p className="text-xs text-stone-500 leading-relaxed">
+            <strong className="text-stone-700">A note on scores:</strong> A high DealScore does not
+            guarantee a book deal. It means you are well-positioned on the variables that
+            consistently matter to agents and publishers. Publishing involves subjectivity,
+            timing, and factors no framework can fully account for. Use your score to
+            understand your strengths and gaps — not as a promise of any particular outcome.
           </p>
         </div>
 
         {/* Actions */}
-        <div className="grid sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <button
             onClick={handleSave}
             disabled={saved}
-            className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all ${
+            className={`flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm transition-all ${
               saved
                 ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
                 : "bg-stone-900 hover:bg-stone-700 text-white"
@@ -292,7 +293,7 @@ export default function ResultsPage() {
 
           <Link
             href="/tactics"
-            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-400 text-stone-700 font-semibold text-sm rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-400 text-stone-700 font-semibold text-sm rounded-xl transition-all"
           >
             <Lightbulb className="w-4 h-4" />
             View Tactics
@@ -300,7 +301,7 @@ export default function ResultsPage() {
 
           <Link
             href="/assessment"
-            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 text-stone-600 font-semibold text-sm rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 text-stone-600 font-semibold text-sm rounded-xl transition-all"
           >
             <RotateCcw className="w-4 h-4" />
             Retake
@@ -315,7 +316,6 @@ export default function ResultsPage() {
               { label: "Browse the Tactics library for your weakest areas", href: "/tactics", internal: true },
               { label: "Search for literary agents at QueryTracker", href: "https://querytracker.net", internal: false },
               { label: "Research hybrid publishers at IBPA's member directory", href: "https://www.ibpa-online.org", internal: false },
-              { label: "Track your progress over time in My Results", href: "/dashboard", internal: true },
             ].map((item) => (
               <Link
                 key={item.href}

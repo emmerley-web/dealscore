@@ -5,14 +5,27 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Prevent iOS from auto-scaling text on orientation change */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
     @apply bg-white text-stone-900 antialiased;
+    /* Prevent iOS tap flicker */
+    -webkit-tap-highlight-color: transparent;
+    /* Better font rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+
+  /* Ensure touch targets are accessible */
+  button, [role="button"] {
+    touch-action: manipulation;
   }
 }
 

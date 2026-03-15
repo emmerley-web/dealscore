@@ -10,6 +10,11 @@ import {
   Zap,
   BookOpen,
   ArrowRight,
+  Users,
+  PenLine,
+  Fingerprint,
+  TrendingUp,
+  Clock,
 } from "lucide-react";
 import clsx from "clsx";
 import { AssessmentResult, CATEGORY_DISPLAY_NAMES, CategoryKey } from "@/lib/types";
@@ -31,12 +36,14 @@ const CATEGORY_ORDER: CategoryKey[] = [
   "conceptTimeliness",
 ];
 
-const CATEGORY_ICONS: Record<CategoryKey, string> = {
-  platform: "📣",
-  manuscriptQuality: "✍️",
-  conceptUniqueness: "💡",
-  conceptCommercialPotential: "📈",
-  conceptTimeliness: "⏱️",
+type LucideIcon = React.ComponentType<{ className?: string }>;
+
+const CATEGORY_ICONS: Record<CategoryKey, LucideIcon> = {
+  platform: Users,
+  manuscriptQuality: PenLine,
+  conceptUniqueness: Fingerprint,
+  conceptCommercialPotential: TrendingUp,
+  conceptTimeliness: Clock,
 };
 
 function TacticCard({
@@ -67,10 +74,15 @@ function TacticCard({
       )}
 
       <div className="flex flex-wrap gap-2 mb-3">
-        <span className={`text-xs px-2 py-0.5 rounded-full font-medium border ${catColor}`}>
-          {CATEGORY_ICONS[tactic.category]}{" "}
-          {CATEGORY_DISPLAY_NAMES[tactic.category]}
-        </span>
+        {(() => {
+          const CatIcon = CATEGORY_ICONS[tactic.category];
+          return (
+            <span className={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full font-medium border ${catColor}`}>
+              <CatIcon className="w-3 h-3 flex-shrink-0" />
+              {CATEGORY_DISPLAY_NAMES[tactic.category]}
+            </span>
+          );
+        })()}
         <span className={`text-xs px-2 py-0.5 rounded-full font-medium border ${effort.color}`}>
           {effort.label}
         </span>
@@ -154,10 +166,16 @@ export default function TacticsPage() {
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Header */}
         <div>
-          <h1 className="text-3xl font-extrabold text-stone-900 mb-2">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-stone-400">
+              Strategy library
+            </p>
+          </div>
+          <h1 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-3">
             Tactics
           </h1>
-          <p className="text-stone-500">
+          <p className="text-stone-500 text-base max-w-2xl">
             {latestResult
               ? `Sorted for your latest score (${latestResult.dealScore}/100 in ${latestResult.genre}). The tactics that will move your score the most appear first.`
               : "Concrete strategies for improving every part of your book deal readiness. Take the assessment first and we will prioritize them for you."}
@@ -208,9 +226,9 @@ export default function TacticsPage() {
                   <button
                     key={k}
                     onClick={() => setActiveCategory(k)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-white border border-amber-300 rounded-full text-sm font-medium text-amber-800 hover:bg-amber-100 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-amber-300 rounded-full text-sm font-medium text-amber-800 hover:bg-amber-100 transition-colors"
                   >
-                    {CATEGORY_ICONS[k]}{" "}
+                    {(() => { const I = CATEGORY_ICONS[k]; return <I className="w-3.5 h-3.5 flex-shrink-0" />; })()}
                     {CATEGORY_DISPLAY_NAMES[k]}
                     <span className="ml-1 text-xs text-amber-600 font-bold">
                       {cat ? Math.round(cat.score) : "?"}/100
@@ -229,13 +247,13 @@ export default function TacticsPage() {
             role="tab"
             aria-selected={activeCategory === "all"}
             className={clsx(
-              "px-3 py-1.5 rounded-full text-sm font-medium border transition-all",
+              "px-3 py-2 rounded-full text-sm font-medium border transition-all",
               activeCategory === "all"
                 ? "bg-stone-900 text-white border-stone-900"
                 : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:text-stone-700"
             )}
           >
-            All ({ALL_TACTICS.length})
+            All&nbsp;({ALL_TACTICS.length})
           </button>
           {CATEGORY_ORDER.map((cat) => {
             const count = ALL_TACTICS.filter((t) => t.category === cat).length;
@@ -247,7 +265,7 @@ export default function TacticsPage() {
                 role="tab"
                 aria-selected={activeCategory === cat}
                 className={clsx(
-                  "px-3 py-1.5 rounded-full text-sm font-medium border transition-all",
+                  "px-3 py-2 rounded-full text-sm font-medium border transition-all",
                   activeCategory === cat
                     ? "bg-stone-900 text-white border-stone-900"
                     : isWeak
@@ -255,9 +273,9 @@ export default function TacticsPage() {
                     : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:text-stone-700"
                 )}
               >
-                {CATEGORY_ICONS[cat]}{" "}
+                {(() => { const I = CATEGORY_ICONS[cat]; return <I className="w-3.5 h-3.5 inline-block mr-1 flex-shrink-0" />; })()}
                 {CATEGORY_DISPLAY_NAMES[cat].split(" ")[0]}
-                {isWeak && " ⚡"} ({count})
+                {isWeak && " ·"} ({count})
               </button>
             );
           })}

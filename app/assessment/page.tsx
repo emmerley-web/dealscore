@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, BookOpen } from "lucide-react";
+import { ChevronLeft, ChevronRight, BookOpen, Users, PenLine, Fingerprint, TrendingUp, Clock } from "lucide-react";
 import clsx from "clsx";
 import { ASSESSMENT_QUESTIONS, QUESTIONS_BY_CATEGORY } from "@/lib/questions";
 import { GENRES, CategoryKey, CATEGORY_DISPLAY_NAMES, CATEGORY_DESCRIPTIONS } from "@/lib/types";
@@ -16,12 +16,14 @@ const CATEGORY_ORDER: CategoryKey[] = [
   "conceptTimeliness",
 ];
 
-const CATEGORY_ICONS: Record<CategoryKey, string> = {
-  platform: "📣",
-  manuscriptQuality: "✍️",
-  conceptUniqueness: "💡",
-  conceptCommercialPotential: "📈",
-  conceptTimeliness: "⏱️",
+type LucideIcon = React.ComponentType<{ className?: string }>;
+
+const CATEGORY_ICONS: Record<CategoryKey, LucideIcon> = {
+  platform: Users,
+  manuscriptQuality: PenLine,
+  conceptUniqueness: Fingerprint,
+  conceptCommercialPotential: TrendingUp,
+  conceptTimeliness: Clock,
 };
 
 type Step = "genre" | 0 | 1 | 2 | 3 | 4 | "calculating";
@@ -133,7 +135,7 @@ export default function AssessmentPage() {
             aria-valuemax={100}
           >
             <div
-              className="h-full bg-stone-500 rounded-full transition-all duration-500"
+              className="h-full bg-gold-500 rounded-full transition-all duration-500"
               style={{ width: `${overallProgress}%` }}
             />
           </div>
@@ -141,23 +143,26 @@ export default function AssessmentPage() {
 
         {/* Category step indicators */}
         <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-1" role="list" aria-label="Assessment categories">
-          {CATEGORY_ORDER.map((cat, i) => (
-            <div
-              key={cat}
-              role="listitem"
-              className={clsx(
-                "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all",
-                typeof step === "number" && step === i
-                  ? "bg-stone-100 text-stone-700 border border-stone-300"
-                  : categoryComplete(i)
-                  ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                  : "bg-white text-stone-400 border border-stone-200"
-              )}
-            >
-              <span>{CATEGORY_ICONS[cat]}</span>
-              <span className="hidden sm:inline">{CATEGORY_DISPLAY_NAMES[cat]}</span>
-            </div>
-          ))}
+          {CATEGORY_ORDER.map((cat, i) => {
+            const CatIcon = CATEGORY_ICONS[cat];
+            return (
+              <div
+                key={cat}
+                role="listitem"
+                className={clsx(
+                  "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all",
+                  typeof step === "number" && step === i
+                    ? "bg-stone-100 text-stone-700 border border-stone-300"
+                    : categoryComplete(i)
+                    ? "bg-stone-50 text-stone-600 border border-stone-300"
+                    : "bg-white text-stone-400 border border-stone-200"
+                )}
+              >
+                <CatIcon className="w-3.5 h-3.5 flex-shrink-0" />
+                <span className="hidden sm:inline">{CATEGORY_DISPLAY_NAMES[cat]}</span>
+              </div>
+            );
+          })}
         </div>
 
         {/* Genre selection */}
@@ -182,7 +187,7 @@ export default function AssessmentPage() {
                     className={clsx(
                       "px-3 py-2.5 rounded-xl text-sm font-medium border text-left transition-all",
                       genre === g
-                        ? "bg-stone-500 text-white border-stone-900 shadow-md"
+                        ? "bg-stone-900 text-white border-stone-900 shadow-md"
                         : "bg-white text-stone-700 border-stone-200 hover:border-stone-300 hover:bg-stone-50"
                     )}
                   >
@@ -191,15 +196,6 @@ export default function AssessmentPage() {
                 ))}
               </div>
             </fieldset>
-            {(genre === "Memoir / Personal Essay" || genre === "Narrative Nonfiction") && (
-              <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-800 leading-relaxed">
-                <strong className="text-amber-900">Note on memoir and narrative nonfiction:</strong>{" "}
-                These are among the hardest categories to sell traditionally. Publishers
-                typically require either a very large existing platform, celebrity profile,
-                or a story of singular and urgent relevance. Your results will reflect
-                this reality honestly.
-              </div>
-            )}
           </div>
         )}
 
@@ -207,7 +203,7 @@ export default function AssessmentPage() {
         {typeof step === "number" && currentCategory && (
           <div className="bg-white rounded-2xl border border-stone-200 p-6 sm:p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl">{CATEGORY_ICONS[currentCategory]}</span>
+              {(() => { const Icon = CATEGORY_ICONS[currentCategory]; return <Icon className="w-6 h-6 text-gold-500 flex-shrink-0" />; })()}
               <h1 className="text-2xl font-bold text-stone-900">
                 {CATEGORY_DISPLAY_NAMES[currentCategory]}
               </h1>
@@ -242,14 +238,14 @@ export default function AssessmentPage() {
                             className={clsx(
                               "w-4 h-4 rounded-full border-2 flex-shrink-0 mt-0.5 transition-all",
                               answers[q.id] === opt.value
-                                ? "bg-stone-500 border-stone-900"
+                                ? "bg-gold-500 border-gold-600"
                                 : "border-stone-300"
                             )}
                             aria-hidden="true"
                           />
                           <div>
                             <div className="font-medium">{opt.label}</div>
-                            <div className="text-xs text-stone-500 mt-0.5">
+                            <div className="text-sm text-stone-500 mt-0.5 leading-snug">
                               {opt.description}
                             </div>
                           </div>

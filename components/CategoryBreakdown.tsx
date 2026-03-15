@@ -7,18 +7,11 @@ interface CategoryBreakdownProps {
   showDescriptions?: boolean;
 }
 
-const categoryColors = [
-  { bar: "#44403c", bg: "#f5f5f4", text: "#1c1917" },   // stone-dark – platform
-  { bar: "#c4a030", bg: "#fefce8", text: "#92400e" },   // gold – manuscript
-  { bar: "#78716c", bg: "#f5f5f4", text: "#44403c" },   // stone-mid – uniqueness
-  { bar: "#a8861a", bg: "#fefce8", text: "#78350f" },   // gold-dark – commercial
-  { bar: "#292524", bg: "#f5f5f4", text: "#1c1917" },   // stone-deep – timeliness
-];
-
+// Brand-appropriate: gold for strong, mid-stone for average, light stone for weak
 function scoreColor(score: number): string {
-  if (score >= 75) return "#10b981";
-  if (score >= 50) return "#f59e0b";
-  return "#ef4444";
+  if (score >= 75) return "#c4a030"; // gold-400 — strong
+  if (score >= 50) return "#57534e"; // stone-600 — mid
+  return "#a8a29e";                  // stone-400 — needs work
 }
 
 export default function CategoryBreakdown({
@@ -26,25 +19,24 @@ export default function CategoryBreakdown({
   showDescriptions = true,
 }: CategoryBreakdownProps) {
   return (
-    <div className="space-y-4">
-      {categoryScores.map((cat, i) => {
-        const c = categoryColors[i % categoryColors.length];
+    <div className="space-y-5">
+      {categoryScores.map((cat) => {
         const isWeighted = cat.key === "platform";
         return (
-          <div key={cat.key} className="group">
+          <div key={cat.key}>
             <div className="flex items-center justify-between mb-1.5">
-              <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold text-stone-800">
+              <div className="flex items-center gap-2 min-w-0">
+                <span className="text-sm font-semibold text-stone-800 truncate">
                   {cat.name}
                 </span>
                 {isWeighted && (
-                  <span className="text-xs px-1.5 py-0.5 bg-stone-50 text-stone-700 border border-stone-200 rounded-full font-medium">
+                  <span className="text-xs px-1.5 py-0.5 bg-stone-50 text-stone-500 border border-stone-200 rounded-full font-medium flex-shrink-0">
                     +20% weight
                   </span>
                 )}
               </div>
               <span
-                className="text-sm font-bold tabular-nums"
+                className="text-sm font-bold tabular-nums flex-shrink-0 ml-3"
                 style={{ color: scoreColor(cat.score) }}
               >
                 {Math.round(cat.score)}/100
@@ -52,18 +44,18 @@ export default function CategoryBreakdown({
             </div>
 
             {/* Bar */}
-            <div className="h-2.5 bg-stone-100 rounded-full overflow-hidden">
+            <div className="h-3 bg-stone-100 rounded-sm overflow-hidden">
               <div
-                className="h-full rounded-full transition-all duration-700"
+                className="h-full rounded-sm transition-all duration-700"
                 style={{
                   width: `${cat.score}%`,
-                  backgroundColor: c.bar,
+                  backgroundColor: scoreColor(cat.score),
                 }}
               />
             </div>
 
             {showDescriptions && (
-              <p className="mt-1 text-xs text-stone-500">
+              <p className="mt-1.5 text-sm text-stone-500 leading-relaxed">
                 {CATEGORY_DESCRIPTIONS[cat.key]}
               </p>
             )}

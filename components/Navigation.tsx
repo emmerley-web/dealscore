@@ -5,12 +5,12 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
+import { LogoMark } from "./Logo";
 
 const NAV_LINKS = [
   { href: "/", label: "How It Works" },
-  { href: "/assessment", label: "Assessment" },
-  { href: "/dashboard", label: "My Results" },
   { href: "/tactics", label: "Tactics" },
+  { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
 ];
 
@@ -28,8 +28,9 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
+            <LogoMark />
             <span className="font-serif font-bold text-stone-900 text-xl tracking-tight">
-              Deal<span className="text-stone-400">Score</span>
+              Deal<span className="text-gold-400">Score</span>
             </span>
           </Link>
 
@@ -42,7 +43,7 @@ export default function Navigation() {
                 className={clsx(
                   "px-4 py-2 text-sm font-medium transition-colors",
                   pathname === link.href
-                    ? "text-stone-900 border-b-2 border-stone-900"
+                    ? "text-stone-900 border-b-2 border-gold-400"
                     : "text-stone-500 hover:text-stone-900"
                 )}
               >
@@ -78,7 +79,7 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={clsx(
-                  "block px-3 py-2 text-sm font-medium transition-colors",
+                  "block px-3 py-3 text-sm font-medium transition-colors",
                   pathname === link.href
                     ? "text-stone-900 font-semibold"
                     : "text-stone-500 hover:text-stone-900"
@@ -89,7 +90,7 @@ export default function Navigation() {
             ))}
             <Link
               href="/assessment"
-              className="block mt-2 px-3 py-2.5 bg-stone-900 text-white text-sm font-medium text-center"
+              className="block mt-2 px-3 py-3.5 bg-stone-900 text-white text-sm font-medium text-center"
             >
               Get My Score
             </Link>

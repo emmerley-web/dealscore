@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master, main]
+    branches:
+      - 'claude/build-new-feature-Gd014'
   workflow_dispatch:
 
 permissions:

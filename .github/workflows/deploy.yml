@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/build-new-feature-Gd014, claude/fix-thread-image-issue-s4GKU]
+    branches: [master, main]
   workflow_dispatch:
 
 permissions:

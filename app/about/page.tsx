@@ -137,7 +137,7 @@ export default function AboutPage() {
           <h2 className="font-serif text-3xl font-bold text-stone-900 mb-12">
             The people behind it
           </h2>
-          <div className="space-y-14">
+          <div className="space-y-14 max-w-4xl">
 
             {/* Tim */}
             <div className="grid sm:grid-cols-[160px_1fr] gap-8 lg:gap-12">
@@ -159,7 +159,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 text-stone-600 leading-relaxed text-base max-w-2xl">
+              <div className="space-y-4 text-stone-600 leading-relaxed text-base">
                 <p>
                   Tim Vandehey is a New York Times bestselling ghostwriter and co-author
                   who has worked on more than 70 nonfiction books, with over 20 published
@@ -207,7 +207,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 text-stone-600 leading-relaxed text-base max-w-2xl">
+              <div className="space-y-4 text-stone-600 leading-relaxed text-base">
                 <p>
                   Emily Liao is a ghostwriter and memoirist specialising in business
                   memoirs for traditional publishing. Before pivoting to writing full-time

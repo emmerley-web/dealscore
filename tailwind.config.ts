@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "\"Times New Roman\"", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["\"Playfair Display\"", "Georgia", "\"Times New Roman\"", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         brand: {

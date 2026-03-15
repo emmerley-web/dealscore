@@ -34,11 +34,11 @@ export default function CategoryBreakdown({
           <div key={cat.key} className="group">
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold text-slate-800">
+                <span className="text-sm font-semibold text-stone-800">
                   {cat.name}
                 </span>
                 {isWeighted && (
-                  <span className="text-xs px-1.5 py-0.5 bg-brand-50 text-brand-600 border border-brand-200 rounded-full font-medium">
+                  <span className="text-xs px-1.5 py-0.5 bg-stone-50 text-stone-700 border border-stone-200 rounded-full font-medium">
                     +20% weight
                   </span>
                 )}
@@ -52,7 +52,7 @@ export default function CategoryBreakdown({
             </div>
 
             {/* Bar */}
-            <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+            <div className="h-2.5 bg-stone-100 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-700"
                 style={{
@@ -63,7 +63,7 @@ export default function CategoryBreakdown({
             </div>
 
             {showDescriptions && (
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-stone-500">
                 {CATEGORY_DESCRIPTIONS[cat.key]}
               </p>
             )}

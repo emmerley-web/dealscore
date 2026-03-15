@@ -25,11 +25,11 @@ function formatDate(isoString: string): string {
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-white border border-slate-200 rounded-xl shadow-lg p-3">
-        <p className="text-xs text-slate-500 mb-1">{label}</p>
-        <p className="text-lg font-bold text-brand-600">
+      <div className="bg-white border border-stone-200 rounded-xl shadow-lg p-3">
+        <p className="text-xs text-stone-500 mb-1">{label}</p>
+        <p className="text-lg font-bold text-stone-700">
           {payload[0].value}
-          <span className="text-sm font-normal text-slate-500">/100</span>
+          <span className="text-sm font-normal text-stone-500">/100</span>
         </p>
         {payload[0].payload.label && (
           <p className="text-xs text-slate-600 mt-0.5">

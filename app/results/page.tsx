@@ -124,7 +124,7 @@ export default function ResultsPage() {
   if (!result) {
     return (
       <div className="min-h-[80vh] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-brand-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-stone-600" />
       </div>
     );
   }
@@ -292,7 +292,7 @@ export default function ResultsPage() {
 
           <Link
             href="/tactics"
-            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 border border-stone-200 hover:border-brand-300 text-stone-700 hover:text-stone-700 font-semibold text-sm rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-400 text-stone-700 font-semibold text-sm rounded-xl transition-all"
           >
             <Lightbulb className="w-4 h-4" />
             View Tactics

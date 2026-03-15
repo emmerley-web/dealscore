@@ -22,7 +22,7 @@ export default function ScoreSpectrum({
   return (
     <div className="w-full">
       {showLabels && (
-        <div className="flex justify-between text-xs text-slate-500 mb-2 font-medium">
+        <div className="flex justify-between text-xs text-stone-500 mb-2 font-medium">
           <span>Just Getting Started</span>
           <span>Deal-Ready</span>
         </div>

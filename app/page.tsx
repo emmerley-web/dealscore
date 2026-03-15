@@ -205,7 +205,7 @@ export default function Home() {
 
       {/* Features */}
       <section className="py-24 px-4 sm:px-6 bg-white border-b border-stone-200">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <EyebrowLabel>How it works</EyebrowLabel>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-5">
@@ -240,7 +240,7 @@ export default function Home() {
 
       {/* What You Get */}
       <section className="py-24 px-4 sm:px-6 bg-stone-50 border-b border-stone-200">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <EyebrowLabel>What you receive</EyebrowLabel>

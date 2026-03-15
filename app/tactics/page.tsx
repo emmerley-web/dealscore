@@ -225,7 +225,7 @@ export default function TacticsPage() {
                     onClick={() => setActiveCategory(k)}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-amber-300 rounded-full text-sm font-medium text-amber-800 hover:bg-amber-100 transition-colors"
                   >
-                    {(() => { const I = CATEGORY_ICONS[k]; return <I className="w-3.5 h-3.5 flex-shrink-0" />; })()}
+                    {(() => { const I = CATEGORY_ICONS[k]; return I ? <I className="w-3.5 h-3.5 flex-shrink-0" /> : null; })()}
                     {CATEGORY_DISPLAY_NAMES[k]}
                     <span className="ml-1 text-xs text-amber-600 font-bold">
                       {cat ? Math.round(cat.score) : "?"}/100
@@ -270,7 +270,7 @@ export default function TacticsPage() {
                     : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:text-stone-700"
                 )}
               >
-                {(() => { const I = CATEGORY_ICONS[cat]; return <I className="w-3.5 h-3.5 inline-block mr-1 flex-shrink-0" />; })()}
+                {(() => { const I = CATEGORY_ICONS[cat]; return I ? <I className="w-3.5 h-3.5 inline-block mr-1 flex-shrink-0" /> : null; })()}
                 {CATEGORY_DISPLAY_NAMES[cat].split(" ")[0]}
                 {isWeak && " ·"} ({count})
               </button>

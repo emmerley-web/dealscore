@@ -19,33 +19,48 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* Header */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 border-b border-stone-200">
+      {/* Header — 2-col like FAQ/homepage hero, white bg */}
+      <section className="py-20 sm:py-24 px-4 sm:px-6 border-b border-stone-200 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
-            About DealScore
-          </p>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-6 leading-tight max-w-2xl">
-            Why we built this
-          </h1>
-          <p className="text-lg text-stone-500 leading-relaxed max-w-2xl">
-            DealScore was built by two ghostwriters: Tim Vandehey, who has spent two
-            decades working directly with publishers and agents, and Emily Liao, who
-            brought the product and technical foundation that makes it work at scale.
-          </p>
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
+                About DealScore
+              </p>
+              <h1 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+                Why we built this
+              </h1>
+              <p className="text-lg text-stone-500 leading-relaxed">
+                DealScore was built by two ghostwriters: Tim Vandehey, who has
+                spent two decades working directly with publishers and agents,
+                and Emily Liao, who brought the product and technical foundation
+                that makes it work at scale.
+              </p>
+            </div>
+            <div className="hidden lg:block">
+              <div className="overflow-hidden h-[360px] bg-stone-100">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Origin Story */}
+      {/* Origin Story — centered prose column */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 border-b border-stone-200">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
             The backstory
           </p>
-          <h2 className="font-serif text-3xl font-bold text-stone-900 mb-8 max-w-xl">
+          <h2 className="font-serif text-3xl font-bold text-stone-900 mb-8">
             Where this came from
           </h2>
-          <div className="space-y-5 text-stone-600 leading-relaxed text-base max-w-3xl">
+          <div className="space-y-5 text-stone-600 leading-relaxed text-base">
             <p>
               Between them, Tim and Emily have shepherded hundreds of authors through the
               full arc of getting a book published, from the first conversation about an
@@ -83,19 +98,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team */}
+      {/* Team — wider container since each bio is a side-by-side layout */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-stone-50 border-b border-stone-200">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
             The team
           </p>
           <h2 className="font-serif text-3xl font-bold text-stone-900 mb-12">
             The people behind it
           </h2>
-          <div className="space-y-14 max-w-4xl">
+          <div className="space-y-14">
 
             {/* Tim */}
-            <div className="grid sm:grid-cols-[auto_1fr] gap-8">
+            <div className="grid sm:grid-cols-[160px_1fr] gap-8 lg:gap-12">
               <div className="flex flex-col items-center sm:items-start gap-4">
                 <div className="w-36 h-36 overflow-hidden flex-shrink-0 bg-stone-200">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -143,7 +158,7 @@ export default function AboutPage() {
             <hr className="border-stone-200" />
 
             {/* Emily */}
-            <div className="grid sm:grid-cols-[auto_1fr] gap-8">
+            <div className="grid sm:grid-cols-[160px_1fr] gap-8 lg:gap-12">
               <div className="flex flex-col items-center sm:items-start gap-4">
                 <div className="w-36 h-36 overflow-hidden flex-shrink-0 bg-stone-200">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -187,16 +202,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What we believe */}
+      {/* What we believe — 3-col grid, needs room */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 border-b border-stone-200">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
             What we believe
           </p>
           <h2 className="font-serif text-3xl font-bold text-stone-900 mb-12">
             The principles behind DealScore
           </h2>
-          <div className="grid sm:grid-cols-3 gap-10 max-w-4xl">
+          <div className="grid sm:grid-cols-3 gap-10">
             <div>
               <h3 className="font-serif font-bold text-stone-900 mb-3 text-lg">No absolutes</h3>
               <p className="text-base text-stone-500 leading-relaxed">
@@ -229,11 +244,11 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-20 sm:py-24 px-4 sm:px-6 bg-stone-50">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-xl mx-auto text-center">
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-5">
             Ready to find out where you stand?
           </h2>
-          <p className="text-stone-500 text-lg mb-10 leading-relaxed max-w-xl">
+          <p className="text-stone-500 text-lg mb-10 leading-relaxed">
             Five minutes and 20 questions covering the variables that determine
             your readiness for a traditional nonfiction deal.
           </p>

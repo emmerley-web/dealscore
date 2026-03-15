@@ -8,11 +8,11 @@ interface CategoryBreakdownProps {
 }
 
 const categoryColors = [
-  { bar: "#3b82f6", bg: "#eff6ff", text: "#1d4ed8" },   // blue – platform
-  { bar: "#8b5cf6", bg: "#f5f3ff", text: "#5b21b6" },   // purple – manuscript
-  { bar: "#f43f5e", bg: "#fff1f2", text: "#be123c" },   // rose – uniqueness
-  { bar: "#f59e0b", bg: "#fffbeb", text: "#b45309" },   // amber – commercial
-  { bar: "#14b8a6", bg: "#f0fdfa", text: "#0f766e" },   // teal – timeliness
+  { bar: "#44403c", bg: "#f5f5f4", text: "#1c1917" },   // stone-dark – platform
+  { bar: "#c4a030", bg: "#fefce8", text: "#92400e" },   // gold – manuscript
+  { bar: "#78716c", bg: "#f5f5f4", text: "#44403c" },   // stone-mid – uniqueness
+  { bar: "#a8861a", bg: "#fefce8", text: "#78350f" },   // gold-dark – commercial
+  { bar: "#292524", bg: "#f5f5f4", text: "#1c1917" },   // stone-deep – timeliness
 ];
 
 function scoreColor(score: number): string {
@@ -34,11 +34,11 @@ export default function CategoryBreakdown({
           <div key={cat.key} className="group">
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-semibold text-slate-800">
+                <span className="text-sm font-semibold text-stone-800">
                   {cat.name}
                 </span>
                 {isWeighted && (
-                  <span className="text-xs px-1.5 py-0.5 bg-brand-50 text-brand-600 border border-brand-200 rounded-full font-medium">
+                  <span className="text-xs px-1.5 py-0.5 bg-stone-50 text-stone-700 border border-stone-200 rounded-full font-medium">
                     +20% weight
                   </span>
                 )}
@@ -52,7 +52,7 @@ export default function CategoryBreakdown({
             </div>
 
             {/* Bar */}
-            <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden">
+            <div className="h-2.5 bg-stone-100 rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-700"
                 style={{
@@ -63,7 +63,7 @@ export default function CategoryBreakdown({
             </div>
 
             {showDescriptions && (
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-stone-500">
                 {CATEGORY_DESCRIPTIONS[cat.key]}
               </p>
             )}

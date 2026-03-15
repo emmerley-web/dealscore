@@ -14,7 +14,7 @@ const FEATURES = [
     icon: BarChart3,
     title: "The variables publishers actually use",
     description:
-      "Platform, manuscript quality, concept uniqueness, commercial potential, timeliness — and whether you are the only person who could have written this book. These are the real inputs. Most authors never know to ask about them.",
+      "Platform, manuscript quality, concept uniqueness, commercial potential, timeliness, and whether you are the only person who could have written this book. These are the real inputs. Most authors never know to ask about them.",
   },
   {
     icon: Star,
@@ -26,7 +26,7 @@ const FEATURES = [
     icon: Lightbulb,
     title: "A clear path forward",
     description:
-      "Traditional publishing is one path. Hybrid publishers and self-publishing are others. Your score and breakdown help you figure out which route is actually right for you — not just which one you hoped for.",
+      "Traditional publishing is one path. Hybrid publishers and self-publishing are others. Your score and breakdown help you figure out which route is actually right for you, not just the one you hoped for.",
   },
   {
     icon: TrendingUp,
@@ -37,12 +37,12 @@ const FEATURES = [
 ];
 
 const SPECTRUM_PREVIEW = [
-  { range: "0\u201320", label: "Just Getting Started", color: "#ef4444" },
-  { range: "21\u201340", label: "Early Explorer", color: "#f97316" },
-  { range: "41\u201360", label: "Rising Contender", color: "#eab308" },
-  { range: "61\u201375", label: "Strong Candidate", color: "#84cc16" },
-  { range: "76\u201388", label: "Near Deal-Ready", color: "#22c55e" },
-  { range: "89\u2013100", label: "Deal-Ready", color: "#10b981" },
+  { range: "0\u201320", label: "Just Getting Started", color: "#a8a29e" },
+  { range: "21\u201340", label: "Early Explorer", color: "#78716c" },
+  { range: "41\u201360", label: "Rising Contender", color: "#57534e" },
+  { range: "61\u201375", label: "Strong Candidate", color: "#44403c" },
+  { range: "76\u201388", label: "Near Deal-Ready", color: "#292524" },
+  { range: "89\u2013100", label: "Deal-Ready", color: "#1c1917" },
 ];
 
 const WHAT_YOU_GET = [
@@ -56,80 +56,72 @@ const WHAT_YOU_GET = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section
-        className="relative py-24 px-4 sm:px-6 overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(135deg, #2e1065 0%, #4c1d95 35%, #6d28d9 65%, #7c3aed 100%)",
-        }}
-      >
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 50%, white 1px, transparent 1px), radial-gradient(circle at 80% 50%, white 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="relative max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-            <BookOpen className="w-4 h-4 text-gold-400" />
-            <span className="text-sm text-white/90 font-medium">
-              Built by publishing insiders for aspiring authors
-            </span>
+      <section className="relative bg-white border-b border-stone-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-0 min-h-[560px]">
+            {/* Text */}
+            <div className="flex flex-col justify-center py-20 pr-0 md:pr-16">
+              <p className="text-xs font-medium tracking-[0.18em] uppercase text-stone-400 mb-8">
+                Built by publishing insiders for aspiring authors
+              </p>
+              <h1 className="font-serif text-5xl sm:text-6xl font-bold text-stone-900 mb-7 leading-[1.1]">
+                Do you know what it actually takes to get a nonfiction book deal?
+              </h1>
+              <p className="text-lg text-stone-500 mb-10 leading-relaxed max-w-lg">
+                Most nonfiction authors can feel when something is wrong with their
+                submission but cannot name it. DealScore gives you the framework
+                agents and editors use, and tells you exactly where you stand on
+                each variable.
+              </p>
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <Link
+                  href="/assessment"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium text-base transition-colors group"
+                >
+                  Take the Free Assessment
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+              <p className="mt-5 text-sm text-stone-400">
+                5 minutes. 20 questions. For nonfiction authors at any stage.
+              </p>
+            </div>
+
+            {/* Image */}
+            <div className="hidden md:block relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=900&q=85&auto=format&fit=crop"
+                alt="Books on shelves"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-stone-900/10" />
+            </div>
           </div>
-
-          <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-            Do you know what it actually takes to get a{" "}
-            <span className="text-gold-400">nonfiction book deal?</span>
-          </h1>
-
-          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Most nonfiction authors can feel when something is wrong with their
-            submission but cannot name it. DealScore gives you the framework
-            agents and editors use — and tells you exactly where you stand on
-            each variable.
-          </p>
-
-          <Link
-            href="/assessment"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all group"
-          >
-            Take the Free Assessment
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-
-          <p className="mt-5 text-sm text-white/50">
-            5 minutes. 20 questions. For nonfiction authors at any stage.
-          </p>
         </div>
       </section>
 
       {/* Readiness Spectrum Preview */}
-      <section className="py-16 px-4 sm:px-6 bg-white border-b border-slate-200">
+      <section className="py-14 px-4 sm:px-6 bg-stone-50 border-b border-stone-200">
         <div className="max-w-4xl mx-auto">
-          <p className="text-center text-sm font-semibold text-slate-500 uppercase tracking-widest mb-6">
+          <p className="text-center text-xs font-semibold text-stone-400 uppercase tracking-[0.18em] mb-8">
             The DealScore Readiness Spectrum
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-stone-200 border border-stone-200">
             {SPECTRUM_PREVIEW.map((item) => (
               <div
                 key={item.label}
-                className="rounded-xl p-3 text-center border"
-                style={{
-                  borderColor: item.color + "40",
-                  backgroundColor: item.color + "0d",
-                }}
+                className="bg-white p-4 text-center"
               >
                 <div
-                  className="text-xs font-bold mb-1"
+                  className="text-xs font-bold mb-1.5 font-serif"
                   style={{ color: item.color }}
                 >
                   {item.range}
                 </div>
-                <div className="text-xs font-medium text-slate-700 leading-tight">
+                <div className="text-xs text-stone-500 leading-tight">
                   {item.label}
                 </div>
               </div>
@@ -139,33 +131,33 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="py-20 px-4 sm:px-6 bg-slate-50">
+      <section className="py-24 px-4 sm:px-6 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
+          <div className="max-w-2xl mb-16">
+            <h2 className="font-serif text-3xl font-bold text-stone-900 mb-5">
               The knowledge gap is the problem
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-stone-500 leading-relaxed">
               Authors can ask anyone whether they have a chance at a traditional deal.
               The problem is they do not know which variables to assess in the first place.
-              DealScore gives you the same framework publishing professionals use — and
+              DealScore gives you the same framework publishing professionals use, and
               points you toward the right path, whether that is traditional, hybrid, or self-publishing.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-8">
             {FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-brand-300 hover:shadow-md transition-all"
+                className="border-t border-stone-200 pt-6"
               >
-                <div className="w-10 h-10 bg-brand-50 rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="w-5 h-5 text-brand-600" />
+                <div className="w-8 h-8 flex items-center justify-center mb-4">
+                  <feature.icon className="w-5 h-5 text-stone-400" />
                 </div>
-                <h3 className="font-bold text-slate-900 mb-2">
+                <h3 className="font-serif font-bold text-stone-900 mb-3 text-lg">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-stone-500 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>
@@ -175,70 +167,67 @@ export default function Home() {
       </section>
 
       {/* What You Get */}
-      <section className="py-20 px-4 sm:px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-24 px-4 sm:px-6 bg-stone-50 border-b border-stone-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="font-serif text-3xl font-bold text-stone-900 mb-5">
                 Know where you stand before you query
               </h2>
-              <p className="text-slate-600 mb-8 leading-relaxed">
+              <p className="text-stone-500 mb-10 leading-relaxed">
                 20 questions. A score out of 100. A breakdown showing exactly
-                which variables are holding you back — and which publishing
+                which variables are holding you back and which publishing
                 path makes sense for your book right now.
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-4">
                 {WHAT_YOU_GET.map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0" />
-                    <span className="text-slate-700 font-medium">{item}</span>
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle className="w-4 h-4 text-stone-400 flex-shrink-0 mt-0.5" />
+                    <span className="text-stone-700 text-sm">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Mock score card */}
-            <div className="bg-gradient-to-br from-brand-700 to-brand-900 rounded-2xl p-8 text-white shadow-2xl">
-              <p className="text-white/60 text-sm font-medium mb-1 uppercase tracking-wide">
+            <div className="bg-stone-900 p-8 text-white">
+              <p className="text-stone-400 text-xs font-medium mb-1 uppercase tracking-widest">
                 Example: Business / Leadership Author
               </p>
-              <div className="flex items-end gap-2 mb-4">
-                <span className="text-7xl font-extrabold text-gold-400">
+              <div className="flex items-end gap-2 mb-4 mt-3">
+                <span className="font-serif text-7xl font-bold text-white leading-none">
                   72
                 </span>
-                <span className="text-2xl text-white/40 mb-3">/100</span>
+                <span className="text-2xl text-stone-500 mb-2">/100</span>
               </div>
-              <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-3 py-1 mb-6">
-                <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span className="text-sm font-medium">Strong Candidate</span>
+              <div className="inline-flex items-center gap-2 border border-stone-700 px-3 py-1 mb-8">
+                <div className="w-1.5 h-1.5 rounded-full bg-stone-400" />
+                <span className="text-xs font-medium text-stone-300 tracking-wide">Strong Candidate</span>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {[
-                  { name: "Platform", score: 45, bar: "#3b82f6" },
-                  { name: "Manuscript", score: 80, bar: "#8b5cf6" },
-                  { name: "Uniqueness", score: 75, bar: "#f43f5e" },
-                  { name: "Commercial", score: 85, bar: "#f59e0b" },
-                  { name: "Timeliness", score: 70, bar: "#14b8a6" },
+                  { name: "Platform", score: 45 },
+                  { name: "Manuscript", score: 80 },
+                  { name: "Uniqueness", score: 75 },
+                  { name: "Commercial", score: 85 },
+                  { name: "Timeliness", score: 70 },
                 ].map((cat) => (
                   <div key={cat.name}>
-                    <div className="flex justify-between text-xs mb-1">
-                      <span className="text-white/70">{cat.name}</span>
-                      <span className="font-bold">{cat.score}</span>
+                    <div className="flex justify-between text-xs mb-1.5">
+                      <span className="text-stone-400">{cat.name}</span>
+                      <span className="font-medium text-stone-300">{cat.score}</span>
                     </div>
-                    <div className="h-1.5 bg-white/10 rounded-full">
+                    <div className="h-px bg-stone-700">
                       <div
-                        className="h-full rounded-full"
-                        style={{
-                          width: `${cat.score}%`,
-                          backgroundColor: cat.bar,
-                        }}
+                        className="h-px bg-stone-300"
+                        style={{ width: `${cat.score}%` }}
                       />
                     </div>
                   </div>
                 ))}
               </div>
-              <p className="text-white/40 text-xs mt-4 italic">
+              <p className="text-stone-500 text-xs mt-6 leading-relaxed">
                 Biggest opportunity: Platform. A newsletter, speaking engagements,
                 and a few high-profile podcast appearances could push this score
                 into deal-ready territory.
@@ -248,48 +237,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Editorial image break */}
+      <section className="relative h-64 sm:h-80 overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1600&q=80&auto=format&fit=crop"
+          alt="A library reading room"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-stone-900/30" />
+      </section>
+
       {/* CTA */}
-      <section
-        className="py-24 px-4 sm:px-6 text-center"
-        style={{
-          background:
-            "linear-gradient(135deg, #2e1065 0%, #5b21b6 50%, #7c3aed 100%)",
-        }}
-      >
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl font-extrabold text-white mb-4">
-            Most authors query too early, or chase the wrong path.
+      <section className="py-24 px-4 sm:px-6 bg-white border-t border-stone-200">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="font-serif text-4xl font-bold text-stone-900 mb-5">
+            Ready to find out where you stand?
           </h2>
-          <p className="text-white/70 text-lg mb-10">
+          <p className="text-stone-500 text-lg mb-10 leading-relaxed">
             Five minutes and 20 questions will tell you where you actually stand,
             which variables to address, and which publishing route makes sense
             for your nonfiction book right now.
           </p>
           <Link
             href="/assessment"
-            className="inline-flex items-center gap-2 px-10 py-5 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-xl text-xl shadow-xl hover:shadow-2xl transition-all group"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-stone-900 hover:bg-stone-700 text-white font-medium text-lg transition-colors group"
           >
             Start the Assessment
-            <ArrowRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 py-8 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="bg-stone-950 py-10 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2">
-            <BookOpen className="w-4 h-4 text-brand-400" />
-            <span className="font-bold text-white">
-              Deal<span className="text-brand-400">Score</span>
+            <BookOpen className="w-4 h-4 text-stone-500" />
+            <span className="font-serif font-bold text-white text-lg tracking-tight">
+              Deal<span className="text-stone-500">Score</span>
             </span>
           </div>
-          <div className="flex gap-6 text-sm text-slate-400">
+          <div className="flex gap-8 text-sm text-stone-500">
             <Link href="/about" className="hover:text-white transition-colors">About</Link>
             <Link href="/assessment" className="hover:text-white transition-colors">Assessment</Link>
             <Link href="/tactics" className="hover:text-white transition-colors">Tactics</Link>
           </div>
-          <p className="text-slate-500 text-sm">
+          <p className="text-stone-600 text-sm">
             Built by Tim Vandehey and Emily Liao.
           </p>
         </div>

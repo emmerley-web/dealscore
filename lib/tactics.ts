@@ -139,7 +139,7 @@ export const ALL_TACTICS: Tactic[] = [
     category: "manuscriptQuality",
     title: "Hire a Developmental Editor",
     description:
-      "A developmental editor addresses structural issues before you refine prose — the single highest-ROI investment in your manuscript.",
+      "A developmental editor addresses structural issues before you refine prose, the single highest-ROI investment in your manuscript.",
     effort: "high",
     timeframe: "1–3 months",
     actions: [
@@ -205,7 +205,7 @@ export const ALL_TACTICS: Tactic[] = [
     actions: [
       "Recruit 5–8 beta readers who are avid readers of your genre (not writers)",
       "Give them specific questions to answer, not open-ended prompts",
-      "Track patterns in feedback — what 3+ readers flag matters most",
+      "Track patterns in feedback; what 3+ readers flag matters most",
       "Do a targeted revision pass based on patterns, not individual preferences",
     ],
   },
@@ -214,7 +214,7 @@ export const ALL_TACTICS: Tactic[] = [
     category: "manuscriptQuality",
     title: "Study the Structure of 5 Bestsellers in Your Genre",
     description:
-      "Reverse-engineering books that succeeded in your market teaches you the structural expectations your reader has — and how to subvert them effectively.",
+      "Reverse-engineering books that succeeded in your market teaches you the structural expectations your reader has, and how to subvert them effectively.",
     effort: "medium",
     timeframe: "4–6 weeks",
     actions: [
@@ -314,7 +314,7 @@ export const ALL_TACTICS: Tactic[] = [
     actions: [
       "Outline at least 2 potential sequels or companion volumes",
       "Create a brief 'series overview' document (2 pages max)",
-      "Identify the recurring elements — world, characters, system — that enable expansion",
+      "Identify the recurring elements, world, characters, system, that enable expansion",
       "Frame your standalone as 'Book 1' even if the series is speculative",
     ],
   },
@@ -327,9 +327,9 @@ export const ALL_TACTICS: Tactic[] = [
     effort: "low",
     timeframe: "1–2 weeks",
     actions: [
-      "Practice pitching your book to strangers at parties — watch their faces",
+      "Practice pitching your book to strangers at parties and watch their faces",
       "Study the 'jacket copy' of 10 bestsellers in your genre for hook structure",
-      "Try the formula: [Protagonist] must [goal] before [stakes] — but [twist that makes it unique]",
+      "Try the formula: [Protagonist] must [goal] before [stakes], but [twist that makes it unique]",
       "Test your hook on 10 people and note genuine interest reactions",
     ],
   },
@@ -355,7 +355,7 @@ export const ALL_TACTICS: Tactic[] = [
     category: "conceptTimeliness",
     title: "Build Your 'Why Now' Argument",
     description:
-      "Every strong pitch needs a compelling 'why now' — the cultural, social, or market forces that make this the perfect moment for your book.",
+      "Every strong pitch needs a compelling 'why now': the cultural, social, or market forces that make this the perfect moment for your book.",
     effort: "low",
     timeframe: "1 week",
     actions: [
@@ -385,7 +385,7 @@ export const ALL_TACTICS: Tactic[] = [
     category: "conceptTimeliness",
     title: "Connect Your Book to a Trending Conversation Right Now",
     description:
-      "Publishing moves slowly — but if you can connect your book to a trend that's building now, your pitch will feel urgent to publishers who are thinking 18–24 months ahead.",
+      "Publishing moves slowly, but if you can connect your book to a trend that's building now, your pitch will feel urgent to publishers who are thinking 18 to 24 months ahead.",
     effort: "medium",
     timeframe: "2–4 weeks",
     actions: [
@@ -406,7 +406,7 @@ export const ALL_TACTICS: Tactic[] = [
     actions: [
       "Search Amazon, Goodreads, and bookseller lists for books directly competing with yours",
       "Read reader reviews to find what they wish the existing books had done differently",
-      "Articulate in one sentence: 'Readers who love [X] and [Y] have been asking for a book that [Z] — that's this book'",
+      "Articulate in one sentence: 'Readers who love [X] and [Y] have been asking for a book that [Z]; that's this book'",
       "Validate the gap by posting about the topic in reader communities and measuring engagement",
     ],
   },

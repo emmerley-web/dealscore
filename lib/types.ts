@@ -46,7 +46,7 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#ef4444",
     bgColor: "#fef2f2",
     description:
-      "A traditional deal is not realistic right now. That is not a judgment — it is useful information. Most authors in this range benefit most from self-publishing or hybrid publishing while building the foundations that a traditional deal requires.",
+      "A traditional deal is not realistic right now. That is not a judgment; it is useful information. Most authors in this range benefit most from self-publishing or hybrid publishing while building the foundations that a traditional deal requires.",
   },
   {
     min: 21,
@@ -64,7 +64,7 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#eab308",
     bgColor: "#fefce8",
     description:
-      "You have real foundations. A traditional deal is possible but competitive. Your category breakdown will show you exactly which one or two variables are holding you back — those are where to focus your energy.",
+      "You have real foundations. A traditional deal is possible but competitive. Your category breakdown will show you exactly which one or two variables are holding you back; those are where to focus your energy.",
   },
   {
     min: 61,
@@ -73,7 +73,7 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#84cc16",
     bgColor: "#f7fee7",
     description:
-      "You are competitive for representation. Agents will take your query seriously. The difference between this and a deal often comes down to one factor — usually platform or a sharper commercial hook.",
+      "You are competitive for representation. Agents will take your query seriously. The difference between this and a deal often comes down to one factor, usually platform or a sharper commercial hook.",
   },
   {
     min: 76,
@@ -91,7 +91,7 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#10b981",
     bgColor: "#ecfdf5",
     description:
-      "You have the platform, manuscript, and concept to compete at the highest level. The variables outside your control — timing, editor fit, market conditions — are now the main factors.",
+      "You have the platform, manuscript, and concept to compete at the highest level. The variables outside your control, timing, editor fit, market conditions, are now the main factors.",
   },
 ];
 
@@ -112,11 +112,11 @@ export const CATEGORY_DISPLAY_NAMES: Record<CategoryKey, string> = {
 
 export const CATEGORY_DESCRIPTIONS: Record<CategoryKey, string> = {
   platform:
-    "Your existing public reach: social following, email list, press coverage, speaking engagements, and media presence. For nonfiction, publishers look at this first. A strong concept with thin platform can sell — but the concept has to be exceptional.",
+    "Your existing public reach: social following, email list, press coverage, speaking engagements, and media presence. For nonfiction, publishers look at this first. A strong concept with thin platform can sell, but the concept has to be exceptional.",
   manuscriptQuality:
-    "The development and polish of your manuscript and book proposal. Nonfiction is acquired on proposal, not finished manuscript — but a weak proposal signals an unprepared author. Strong comps, a sharp overview, and sample chapters matter enormously.",
+    "The development and polish of your manuscript and book proposal. Nonfiction is acquired on proposal, not finished manuscript, but a weak proposal signals an unprepared author. Strong comps, a sharp overview, and sample chapters matter enormously.",
   conceptUniqueness:
-    "How differentiated your book is — and critically, whether you are the only person who could have written it. 'Only you could write this' is one of the most powerful things an agent can say to an acquisitions editor.",
+    "How differentiated your book is, and critically, whether you are the only person who could have written it. 'Only you could write this' is one of the most powerful things an agent can say to an acquisitions editor.",
   conceptCommercialPotential:
     "The size of the potential readership and the strength of your commercial hook. The pitch question every editor asks is: why is this book necessary, and who is buying it? A compelling answer to both is what gets a deal.",
   conceptTimeliness:

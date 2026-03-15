@@ -28,9 +28,9 @@ export default function AboutPage() {
             Why we built this
           </h1>
           <p className="text-lg text-stone-500 leading-relaxed max-w-2xl">
-            DealScore was built by two ghostwriters who have spent years inside the
-            traditional publishing world, both of whom have seen hundreds of submissions
-            and experienced the opacity of the process firsthand.
+            DealScore was built by a ghostwriter with two decades of experience working
+            directly with publishers and agents, and a writer and technologist who has
+            helped hundreds of authors navigate the path to publication.
           </p>
         </div>
       </section>
@@ -169,8 +169,9 @@ export default function AboutPage() {
                   catches up.
                 </p>
                 <p>
-                  Emily contributed the question framework and scoring logic, informed
-                  by years of helping authors get to agent-ready.
+                  She brought the product and technical foundation that makes DealScore
+                  work, applying the systems thinking from her AI startup background to
+                  the challenge of making Tim&apos;s publishing framework accessible at scale.
                 </p>
               </div>
             </div>

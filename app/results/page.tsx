@@ -29,9 +29,6 @@ type PublicationPath = {
 };
 
 function getPublicationPaths(score: number, genre: string): PublicationPath[] {
-  const isMemoirOrNarrative =
-    genre === "Memoir / Personal Essay" || genre === "Narrative Nonfiction";
-
   const traditionalFit: PublicationPath["fit"] =
     score >= 75 ? "strong" : score >= 55 ? "possible" : "unlikely";
 
@@ -48,8 +45,6 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
           ? "Your score puts you in contention. The remaining gaps in your breakdown are worth addressing before you query."
           : score >= 55
           ? "Possible, but you will face significant competition. Publishers will want to see stronger numbers on your weakest variables before committing."
-          : isMemoirOrNarrative
-          ? "Memoir and narrative nonfiction are among the hardest categories to place traditionally unless you have an existing platform, celebrity profile, or a story of truly singular urgency. Your score suggests traditional is not the right path right now."
           : "Unlikely at this stage. The variables that matter most to a Big Five publisher — platform, commercial hook, manuscript readiness — are not yet where they need to be.",
       realities: [
         "Requires a literary agent before any publisher will read your work",
@@ -240,7 +235,7 @@ export default function ResultsPage() {
                   <p className="text-sm text-stone-700 leading-relaxed mb-4">
                     {path.summary}
                   </p>
-                  <div className="space-y-1.5 mb-3">
+                  <div className="space-y-1.5">
                     {path.realities.map((r, i) => (
                       <div key={i} className="flex items-start gap-2 text-sm text-stone-600">
                         <CheckCircle className="w-3.5 h-3.5 text-stone-400 flex-shrink-0 mt-0.5" />
@@ -248,7 +243,6 @@ export default function ResultsPage() {
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-stone-400 italic">{path.examples}</p>
                 </div>
               );
             })}
@@ -315,7 +309,6 @@ export default function ResultsPage() {
               { label: "Browse the Tactics library for your weakest areas", href: "/tactics", internal: true },
               { label: "Search for literary agents at QueryTracker", href: "https://querytracker.net", internal: false },
               { label: "Research hybrid publishers at IBPA's member directory", href: "https://www.ibpa-online.org", internal: false },
-              { label: "Track your progress over time in My Results", href: "/dashboard", internal: true },
             ].map((item) => (
               <Link
                 key={item.href}

@@ -133,7 +133,7 @@ export default function AssessmentPage() {
             aria-valuemax={100}
           >
             <div
-              className="h-full bg-stone-500 rounded-full transition-all duration-500"
+              className="h-full bg-gold-500 rounded-full transition-all duration-500"
               style={{ width: `${overallProgress}%` }}
             />
           </div>
@@ -191,15 +191,6 @@ export default function AssessmentPage() {
                 ))}
               </div>
             </fieldset>
-            {(genre === "Memoir / Personal Essay" || genre === "Narrative Nonfiction") && (
-              <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-800 leading-relaxed">
-                <strong className="text-amber-900">Note on memoir and narrative nonfiction:</strong>{" "}
-                These are among the hardest categories to sell traditionally. Publishers
-                typically require either a very large existing platform, celebrity profile,
-                or a story of singular and urgent relevance. Your results will reflect
-                this reality honestly.
-              </div>
-            )}
           </div>
         )}
 

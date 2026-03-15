@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "DealScore: Know Your Chances of Getting a Traditional Book Deal",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body className="font-sans bg-white text-stone-900 antialiased">
         <Navigation />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

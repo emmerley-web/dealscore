@@ -19,7 +19,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* Header — 2-col like FAQ/homepage hero, white bg */}
+      {/* Header — 2-col, max-w-6xl, matches homepage hero */}
       <section className="py-20 sm:py-24 px-4 sm:px-6 border-b border-stone-200 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -51,56 +51,86 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Origin Story — centered prose column */}
+      {/* Origin Story — 2-col to fill max-w-6xl: prose left, key insights right */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 border-b border-stone-200">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
-            The backstory
-          </p>
-          <h2 className="font-serif text-3xl font-bold text-stone-900 mb-8">
-            Where this came from
-          </h2>
-          <div className="space-y-5 text-stone-600 leading-relaxed text-base">
-            <p>
-              Between them, Tim and Emily have shepherded hundreds of authors through the
-              full arc of getting a book published, from the first conversation about an
-              idea through the proposal process to submission, acquisition, and release.
-              They've worked across traditional, hybrid, and self-publishing routes, with
-              everyone from first-time authors to executives and public figures.
-            </p>
-            <p>
-              What they kept running into, regardless of the author or the book, was a
-              fundamental gap in expectations. Accomplished, intelligent people who had
-              built careers, companies, and reputations routinely arrived believing that
-              a strong idea and the right connections were enough to secure a deal. Many
-              had no idea that a publisher's decision rests on a small set of concrete,
-              measurable variables: platform, manuscript readiness, concept differentiation,
-              commercial hook, timeliness, and whether the author is the only person who
-              could have written this particular book.
-            </p>
-            <p>
-              The misunderstanding comes down to access, not intelligence. Publishing
-              professionals carry this framework in their heads and use it on every
-              submission, but they rarely articulate it to authors in any structured way.
-              Most authors go into the process without knowing what they're actually
-              being evaluated on.
-            </p>
-            <p>
-              Tim had been using a private scoring rubric with his own clients for years,
-              a way to give them an honest, structured read on where they stood before
-              they started querying. Emily recognised that it addressed something authors
-              needed long before they ever engaged a ghostwriter or a consultant. Together
-              they refined it, tested it against real acquisition patterns, and built it
-              into a tool that any author can use at the start of their journey. That tool
-              is DealScore.
-            </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-start">
+
+            {/* Prose */}
+            <div>
+              <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
+                The backstory
+              </p>
+              <h2 className="font-serif text-3xl font-bold text-stone-900 mb-8">
+                Where this came from
+              </h2>
+              <div className="space-y-5 text-stone-600 leading-relaxed text-base">
+                <p>
+                  Between them, Tim and Emily have shepherded hundreds of authors through the
+                  full arc of getting a book published, from the first conversation about an
+                  idea through the proposal process to submission, acquisition, and release.
+                  They've worked across traditional, hybrid, and self-publishing routes, with
+                  everyone from first-time authors to executives and public figures.
+                </p>
+                <p>
+                  What they kept running into, regardless of the author or the book, was a
+                  fundamental gap in expectations. Accomplished, intelligent people who had
+                  built careers, companies, and reputations routinely arrived believing that
+                  a strong idea and the right connections were enough to secure a deal. Many
+                  had no idea that a publisher's decision rests on a small set of concrete,
+                  measurable variables: platform, manuscript readiness, concept differentiation,
+                  commercial hook, timeliness, and whether the author is the only person who
+                  could have written this particular book.
+                </p>
+                <p>
+                  The misunderstanding comes down to access, not intelligence. Publishing
+                  professionals carry this framework in their heads and use it on every
+                  submission, but they rarely articulate it to authors in any structured way.
+                  Most authors go into the process without knowing what they're actually
+                  being evaluated on.
+                </p>
+                <p>
+                  Tim had been using a private scoring rubric with his own clients for years,
+                  a way to give them an honest, structured read on where they stood before
+                  they started querying. Emily recognised that it addressed something authors
+                  needed long before they ever engaged a ghostwriter or a consultant. Together
+                  they refined it, tested it against real acquisition patterns, and built it
+                  into a tool that any author can use at the start of their journey. That tool
+                  is DealScore.
+                </p>
+              </div>
+            </div>
+
+            {/* Sidebar: key insights */}
+            <div className="lg:pt-[4.5rem] space-y-6">
+              {[
+                {
+                  heading: "The framework is real",
+                  body: "Every submission to a Big Five editor is evaluated against the same set of variables. Platform, concept, commercial hook, timeliness, manuscript quality. Most authors never know to ask about them.",
+                },
+                {
+                  heading: "Access, not intelligence",
+                  body: "The authors who got turned down weren't less talented. They just didn't have the insider framework that agents and editors apply automatically to every project.",
+                },
+                {
+                  heading: "Before the query",
+                  body: "The right time to understand these variables is before you start querying, not after you've spent years wondering why the answer was no.",
+                },
+              ].map((item) => (
+                <div key={item.heading} className="border-l-2 border-gold-400 pl-5">
+                  <h3 className="font-serif font-bold text-stone-900 mb-2">{item.heading}</h3>
+                  <p className="text-sm text-stone-500 leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Team — wider container since each bio is a side-by-side layout */}
+      {/* Team */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-stone-50 border-b border-stone-200">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
             The team
           </p>
@@ -129,7 +159,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 text-stone-600 leading-relaxed text-base">
+              <div className="space-y-4 text-stone-600 leading-relaxed text-base max-w-2xl">
                 <p>
                   Tim Vandehey is a New York Times bestselling ghostwriter and co-author
                   who has worked on more than 70 nonfiction books, with over 20 published
@@ -177,7 +207,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-4 text-stone-600 leading-relaxed text-base">
+              <div className="space-y-4 text-stone-600 leading-relaxed text-base max-w-2xl">
                 <p>
                   Emily Liao is a ghostwriter and memoirist specialising in business
                   memoirs for traditional publishing. Before pivoting to writing full-time
@@ -202,9 +232,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* What we believe — 3-col grid, needs room */}
+      {/* What we believe */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 border-b border-stone-200">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
             What we believe
           </p>
@@ -244,21 +274,23 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-20 sm:py-24 px-4 sm:px-6 bg-stone-50">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-5">
-            Ready to find out where you stand?
-          </h2>
-          <p className="text-stone-500 text-lg mb-10 leading-relaxed">
-            Five minutes and 20 questions covering the variables that determine
-            your readiness for a traditional nonfiction deal.
-          </p>
-          <Link
-            href="/assessment"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium text-base transition-colors group"
-          >
-            Take the Assessment
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-xl">
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-5">
+              Ready to find out where you stand?
+            </h2>
+            <p className="text-stone-500 text-lg mb-10 leading-relaxed">
+              Five minutes and 20 questions covering the variables that determine
+              your readiness for a traditional nonfiction deal.
+            </p>
+            <Link
+              href="/assessment"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium text-base transition-colors group"
+            >
+              Take the Assessment
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
 

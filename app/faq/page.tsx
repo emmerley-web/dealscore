@@ -274,7 +274,7 @@ export default function FAQPage() {
 
       {/* FAQs */}
       <section className="py-12 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {FAQS.map((item) => (
             <FAQRow key={item.question} item={item} />
           ))}
@@ -283,7 +283,7 @@ export default function FAQPage() {
 
       {/* CTA */}
       <section className="py-16 px-4 sm:px-6 bg-stone-50 border-t border-stone-200">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
             Ready to find out where you stand
           </p>

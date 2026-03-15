@@ -10,7 +10,6 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
-import { LogoMark } from "@/components/Logo";
 
 const FEATURES = [
   {
@@ -77,7 +76,7 @@ function NewsletterSignup() {
 
   return (
     <section className="py-16 px-4 sm:px-6 bg-stone-100 border-y border-stone-200">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <EyebrowLabel>Stay informed</EyebrowLabel>
@@ -205,7 +204,7 @@ export default function Home() {
 
       {/* Features */}
       <section className="py-24 px-4 sm:px-6 bg-white border-b border-stone-200">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <EyebrowLabel>How it works</EyebrowLabel>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-5">
@@ -240,7 +239,7 @@ export default function Home() {
 
       {/* What You Get */}
       <section className="py-24 px-4 sm:px-6 bg-stone-50 border-b border-stone-200">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <EyebrowLabel>What you receive</EyebrowLabel>
@@ -361,24 +360,6 @@ export default function Home() {
       {/* Newsletter */}
       <NewsletterSignup />
 
-      {/* Footer */}
-      <footer className="bg-stone-950 border-t-2 border-gold-400/20 py-10 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2.5">
-            <LogoMark />
-            <span className="font-serif font-bold text-white text-lg tracking-tight">
-              Deal<span className="text-gold-400">Score</span>
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-6 text-sm text-stone-500">
-            <Link href="/about" className="hover:text-white transition-colors">About</Link>
-            <Link href="/assessment" className="hover:text-white transition-colors">Assessment</Link>
-            <Link href="/tactics" className="hover:text-white transition-colors">Tactics</Link>
-            <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
-          </div>
-          <p className="text-stone-600 text-sm">Built by Tim Vandehey and Emily Liao.</p>
-        </div>
-      </footer>
     </div>
   );
 }

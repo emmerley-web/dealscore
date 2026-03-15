@@ -7,10 +7,10 @@ function ProfileLink({ href, label }: { href: string; label: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 text-xs font-medium text-stone-600 border border-stone-300 px-3 py-1.5 hover:bg-stone-50 hover:border-stone-400 hover:text-stone-900 transition-colors"
+      className="inline-flex items-center gap-1 text-sm text-stone-500 hover:text-stone-900 underline underline-offset-2 decoration-stone-300 hover:decoration-stone-500 transition-colors"
     >
-      <ExternalLink className="w-3 h-3" />
       {label}
+      <ExternalLink className="w-3 h-3 flex-shrink-0 no-underline" />
     </a>
   );
 }
@@ -101,7 +101,7 @@ export default function AboutPage() {
                   <p className="text-stone-400 text-sm mt-1">
                     Co-creator, Publishing Strategy
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-3">
+                  <div className="flex flex-wrap gap-4 mt-3">
                     <ProfileLink href="https://www.timvandehey.com" label="timvandehey.com" />
                     <ProfileLink href="https://www.linkedin.com/in/tvandehey/" label="LinkedIn" />
                   </div>
@@ -153,7 +153,7 @@ export default function AboutPage() {
                   <p className="text-stone-400 text-sm mt-1">
                     Co-creator, Product &amp; Technology
                   </p>
-                  <div className="flex flex-wrap gap-2 mt-3">
+                  <div className="flex flex-wrap gap-4 mt-3">
                     <ProfileLink href="https://memoirist.co.uk" label="memoirist.co.uk" />
                     <ProfileLink href="https://www.linkedin.com/in/emilytheghost/" label="LinkedIn" />
                   </div>

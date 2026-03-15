@@ -243,18 +243,32 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <section className="py-20 px-4 sm:px-6 border-b border-stone-200">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
-            Frequently asked questions
-          </p>
-          <h1 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-6 leading-tight">
-            Questions about DealScore and the publishing process
-          </h1>
-          <p className="text-lg text-stone-500 leading-relaxed max-w-2xl">
-            What the score means, how publishing actually works, and what to do with
-            your results.
-          </p>
+      <section className="py-20 sm:py-24 px-4 sm:px-6 border-b border-stone-200 overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
+                Frequently asked questions
+              </p>
+              <h1 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-6 leading-tight">
+                Questions about DealScore and the publishing process
+              </h1>
+              <p className="text-lg text-stone-500 leading-relaxed">
+                What the score means, how publishing actually works, and what to do
+                with your results.
+              </p>
+            </div>
+            <div className="hidden lg:block">
+              <div className="overflow-hidden h-[380px] bg-stone-100">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

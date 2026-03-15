@@ -143,13 +143,13 @@ export default function ResultsPage() {
             <span className="text-2xl sm:text-3xl text-stone-600 mb-2 sm:mb-3">/100</span>
           </div>
           <div className="inline-flex items-center gap-2 border border-stone-700 px-4 py-1.5 mb-3">
-            <div className="w-1.5 h-1.5 rounded-full bg-stone-400" aria-hidden="true" />
+            <div className="w-1.5 h-1.5 rounded-full bg-gold-400" aria-hidden="true" />
             <span className="text-sm font-medium text-stone-300 tracking-wide">{level.label}</span>
           </div>
           <p className="text-stone-400 text-sm max-w-lg mx-auto mt-2 leading-relaxed">
             {level.description}
           </p>
-          <div className="mt-4 text-xs text-stone-600">
+          <div className="mt-4 text-xs text-stone-500">
             Genre: {result.genre}
           </div>
         </div>

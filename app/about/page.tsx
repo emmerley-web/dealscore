@@ -237,7 +237,7 @@ export default function AboutPage() {
           </p>
           <Link
             href="/assessment"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium transition-colors group"
+            className="inline-flex w-full sm:w-auto justify-center sm:justify-start items-center gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium transition-colors group"
           >
             Take the Assessment
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />

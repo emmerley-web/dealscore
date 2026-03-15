@@ -344,7 +344,7 @@ export default function Home() {
       <NewsletterSignup />
 
       {/* Footer */}
-      <footer className="bg-stone-950 py-10 px-4 sm:px-6">
+      <footer className="bg-stone-950 border-t-2 border-gold-400/20 py-10 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2.5">
             <LogoMark />

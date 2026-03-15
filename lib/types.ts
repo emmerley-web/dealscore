@@ -43,55 +43,55 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     min: 0,
     max: 20,
     label: "Just Getting Started",
-    color: "#ef4444",
-    bgColor: "#fef2f2",
+    color: "#a8a29e",
+    bgColor: "#fafaf9",
     description:
-      "A traditional deal is not realistic right now. That is not a judgment; it is useful information. Most authors in this range benefit most from self-publishing or hybrid publishing while building the foundations that a traditional deal requires.",
+      "The foundations for a traditional deal are not yet in place. Your category breakdown shows where to focus first. Most authors at this stage benefit from hybrid or self-publishing while building toward traditional.",
   },
   {
     min: 21,
     max: 40,
     label: "Early Stage",
-    color: "#f97316",
-    bgColor: "#fff7ed",
+    color: "#78716c",
+    bgColor: "#f5f5f4",
     description:
-      "Key variables need significant development before a traditional publisher will take you seriously. Hybrid publishing is a realistic path now. A 12-24 month platform and proposal strategy could change this picture considerably.",
+      "Key variables need significant development before traditional publishing is realistic. Hybrid publishing is a viable path right now. A focused strategy on your weakest areas over 12–18 months could change this picture.",
   },
   {
     min: 41,
     max: 60,
     label: "Building Momentum",
-    color: "#eab308",
-    bgColor: "#fefce8",
+    color: "#57534e",
+    bgColor: "#f5f5f4",
     description:
-      "You have real foundations. A traditional deal is possible but competitive. Your category breakdown will show you exactly which one or two variables are holding you back; those are where to focus your energy.",
+      "Real foundations are in place and a traditional deal is possible — but competitive. Your category breakdown shows you exactly which one or two variables are holding you back. Those are where to focus your energy.",
   },
   {
     min: 61,
     max: 75,
     label: "Strong Candidate",
-    color: "#84cc16",
-    bgColor: "#f7fee7",
+    color: "#a8861a",
+    bgColor: "#fefce8",
     description:
-      "You are competitive for representation. Agents will take your query seriously. The difference between this and a deal often comes down to one factor, usually platform or a sharper commercial hook.",
+      "You are competitive for representation. Agents will take your query seriously. At this level, the difference between a request and a pass usually comes down to one variable — most often platform or a sharper commercial hook.",
   },
   {
     min: 76,
     max: 88,
     label: "Near Deal-Ready",
-    color: "#22c55e",
-    bgColor: "#f0fdf4",
+    color: "#c4a030",
+    bgColor: "#fefce8",
     description:
-      "Very attractive to publishers. The gaps are small and addressable. At this level, timing, the right agent, and the specific acquisitions editor matter as much as the manuscript itself.",
+      "Very attractive to agents and publishers. The gaps are small and addressable. At this stage, timing, the right agent relationship, and acquisitions editor fit matter as much as the manuscript.",
   },
   {
     min: 89,
     max: 100,
     label: "Deal-Ready",
-    color: "#10b981",
-    bgColor: "#ecfdf5",
+    color: "#292524",
+    bgColor: "#f5f5f4",
     description:
-      "You have the platform, manuscript, and concept to compete at the highest level. The variables outside your control, timing, editor fit, market conditions, are now the main factors.",
+      "You have the platform, manuscript, and concept to compete at the highest level. The variables outside your control — timing, market conditions, editor fit — are now the primary factors.",
   },
 ];
 

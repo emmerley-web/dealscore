@@ -23,12 +23,9 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
-                <p className="text-sm font-medium tracking-[0.18em] uppercase text-stone-400">
-                  About DealScore
-                </p>
-              </div>
+              <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
+                About DealScore
+              </p>
               <h1 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">
                 Why we built this
               </h1>
@@ -75,11 +72,11 @@ export default function AboutPage() {
               could have written this particular book.
             </p>
             <p>
-              The misunderstanding isn&rsquo;t a failure of intelligence. It&rsquo;s a failure of
-              access. Publishing professionals carry this framework in their heads and use
-              it on every submission, but they rarely articulate it to authors in any
-              structured way. The result is that most authors go into the process without
-              knowing what they&rsquo;re actually being evaluated on.
+              The misunderstanding comes down to access, not intelligence. Publishing
+              professionals carry this framework in their heads and use it on every
+              submission, but they rarely articulate it to authors in any structured way.
+              Most authors go into the process without knowing what they&rsquo;re actually
+              being evaluated on.
             </p>
             <p>
               Tim had been using a private scoring rubric with his own clients for years,

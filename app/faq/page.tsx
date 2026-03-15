@@ -245,12 +245,9 @@ export default function FAQPage() {
       {/* Header */}
       <section className="py-20 px-4 sm:px-6 border-b border-stone-200">
         <div className="max-w-3xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-stone-400">
-              Frequently asked questions
-            </p>
-          </div>
+          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
+            Frequently asked questions
+          </p>
           <h1 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-6 leading-tight">
             Questions about DealScore and the publishing process
           </h1>
@@ -273,12 +270,9 @@ export default function FAQPage() {
       {/* CTA */}
       <section className="py-16 px-4 sm:px-6 bg-stone-50 border-t border-stone-200">
         <div className="max-w-3xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-stone-400">
-              Ready to find out where you stand
-            </p>
-          </div>
+          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
+            Ready to find out where you stand
+          </p>
           <h2 className="font-serif text-3xl font-bold text-stone-900 mb-4 max-w-lg">
             Take the assessment
           </h2>

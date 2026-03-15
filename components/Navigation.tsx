@@ -27,9 +27,9 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-[4.5rem]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <LogoMark />
-            <span className="font-serif font-bold text-stone-900 text-xl tracking-tight">
+          <Link href="/" className="flex items-center gap-3 group">
+            <LogoMark className="scale-110 origin-left" />
+            <span className="font-serif font-bold text-stone-900 text-2xl tracking-tight">
               Deal<span className="text-gold-400">Score</span>
             </span>
           </Link>

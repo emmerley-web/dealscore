@@ -166,19 +166,16 @@ export default function TacticsPage() {
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Header */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-stone-400">
-              Strategy library
-            </p>
-          </div>
+          <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-4">
+            Strategy Library
+          </p>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-3">
             Tactics
           </h1>
-          <p className="text-stone-500 text-base max-w-2xl">
+          <p className="text-stone-500 text-base">
             {latestResult
               ? `Sorted for your latest score (${latestResult.dealScore}/100 in ${latestResult.genre}). The tactics that will move your score the most appear first.`
-              : "Concrete strategies for improving every part of your book deal readiness. Take the assessment first and we will prioritize them for you."}
+              : "Concrete strategies for improving every part of your book deal readiness. Take the assessment first and we'll prioritize them for you."}
           </p>
         </div>
 

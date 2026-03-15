@@ -56,15 +56,11 @@ const WHAT_YOU_GET = [
   "Tactics and resources matched to your weakest areas",
 ];
 
-function EyebrowLabel({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
+function EyebrowLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`flex items-center gap-3 mb-6 ${center ? "justify-center" : ""}`}>
-      <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
-      <p className="text-sm font-medium tracking-[0.18em] uppercase text-stone-400">
-        {children}
-      </p>
-      {center && <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />}
-    </div>
+    <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
+      {children}
+    </p>
   );
 }
 
@@ -175,7 +171,7 @@ export default function Home() {
               <div className="overflow-hidden h-[480px] bg-stone-100">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
+                  src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=900&q=80"
                   alt=""
                   className="w-full h-full object-cover object-center"
                 />
@@ -211,7 +207,7 @@ export default function Home() {
       <section className="py-24 px-4 sm:px-6 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <EyebrowLabel center>How it works</EyebrowLabel>
+            <EyebrowLabel>How it works</EyebrowLabel>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-5">
               The knowledge gap is the problem
             </h2>
@@ -342,19 +338,19 @@ export default function Home() {
 
       {/* CTA */}
       <section className="py-24 px-4 sm:px-6 bg-white border-t border-stone-200">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto text-center">
           <EyebrowLabel>Get started</EyebrowLabel>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-5 max-w-xl">
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-5">
             Ready to find out where you stand?
           </h2>
-          <p className="text-stone-500 text-lg mb-10 leading-relaxed max-w-xl">
+          <p className="text-stone-500 text-lg mb-10 leading-relaxed">
             Five minutes and 20 questions. A score out of 100, a breakdown across every
             variable, and a clear sense of which publishing route makes sense for your
             book right now.
           </p>
           <Link
             href="/assessment"
-            className="inline-flex w-full sm:w-auto justify-center sm:justify-start items-center gap-2 px-10 py-5 bg-stone-900 hover:bg-stone-700 text-white font-medium text-lg transition-colors group"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-stone-900 hover:bg-stone-700 text-white font-medium text-lg transition-colors group"
           >
             Start the Assessment
             <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />

@@ -117,7 +117,7 @@ export default function AssessmentPage() {
       <div className="max-w-2xl mx-auto">
         {/* Progress bar */}
         <div className="mb-8">
-          <div className="flex justify-between text-xs text-stone-500 mb-2 font-medium">
+          <div className="flex justify-between text-sm text-stone-500 mb-2 font-medium">
             <span>
               {step === "genre"
                 ? "Step 1 of 6: Pick your genre"
@@ -150,7 +150,7 @@ export default function AssessmentPage() {
                 key={cat}
                 role="listitem"
                 className={clsx(
-                  "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all",
+                  "flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all",
                   typeof step === "number" && step === i
                     ? "bg-stone-100 text-stone-700 border border-stone-300"
                     : categoryComplete(i)
@@ -168,7 +168,7 @@ export default function AssessmentPage() {
         {/* Genre selection */}
         {step === "genre" && (
           <div className="bg-white rounded-2xl border border-stone-200 p-6 sm:p-8 shadow-sm">
-            <h1 className="text-2xl font-bold text-stone-900 mb-2">
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-2">
               What genre are you writing in?
             </h1>
             <p className="text-stone-500 mb-6">
@@ -204,7 +204,7 @@ export default function AssessmentPage() {
           <div className="bg-white rounded-2xl border border-stone-200 p-6 sm:p-8 shadow-sm">
             <div className="flex items-center gap-3 mb-2">
               {(() => { const Icon = CATEGORY_ICONS[currentCategory]; return <Icon className="w-6 h-6 text-gold-500 flex-shrink-0" />; })()}
-              <h1 className="text-2xl font-bold text-stone-900">
+              <h1 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
                 {CATEGORY_DISPLAY_NAMES[currentCategory]}
               </h1>
             </div>

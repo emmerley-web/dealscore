@@ -133,7 +133,7 @@ export default function ResultsPage() {
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Score Hero */}
         <div className="bg-stone-900 p-6 sm:p-8 text-center text-white">
-          <p className="text-stone-400 text-xs font-medium uppercase tracking-[0.18em] mb-4">
+          <p className="text-stone-400 text-sm font-semibold uppercase tracking-[0.18em] mb-4">
             Your DealScore
           </p>
           <div className="flex items-end justify-center gap-2 mb-3">
@@ -149,14 +149,14 @@ export default function ResultsPage() {
           <p className="text-stone-400 text-sm max-w-lg mx-auto mt-2 leading-relaxed">
             {level.description}
           </p>
-          <div className="mt-4 text-xs text-stone-500">
-            Genre: {result.genre}
+          <div className="mt-4 text-sm text-stone-500">
+            {result.genre}
           </div>
         </div>
 
         {/* Spectrum */}
         <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
-          <h2 className="font-bold text-stone-900 mb-4">
+          <h2 className="font-serif text-lg font-bold text-stone-900 mb-4">
             Where you fall on the spectrum
           </h2>
           <ScoreSpectrum score={result.dealScore} />
@@ -164,7 +164,7 @@ export default function ResultsPage() {
 
         {/* Category Breakdown */}
         <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
-          <h2 className="font-bold text-stone-900 mb-1">Category breakdown</h2>
+          <h2 className="font-serif text-lg font-bold text-stone-900 mb-1">Category breakdown</h2>
           <p className="text-sm text-stone-500 mb-5">
             Platform carries 20% more weight in the final score. But a genuinely
             irreplaceable author position can offset a thin platform; your
@@ -178,7 +178,7 @@ export default function ResultsPage() {
           <div className="bg-stone-100 border border-stone-200 rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-3">
               <TrendingUp className="w-5 h-5 text-stone-600" />
-              <h2 className="font-bold text-stone-900">
+              <h2 className="font-serif text-lg font-bold text-stone-900">
                 Where to focus first
               </h2>
             </div>
@@ -206,7 +206,7 @@ export default function ResultsPage() {
 
         {/* Publication Paths */}
         <div>
-          <h2 className="font-bold text-stone-900 mb-1 text-lg">
+          <h2 className="font-serif text-xl font-bold text-stone-900 mb-1">
             Which publishing path fits you right now
           </h2>
           <p className="text-sm text-stone-500 mb-5">

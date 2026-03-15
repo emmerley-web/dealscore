@@ -245,12 +245,7 @@ export default function Home() {
           alt="A library reading room"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-stone-900/50" />
-        <div className="relative h-full flex items-center justify-center px-4">
-          <p className="font-serif text-white text-2xl sm:text-3xl font-bold text-center max-w-2xl leading-tight">
-            Most authors query too early, or chase the wrong path.
-          </p>
-        </div>
+        <div className="absolute inset-0 bg-stone-900/30" />
       </section>
 
       {/* CTA */}

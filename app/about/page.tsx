@@ -39,33 +39,39 @@ export default function AboutPage() {
       <section className="py-16 px-4 sm:px-6 border-b border-stone-200">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-2xl font-bold text-stone-900 mb-8">The backstory</h2>
-          <div className="space-y-5 text-stone-600 leading-relaxed">
+          <div className="space-y-5 text-stone-600 leading-relaxed text-base">
             <p>
-              Tim had been ghostwriting nonfiction books for over fifteen years when
-              he started noticing a pattern. The authors who got deals were not always
-              the ones with the best books. They were the ones who happened to walk
-              in the door already understanding what publishers were actually evaluating:
-              platform, concept differentiation, commercial hook, timeliness, and whether
-              the author was uniquely positioned to write the book.
+              Between them, Tim and Emily have shepherded hundreds of authors through the
+              full arc of getting a book published — from the first conversation about an
+              idea, through the proposal process, to submission, acquisition, and release.
+              They have worked across traditional, hybrid, and self-publishing routes, with
+              everyone from first-time authors to executives and public figures.
             </p>
             <p>
-              Most authors had no framework for any of this. They would ask their agent
-              for feedback and get something vague. They would hire a book proposal
-              consultant and spend thousands to be told their platform was thin. They would
-              query for two years without understanding which one or two variables were
-              actually holding them back.
+              What they kept running into, regardless of the author or the book, was a
+              fundamental gap in expectations. Accomplished, intelligent people — people
+              who had built careers, companies, and reputations — routinely arrived
+              believing that a strong idea and the right connections were enough to secure
+              a deal. Many had no idea that a publisher&apos;s decision rests on a small set
+              of concrete, measurable variables. Platform. Manuscript readiness. Concept
+              differentiation. Commercial hook. Timeliness. And whether the author is the
+              only person who could have written this particular book.
             </p>
             <p>
-              Tim built a scoring rubric for his own clients, a structured way to evaluate
-              where an author stood across the five variables that drive acquisition decisions.
-              He used it quietly for years. Authors who saw it found it clarifying in a way
-              that general feedback never was.
+              The misunderstanding is not a failure of intelligence. It is a failure of
+              access. Publishing professionals carry this framework in their heads — they
+              use it on every submission — but they rarely articulate it to authors in any
+              structured way. The result is that most authors go into the process without
+              knowing what they are actually being evaluated on.
             </p>
             <p>
-              Emily came across the framework in 2022 and asked the obvious question: why was
-              this sitting in a private document? They spent the following year refining the
-              scoring model, pressure-testing the questions against real acquisition patterns,
-              and building the tool that became DealScore.
+              Tim had been using a private scoring rubric with his own clients for years —
+              a way to give them an honest, structured read on where they stood before
+              they started querying. Emily recognised that it addressed something authors
+              needed long before they ever engaged a ghostwriter or a consultant. Together
+              they refined it, tested it against real acquisition patterns, and built it
+              into a tool that any author can use at the start of their journey. That tool
+              is DealScore.
             </p>
           </div>
         </div>

@@ -250,13 +250,20 @@ export default function ResultsPage() {
         </div>
 
         {/* Disclaimer */}
-        <div className="bg-white border border-stone-200 rounded-2xl p-5">
+        <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-3">
           <p className="text-xs text-stone-500 leading-relaxed">
             <strong className="text-stone-700">Important:</strong> There are no universal rules in publishing.
-            The right acquisitions editor, a timely cultural moment, an agent who loves your
-            specific voice: these factors are real and outside any scoring tool's ability to
+            The right acquisitions editor, a timely cultural moment, an agent who connects with your
+            specific voice: these factors are real and outside any scoring tool&apos;s ability to
             predict. DealScore gives you a structured framework for understanding where you
             stand, not a definitive verdict. Use it as a starting point, not an endpoint.
+          </p>
+          <p className="text-xs text-stone-500 leading-relaxed">
+            <strong className="text-stone-700">A note on scores:</strong> A high DealScore does not
+            guarantee a book deal. It means you are well-positioned on the variables that
+            consistently matter to agents and publishers. Publishing involves subjectivity,
+            timing, and factors no framework can fully account for. Use your score to
+            understand your strengths and gaps — not as a promise of any particular outcome.
           </p>
         </div>
 

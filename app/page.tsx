@@ -23,13 +23,13 @@ const FEATURES = [
     icon: Star,
     title: "An honest score, not a pep talk",
     description:
-      "You get a number from 0 to 100, broken down by category. If your platform is thin or your concept is not differentiated enough, the score will show it. That honesty is the point.",
+      "You get a number from 0 to 100, broken down by category. If your platform is thin or your concept isn't differentiated enough, the score will show it. That honesty is the point.",
   },
   {
     icon: Lightbulb,
     title: "A clear path forward",
     description:
-      "Traditional publishing is one path. Hybrid publishers and self-publishing are others. Your score and breakdown help you figure out which route is actually right for you, not just the one you hoped for.",
+      "Traditional publishing is one path. Hybrid publishers and self-publishing are others. Your score and breakdown tell you which route fits your actual position.",
   },
   {
     icon: TrendingUp,
@@ -56,13 +56,14 @@ const WHAT_YOU_GET = [
   "Tactics and resources matched to your weakest areas",
 ];
 
-function EyebrowLabel({ children }: { children: React.ReactNode }) {
+function EyebrowLabel({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
   return (
-    <div className="flex items-center gap-3 mb-6">
+    <div className={`flex items-center gap-3 mb-6 ${center ? "justify-center" : ""}`}>
       <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
-      <p className="text-xs font-medium tracking-[0.2em] uppercase text-stone-400">
+      <p className="text-sm font-medium tracking-[0.18em] uppercase text-stone-400">
         {children}
       </p>
+      {center && <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />}
     </div>
   );
 }
@@ -83,12 +84,7 @@ function NewsletterSignup() {
       <div className="max-w-4xl mx-auto">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
-              <p className="text-xs font-medium tracking-[0.2em] uppercase text-stone-400">
-                Stay informed
-              </p>
-            </div>
+            <EyebrowLabel>Stay informed</EyebrowLabel>
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-3">
               Publishing insights for nonfiction authors
             </h2>
@@ -102,9 +98,9 @@ function NewsletterSignup() {
               <div className="flex items-start gap-3 p-5 bg-white border border-stone-200">
                 <CheckCircle className="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="font-semibold text-stone-900 mb-1">You are on the list.</p>
+                  <p className="font-semibold text-stone-900 mb-1">You&rsquo;re on the list.</p>
                   <p className="text-stone-500 text-sm">
-                    We will be in touch when there is something worth reading.
+                    We&rsquo;ll be in touch when there&rsquo;s something worth reading.
                   </p>
                 </div>
               </div>
@@ -146,48 +142,65 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="py-24 sm:py-32 px-4 sm:px-6 bg-white border-b border-stone-200">
-        <div className="max-w-4xl mx-auto">
-          <EyebrowLabel>For nonfiction authors pursuing a traditional book deal</EyebrowLabel>
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.75rem] font-bold text-stone-900 mb-7 leading-[1.05] max-w-3xl">
-            Do you know what it actually takes to get a nonfiction book deal?
-          </h1>
-          <p className="text-lg sm:text-xl text-stone-500 mb-10 leading-relaxed max-w-2xl">
-            Agents and publishers evaluate every nonfiction submission against the same
-            framework. DealScore gives you access to it, so you know exactly where you
-            stand on every variable that drives traditional acquisition decisions.
-          </p>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-            <Link
-              href="/assessment"
-              className="inline-flex items-center justify-center sm:justify-start gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium text-base transition-colors group"
-            >
-              Take the Free Assessment
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
+      <section className="py-20 sm:py-24 px-4 sm:px-6 bg-white border-b border-stone-200">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: text */}
+            <div>
+              <EyebrowLabel>For nonfiction authors pursuing a traditional book deal</EyebrowLabel>
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-stone-900 mb-7 leading-[1.06]">
+                Do you know what it actually takes to get a nonfiction book deal?
+              </h1>
+              <p className="text-lg sm:text-xl text-stone-500 mb-10 leading-relaxed">
+                Agents and publishers evaluate every nonfiction submission against the same
+                framework. DealScore gives you access to it, so you know exactly where you
+                stand on every variable that drives traditional acquisition decisions.
+              </p>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <Link
+                  href="/assessment"
+                  className="inline-flex items-center justify-center sm:justify-start gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-medium text-base transition-colors group"
+                >
+                  Take the Free Assessment
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+              <p className="mt-5 text-sm text-stone-400">
+                5 minutes &middot; 20 questions &middot; For nonfiction authors at any stage
+              </p>
+            </div>
+
+            {/* Right: image */}
+            <div className="hidden lg:block">
+              <div className="overflow-hidden h-[480px] bg-stone-100">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
+                  alt=""
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            </div>
           </div>
-          <p className="mt-5 text-sm text-stone-400">
-            5 minutes &middot; 20 questions &middot; For nonfiction authors at any stage
-          </p>
         </div>
       </section>
 
       {/* Readiness Spectrum Preview */}
       <section className="py-14 px-4 sm:px-6 bg-stone-50 border-b border-stone-200">
         <div className="max-w-4xl mx-auto">
-          <p className="text-center text-xs font-semibold text-stone-400 uppercase tracking-[0.18em] mb-8">
+          <p className="text-center text-sm font-semibold text-stone-500 uppercase tracking-[0.18em] mb-8">
             The DealScore Readiness Spectrum
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-stone-200 border border-stone-200">
             {SPECTRUM_PREVIEW.map((item) => (
-              <div key={item.label} className="bg-white p-4 sm:p-5 text-center">
+              <div key={item.label} className="bg-white p-5 sm:p-6 text-center">
                 <div
-                  className="text-xs font-bold mb-1.5 font-serif"
+                  className="text-sm font-bold mb-2 font-serif"
                   style={{ color: item.color }}
                 >
                   {item.range}
                 </div>
-                <div className="text-xs text-stone-500 leading-tight">{item.label}</div>
+                <div className="text-sm text-stone-500 leading-tight">{item.label}</div>
               </div>
             ))}
           </div>
@@ -197,8 +210,8 @@ export default function Home() {
       {/* Features */}
       <section className="py-24 px-4 sm:px-6 bg-white border-b border-stone-200">
         <div className="max-w-5xl mx-auto">
-          <div className="max-w-2xl mb-16">
-            <EyebrowLabel>How it works</EyebrowLabel>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <EyebrowLabel center>How it works</EyebrowLabel>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-5">
               The knowledge gap is the problem
             </h2>
@@ -206,7 +219,7 @@ export default function Home() {
               Most nonfiction authors want a traditional deal. Few understand the specific
               variables agents and editors apply to every submission. DealScore gives you
               that same framework, scored against your actual position, so you can see
-              clearly whether traditional publishing is within reach right now, and what
+              clearly whether traditional publishing is within reach right now and what
               it would take to get there.
             </p>
           </div>
@@ -255,7 +268,7 @@ export default function Home() {
 
             {/* Mock score card */}
             <div className="bg-stone-900 p-6 sm:p-8 text-white">
-              <p className="text-stone-400 text-xs font-medium mb-1 uppercase tracking-widest">
+              <p className="text-stone-400 text-sm font-medium mb-1 uppercase tracking-widest">
                 Example: Business / Leadership Author
               </p>
               <div className="flex items-end gap-2 mb-4 mt-3">
@@ -266,7 +279,7 @@ export default function Home() {
               </div>
               <div className="inline-flex items-center gap-2 border border-stone-700 px-3 py-1 mb-8">
                 <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
-                <span className="text-xs font-medium text-stone-300 tracking-wide">
+                <span className="text-sm font-medium text-stone-300 tracking-wide">
                   Strong Candidate
                 </span>
               </div>
@@ -280,7 +293,7 @@ export default function Home() {
                   { name: "Timeliness", score: 70 },
                 ].map((cat) => (
                   <div key={cat.name}>
-                    <div className="flex justify-between text-xs mb-1.5">
+                    <div className="flex justify-between text-sm mb-1.5">
                       <span className="text-stone-400">{cat.name}</span>
                       <span className="font-medium text-stone-300">{cat.score}</span>
                     </div>
@@ -293,7 +306,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <p className="text-stone-500 text-xs mt-6 leading-relaxed">
+              <p className="text-stone-500 text-sm mt-6 leading-relaxed">
                 Biggest opportunity: Platform. A newsletter, speaking engagements,
                 and a few high-profile podcast appearances could push this score
                 into deal-ready territory.
@@ -303,16 +316,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pull quote — replaces editorial image */}
-      <section className="py-20 sm:py-24 px-4 sm:px-6 bg-stone-900">
-        <div className="max-w-2xl mx-auto text-center">
+      {/* Pull quote */}
+      <section
+        className="py-20 sm:py-24 px-4 sm:px-6 bg-stone-900 relative overflow-hidden"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1600&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-stone-900/85" aria-hidden="true" />
+        <div className="relative max-w-2xl mx-auto text-center">
           <div className="w-8 h-px bg-gold-400 mx-auto mb-8" aria-hidden="true" />
           <p className="font-serif text-xl sm:text-2xl text-white leading-relaxed italic">
-            &ldquo;The authors who got deals were not always the ones with the best books.
+            &ldquo;The authors who got deals weren&rsquo;t always the ones with the best books.
             They were the ones who already understood what publishers were evaluating.&rdquo;
           </p>
           <div className="w-8 h-px bg-gold-400 mx-auto mt-8 mb-6" aria-hidden="true" />
-          <p className="text-stone-500 text-xs font-medium tracking-[0.2em] uppercase">
+          <p className="text-stone-400 text-sm font-medium tracking-[0.18em] uppercase">
             Tim Vandehey &middot; NYT Bestselling Ghostwriter
           </p>
         </div>

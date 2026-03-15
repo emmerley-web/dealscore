@@ -15,8 +15,8 @@ const FAQS: FAQItem[] = [
     answer: (
       <>
         <p>
-          No. A high score means you are well-positioned on the variables that
-          consistently matter to agents and publishers. It does not guarantee any
+          No. A high score means you&rsquo;re well-positioned on the variables that
+          consistently matter to agents and publishers. It doesn&rsquo;t guarantee any
           particular outcome.
         </p>
         <p>
@@ -41,11 +41,11 @@ const FAQS: FAQItem[] = [
           in nonfiction publishing:
         </p>
         <ul>
-          <li><strong>Platform</strong> — your existing audience, media presence, speaking profile, and reach. This is the single most heavily weighted variable for debut nonfiction authors.</li>
-          <li><strong>Manuscript quality</strong> — the strength, clarity, and completeness of your writing and proposal.</li>
-          <li><strong>Concept uniqueness</strong> — whether your idea is genuinely differentiated, and whether you are the only person who could have written this particular book.</li>
-          <li><strong>Commercial potential</strong> — the size of the likely market and whether publishers can identify a clear audience to sell to.</li>
-          <li><strong>Timeliness</strong> — how well your topic aligns with current cultural, professional, or market conversations.</li>
+          <li><strong>Platform:</strong> your existing audience, media presence, speaking profile, and reach. This is the single most heavily weighted variable for debut nonfiction authors.</li>
+          <li><strong>Manuscript quality:</strong> the strength, clarity, and completeness of your writing and proposal.</li>
+          <li><strong>Concept uniqueness:</strong> whether your idea is genuinely differentiated, and whether you&rsquo;re the only person who could have written this particular book.</li>
+          <li><strong>Commercial potential:</strong> the size of the likely market and whether publishers can identify a clear audience to sell to.</li>
+          <li><strong>Timeliness:</strong> how well your topic aligns with current cultural, professional, or market conversations.</li>
         </ul>
         <p>
           These are not abstract criteria. They are the categories that agents and editors
@@ -66,9 +66,9 @@ const FAQS: FAQItem[] = [
           audience that already exists.
         </p>
         <p>
-          Platform does not have to mean social media followers. It can include a
+          Platform doesn&rsquo;t have to mean social media followers. It can include a
           newsletter, a podcast, keynote speaking, a professional reputation in a
-          defined field, or significant press coverage. What matters is whether there is
+          defined field, or significant press coverage. What matters is whether there&rsquo;s
           an identifiable audience that trusts you and will buy what you write.
         </p>
         <p>
@@ -102,14 +102,14 @@ const FAQS: FAQItem[] = [
         <p>
           <strong>Self-publishing</strong> gives you full control and full responsibility.
           You own all rights, keep most revenue, and publish on your own timeline. The
-          trade-off is that all production costs — editing, design, formatting, and
-          distribution — are yours, and discoverability requires active marketing. It
+          trade-off is that all production costs (editing, design, formatting, and
+          distribution) are yours, and discoverability requires active marketing. It
           works best when you already have an audience or a specific community to sell
           into directly.
         </p>
         <p>
           None of these routes is inherently better than the others. The right path
-          depends on your goals, your timeline, your platform, and what you are willing
+          depends on your goals, your timeline, your platform, and what you&rsquo;re willing
           to invest.
         </p>
       </>
@@ -130,7 +130,7 @@ const FAQS: FAQItem[] = [
           can take anywhere from a few months to two or more years.
         </p>
         <p>
-          Hybrid and self-publishing routes do not require an agent. Some smaller
+          Hybrid and self-publishing routes don&rsquo;t require an agent. Some smaller
           independent publishers also accept direct submissions, but checking their
           individual submission guidelines is essential.
         </p>

@@ -3,7 +3,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 
 export const metadata: Metadata = {
-  title: "DealScore — Know Your Chances of Getting a Traditional Book Deal",
+  title: "DealScore: Know Your Chances of Getting a Traditional Book Deal",
   description:
     "Take the DealScore assessment to understand your readiness for a traditional nonfiction book deal, get personalised coaching, and track your progress over time.",
 };

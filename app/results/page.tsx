@@ -44,8 +44,8 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
         score >= 75
           ? "Your score puts you in contention. The remaining gaps in your breakdown are worth addressing before you query."
           : score >= 55
-          ? "Possible, but you will face significant competition. Publishers will want to see stronger numbers on your weakest variables before committing."
-          : "Unlikely at this stage. The variables that matter most to a Big Five publisher — platform, commercial hook, manuscript readiness — are not yet where they need to be.",
+          ? "Possible, but you'll face significant competition. Publishers will want to see stronger numbers on your weakest variables before committing."
+          : "Unlikely at this stage. Platform, commercial hook, and manuscript readiness aren't yet where they need to be.",
       realities: [
         "Requires a literary agent before any publisher will read your work",
         "Agent acquisition alone can take 6-18 months of querying",
@@ -60,13 +60,13 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
       label: "Hybrid Publishing",
       fit: hybridFit,
       summary:
-        "Hybrid publishers offer professional production, real distribution, and credibility — without requiring the platform a Big Five deal demands. You share costs but retain far more control. For business authors and memoirists with modest platforms, this is often the most realistic serious path.",
+        "Hybrid publishers offer professional production, real distribution, and credibility, without requiring the platform a Big Five deal demands. You share costs but retain far more control. For business authors and memoirists with modest platforms, this is often the most realistic serious path.",
       realities: [
         "Author shares production costs (typically $5,000-$25,000 depending on publisher)",
         "Professional editing, design, and distribution included",
         "Books appear in major retail channels and are taken seriously by press",
         "You retain more rights and higher royalty rates than traditional deals",
-        "Quality varies widely — vet any hybrid publisher carefully",
+        "Quality varies widely. Vet any hybrid publisher carefully.",
       ],
       examples: "Amplify, Greenleaf Book Group, She Writes Press, Lioncrest, Disruption Books",
     },
@@ -75,9 +75,9 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
       label: "Self-Publishing",
       fit: "possible",
       summary:
-        "Full control, full cost, full marketing responsibility. The right choice if you have an existing audience to sell to directly, need to move quickly, or are testing a concept before pursuing other routes. The quality ceiling is as high as you make it — but distribution and discoverability require real work.",
+        "Full control, full cost, full marketing responsibility. The right choice if you have an existing audience to sell to directly, need to move quickly, or are testing a concept before pursuing other routes. The quality ceiling is as high as you make it, but distribution and discoverability require real work.",
       realities: [
-        "No gatekeeping — you publish when you are ready",
+        "No gatekeeping. You publish when you're ready.",
         "All production costs are yours: editing, design, formatting, distribution",
         "No advance, but you keep the majority of revenue",
         "Discoverability requires active marketing; books do not sell themselves",
@@ -210,9 +210,9 @@ export default function ResultsPage() {
             Which publishing path fits you right now
           </h2>
           <p className="text-sm text-stone-500 mb-5">
-            Traditional publishing is not the only route, and for many authors
-            at many stages, it is not the right one. Here is an honest assessment
-            of all three paths based on your score.
+            Traditional publishing isn&rsquo;t the only route, and for many authors
+            at many stages it&rsquo;s not the right one. Here&rsquo;s an honest assessment of
+            all three paths based on your score.
           </p>
           <div className="space-y-4">
             {paths.map((path) => {
@@ -259,11 +259,11 @@ export default function ResultsPage() {
             stand, not a definitive verdict. Use it as a starting point, not an endpoint.
           </p>
           <p className="text-xs text-stone-500 leading-relaxed">
-            <strong className="text-stone-700">A note on scores:</strong> A high DealScore does not
-            guarantee a book deal. It means you are well-positioned on the variables that
+            <strong className="text-stone-700">A note on scores:</strong> A high DealScore doesn&rsquo;t
+            guarantee a book deal. It means you&rsquo;re well-positioned on the variables that
             consistently matter to agents and publishers. Publishing involves subjectivity,
             timing, and factors no framework can fully account for. Use your score to
-            understand your strengths and gaps — not as a promise of any particular outcome.
+            understand your strengths and gaps, not as a promise of any particular outcome.
           </p>
         </div>
 

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 import {
   Star,
   TrendingUp,
@@ -64,20 +67,95 @@ function EyebrowLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+function NewsletterSignup() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubmitted(true);
+    }
+  }
+
+  return (
+    <section className="py-16 px-4 sm:px-6 bg-stone-100 border-y border-stone-200">
+      <div className="max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="block w-5 h-px bg-gold-400 flex-shrink-0" aria-hidden="true" />
+              <p className="text-xs font-medium tracking-[0.2em] uppercase text-stone-400">
+                Stay informed
+              </p>
+            </div>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-3">
+              Publishing insights for nonfiction authors
+            </h2>
+            <p className="text-stone-500 text-base leading-relaxed">
+              Practical guidance on platform building, proposals, and navigating the
+              publishing landscape. No noise. Sent occasionally.
+            </p>
+          </div>
+          <div>
+            {submitted ? (
+              <div className="flex items-start gap-3 p-5 bg-white border border-stone-200">
+                <CheckCircle className="w-5 h-5 text-gold-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-stone-900 mb-1">You are on the list.</p>
+                  <p className="text-stone-500 text-sm">
+                    We will be in touch when there is something worth reading.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} noValidate>
+                <label htmlFor="newsletter-email" className="block text-sm font-medium text-stone-700 mb-2">
+                  Email address
+                </label>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <input
+                    id="newsletter-email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    required
+                    className="flex-1 px-4 py-3 border border-stone-300 bg-white text-stone-900 placeholder-stone-400 text-base focus:outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500 min-w-0"
+                  />
+                  <button
+                    type="submit"
+                    className="px-6 py-3 bg-stone-900 hover:bg-stone-700 text-white font-medium text-sm transition-colors whitespace-nowrap"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+                <p className="mt-2 text-xs text-stone-400">
+                  No spam. Unsubscribe at any time.
+                </p>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="py-24 sm:py-32 px-4 sm:px-6 bg-white border-b border-stone-200">
         <div className="max-w-4xl mx-auto">
-          <EyebrowLabel>Built by publishing insiders for aspiring authors</EyebrowLabel>
+          <EyebrowLabel>For nonfiction authors pursuing a traditional book deal</EyebrowLabel>
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-[3.75rem] font-bold text-stone-900 mb-7 leading-[1.05] max-w-3xl">
             Do you know what it actually takes to get a nonfiction book deal?
           </h1>
           <p className="text-lg sm:text-xl text-stone-500 mb-10 leading-relaxed max-w-2xl">
-            Publishing professionals evaluate every submission against the same framework.
-            DealScore gives you access to it — so you know exactly where you stand on
-            every variable that drives acquisition decisions.
+            Agents and publishers evaluate every nonfiction submission against the same
+            framework. DealScore gives you access to it, so you know exactly where you
+            stand on every variable that drives traditional acquisition decisions.
           </p>
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <Link
@@ -125,10 +203,11 @@ export default function Home() {
               The knowledge gap is the problem
             </h2>
             <p className="text-lg text-stone-500 leading-relaxed">
-              Authors can ask anyone whether they have a chance at a traditional deal.
-              The problem is they do not know which variables to assess in the first place.
-              DealScore gives you the same framework publishing professionals use, and
-              points you toward the right path — whether that is traditional, hybrid, or self-publishing.
+              Most nonfiction authors want a traditional deal. Few understand the specific
+              variables agents and editors apply to every submission. DealScore gives you
+              that same framework, scored against your actual position, so you can see
+              clearly whether traditional publishing is within reach right now, and what
+              it would take to get there.
             </p>
           </div>
 
@@ -261,6 +340,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Newsletter */}
+      <NewsletterSignup />
+
       {/* Footer */}
       <footer className="bg-stone-950 py-10 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -270,16 +352,11 @@ export default function Home() {
               Deal<span className="text-gold-400">Score</span>
             </span>
           </div>
-          <div className="flex gap-8 text-sm text-stone-500">
-            <Link href="/about" className="hover:text-white transition-colors">
-              About
-            </Link>
-            <Link href="/assessment" className="hover:text-white transition-colors">
-              Assessment
-            </Link>
-            <Link href="/tactics" className="hover:text-white transition-colors">
-              Tactics
-            </Link>
+          <div className="flex flex-wrap gap-6 text-sm text-stone-500">
+            <Link href="/about" className="hover:text-white transition-colors">About</Link>
+            <Link href="/assessment" className="hover:text-white transition-colors">Assessment</Link>
+            <Link href="/tactics" className="hover:text-white transition-colors">Tactics</Link>
+            <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
           </div>
           <p className="text-stone-600 text-sm">Built by Tim Vandehey and Emily Liao.</p>
         </div>

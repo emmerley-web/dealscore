@@ -11,7 +11,6 @@ import {
   CheckCircle,
   Loader2,
   ExternalLink,
-  AlertTriangle,
 } from "lucide-react";
 
 import { AssessmentResult, getSpectrumLevel } from "@/lib/types";
@@ -133,82 +132,47 @@ export default function ResultsPage() {
   const level = getSpectrumLevel(result.dealScore);
   const weakest = getWeakestCategories(result, 2);
   const paths = getPublicationPaths(result.dealScore, result.genre);
-  const isMemoirOrNarrative =
-    result.genre === "Memoir / Personal Essay" || result.genre === "Narrative Nonfiction";
 
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6">
+    <div className="min-h-screen bg-stone-50 py-10 px-4 sm:px-6">
       <div className="max-w-3xl mx-auto space-y-8">
         {/* Score Hero */}
-        <div
-          className="rounded-2xl p-8 text-center shadow-xl text-white"
-          style={{
-            background:
-              "linear-gradient(135deg, #2e1065 0%, #5b21b6 50%, #7c3aed 100%)",
-          }}
-        >
-          <p className="text-white/60 text-sm font-semibold uppercase tracking-widest mb-2">
+        <div className="bg-stone-900 p-8 text-center text-white">
+          <p className="text-stone-400 text-xs font-medium uppercase tracking-[0.18em] mb-4">
             Your DealScore
           </p>
-          <div className="flex items-end justify-center gap-2 mb-2">
-            <span
-              className="text-8xl font-extrabold leading-none"
-              style={{ color: "#fbbf24" }}
-            >
+          <div className="flex items-end justify-center gap-2 mb-3">
+            <span className="font-serif text-8xl font-bold leading-none text-white">
               {result.dealScore}
             </span>
-            <span className="text-3xl text-white/40 mb-3">/100</span>
+            <span className="text-3xl text-stone-600 mb-3">/100</span>
           </div>
-          <div
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-2 font-semibold text-sm"
-            style={{ backgroundColor: level.color + "30", color: level.color }}
-          >
-            <div
-              className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: level.color }}
-              aria-hidden="true"
-            />
-            {level.label}
+          <div className="inline-flex items-center gap-2 border border-stone-700 px-4 py-1.5 mb-3">
+            <div className="w-1.5 h-1.5 rounded-full bg-stone-400" aria-hidden="true" />
+            <span className="text-sm font-medium text-stone-300 tracking-wide">{level.label}</span>
           </div>
-          <p className="text-white/70 text-sm max-w-lg mx-auto mt-2">
+          <p className="text-stone-400 text-sm max-w-lg mx-auto mt-2 leading-relaxed">
             {level.description}
           </p>
-          <div className="mt-4 text-xs text-white/40">
+          <div className="mt-4 text-xs text-stone-600">
             Genre: {result.genre}
           </div>
         </div>
 
-        {/* Memoir warning */}
-        {isMemoirOrNarrative && (
-          <div className="bg-amber-50 border border-amber-300 rounded-2xl p-5 flex gap-3">
-            <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="font-semibold text-amber-900 mb-1">A note on memoir and narrative nonfiction</p>
-              <p className="text-sm text-amber-800 leading-relaxed">
-                These are among the hardest categories to place with a traditional publisher.
-                Unless you are already a public figure, have a very large platform, or have a story
-                of truly singular and urgent relevance — think Aron Ralston level — the bar is
-                extremely high. That does not mean your story should not be published. It means
-                hybrid or self-publishing is often the more realistic and faster path to readers.
-              </p>
-            </div>
-          </div>
-        )}
-
         {/* Spectrum */}
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <h2 className="font-bold text-slate-900 mb-4">
+        <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+          <h2 className="font-bold text-stone-900 mb-4">
             Where you fall on the spectrum
           </h2>
           <ScoreSpectrum score={result.dealScore} />
         </div>
 
         {/* Category Breakdown */}
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <h2 className="font-bold text-slate-900 mb-1">Category breakdown</h2>
-          <p className="text-sm text-slate-500 mb-5">
+        <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+          <h2 className="font-bold text-stone-900 mb-1">Category breakdown</h2>
+          <p className="text-sm text-stone-500 mb-5">
             Platform carries 20% more weight in the final score. But a genuinely
-            irreplaceable author position can offset a thin platform — your
+            irreplaceable author position can offset a thin platform; your
             uniqueness score matters more than it might appear.
           </p>
           <CategoryBreakdown categoryScores={result.categoryScores} />
@@ -216,14 +180,14 @@ export default function ResultsPage() {
 
         {/* Weakest Areas */}
         {weakest.length > 0 && (
-          <div className="bg-slate-100 border border-slate-200 rounded-2xl p-6">
+          <div className="bg-stone-100 border border-stone-200 rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-3">
-              <TrendingUp className="w-5 h-5 text-slate-600" />
-              <h2 className="font-bold text-slate-900">
+              <TrendingUp className="w-5 h-5 text-stone-600" />
+              <h2 className="font-bold text-stone-900">
                 Where to focus first
               </h2>
             </div>
-            <p className="text-sm text-slate-600 mb-3">
+            <p className="text-sm text-stone-600 mb-3">
               These two variables have the most room for improvement and will
               move your score the most.
             </p>
@@ -231,12 +195,12 @@ export default function ResultsPage() {
               {weakest.map((cat) => (
                 <div
                   key={cat.key}
-                  className="bg-white rounded-xl p-4 border border-slate-200"
+                  className="bg-white rounded-xl p-4 border border-stone-200"
                 >
-                  <div className="font-semibold text-slate-900 mb-1">
+                  <div className="font-semibold text-stone-900 mb-1">
                     {cat.name}
                   </div>
-                  <div className="text-2xl font-bold text-slate-700">
+                  <div className="text-2xl font-bold text-stone-700">
                     {Math.round(cat.score)}/100
                   </div>
                 </div>
@@ -247,11 +211,11 @@ export default function ResultsPage() {
 
         {/* Publication Paths */}
         <div>
-          <h2 className="font-bold text-slate-900 mb-1 text-lg">
+          <h2 className="font-bold text-stone-900 mb-1 text-lg">
             Which publishing path fits you right now
           </h2>
-          <p className="text-sm text-slate-500 mb-5">
-            Traditional publishing is not the only route — and for many authors
+          <p className="text-sm text-stone-500 mb-5">
+            Traditional publishing is not the only route, and for many authors
             at many stages, it is not the right one. Here is an honest assessment
             of all three paths based on your score.
           </p>
@@ -262,29 +226,29 @@ export default function ResultsPage() {
                 <div
                   key={path.id}
                   className={`bg-white rounded-2xl border p-6 shadow-sm ${
-                    path.fit === "strong" ? "border-slate-300" : "border-slate-200"
+                    path.fit === "strong" ? "border-stone-300" : "border-stone-200"
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="font-bold text-slate-900">{path.label}</h3>
+                    <h3 className="font-bold text-stone-900">{path.label}</h3>
                     <span
                       className={`text-xs font-semibold px-2.5 py-1 rounded-full border flex-shrink-0 ${fit.color} ${fit.bg} ${fit.border}`}
                     >
                       {fit.label}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-700 leading-relaxed mb-4">
+                  <p className="text-sm text-stone-700 leading-relaxed mb-4">
                     {path.summary}
                   </p>
                   <div className="space-y-1.5 mb-3">
                     {path.realities.map((r, i) => (
-                      <div key={i} className="flex items-start gap-2 text-sm text-slate-600">
-                        <CheckCircle className="w-3.5 h-3.5 text-slate-400 flex-shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2 text-sm text-stone-600">
+                        <CheckCircle className="w-3.5 h-3.5 text-stone-400 flex-shrink-0 mt-0.5" />
                         {r}
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-slate-400 italic">{path.examples}</p>
+                  <p className="text-xs text-stone-400 italic">{path.examples}</p>
                 </div>
               );
             })}
@@ -292,11 +256,11 @@ export default function ResultsPage() {
         </div>
 
         {/* Disclaimer */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5">
-          <p className="text-xs text-slate-500 leading-relaxed">
-            <strong className="text-slate-700">Important:</strong> There are no universal rules in publishing.
+        <div className="bg-white border border-stone-200 rounded-2xl p-5">
+          <p className="text-xs text-stone-500 leading-relaxed">
+            <strong className="text-stone-700">Important:</strong> There are no universal rules in publishing.
             The right acquisitions editor, a timely cultural moment, an agent who loves your
-            specific voice — these factors are real and outside any scoring tool's ability to
+            specific voice: these factors are real and outside any scoring tool's ability to
             predict. DealScore gives you a structured framework for understanding where you
             stand, not a definitive verdict. Use it as a starting point, not an endpoint.
           </p>
@@ -310,7 +274,7 @@ export default function ResultsPage() {
             className={`flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all ${
               saved
                 ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                : "bg-brand-500 hover:bg-brand-600 text-white shadow-md hover:shadow-lg"
+                : "bg-stone-900 hover:bg-stone-700 text-white"
             }`}
           >
             {saved ? (
@@ -328,7 +292,7 @@ export default function ResultsPage() {
 
           <Link
             href="/tactics"
-            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-slate-50 border border-slate-200 hover:border-brand-300 text-slate-700 hover:text-brand-700 font-semibold text-sm rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 border border-stone-200 hover:border-brand-300 text-stone-700 hover:text-stone-700 font-semibold text-sm rounded-xl transition-all"
           >
             <Lightbulb className="w-4 h-4" />
             View Tactics
@@ -336,7 +300,7 @@ export default function ResultsPage() {
 
           <Link
             href="/assessment"
-            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 text-slate-600 font-semibold text-sm rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 text-stone-600 font-semibold text-sm rounded-xl transition-all"
           >
             <RotateCcw className="w-4 h-4" />
             Retake
@@ -344,8 +308,8 @@ export default function ResultsPage() {
         </div>
 
         {/* Next steps */}
-        <div className="bg-brand-50 border border-brand-200 rounded-2xl p-5">
-          <p className="text-sm font-semibold text-brand-900 mb-3">Useful next steps</p>
+        <div className="bg-stone-50 border border-stone-200 rounded-2xl p-5">
+          <p className="text-sm font-semibold text-stone-900 mb-3">Useful next steps</p>
           <div className="space-y-2">
             {[
               { label: "Browse the Tactics library for your weakest areas", href: "/tactics", internal: true },
@@ -358,7 +322,7 @@ export default function ResultsPage() {
                 href={item.href}
                 target={item.internal ? undefined : "_blank"}
                 rel={item.internal ? undefined : "noopener noreferrer"}
-                className="flex items-center gap-2 text-sm text-brand-700 hover:text-brand-900 font-medium transition-colors"
+                className="flex items-center gap-2 text-sm text-stone-700 hover:text-stone-900 font-medium transition-colors"
               >
                 {item.internal ? (
                   <Lightbulb className="w-3.5 h-3.5 flex-shrink-0" />

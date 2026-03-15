@@ -52,7 +52,7 @@ ${weakLines}
 Please write a personalized coaching response with the following sections (use these exact headings):
 
 **Where You Stand**
-2–3 sentences: honest, warm, specific to their score and genre. Don't sugarcoat or over-praise — be real.
+2-3 sentences: honest, warm, specific to their score and genre. Don't sugarcoat or over-praise. Be real.
 
 **Your Top Priorities**
 3 highly specific, actionable recommendations focused on their two weakest areas. Be specific to the ${result.genre} genre and their exact score breakdown. No generic publishing advice.
@@ -64,10 +64,10 @@ Please write a personalized coaching response with the following sections (use t
 A brief narrative (3–4 sentences) describing what focused effort over the next few months should look like for this specific author at this specific stage.
 
 Tone guidelines:
-- Encouraging but honest — don't avoid uncomfortable truths
+- Encouraging but honest; don't avoid uncomfortable truths
 - Highly specific to ${result.genre} and their actual numbers
 - Avoid mentioning literary agents or querying — focus on building readiness
-- No generic publishing advice — everything should be tailored to their profile
+- No generic publishing advice; everything should be tailored to their profile
 - Keep total response under 550 words`;
 
   const stream = client.messages.stream({

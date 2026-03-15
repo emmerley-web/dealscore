@@ -76,10 +76,10 @@ export default function ProgressChart({ results }: ProgressChartProps) {
         <Line
           type="monotone"
           dataKey="score"
-          stroke="#7c3aed"
+          stroke="#c4a030"
           strokeWidth={2.5}
-          dot={{ fill: "#7c3aed", r: 5, strokeWidth: 2, stroke: "white" }}
-          activeDot={{ r: 7, fill: "#7c3aed", stroke: "white", strokeWidth: 2 }}
+          dot={{ fill: "#c4a030", r: 5, strokeWidth: 2, stroke: "white" }}
+          activeDot={{ r: 7, fill: "#c4a030", stroke: "white", strokeWidth: 2 }}
         />
       </LineChart>
     </ResponsiveContainer>

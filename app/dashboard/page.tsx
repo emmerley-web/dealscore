@@ -123,7 +123,7 @@ export default function DashboardPage() {
             className="sm:col-span-1 rounded-2xl p-6 text-white shadow-xl"
             style={{
               background:
-                "linear-gradient(135deg, #2e1065 0%, #5b21b6 50%, #7c3aed 100%)",
+                "linear-gradient(135deg, #1c1b16 0%, #44403c 50%, #57534e 100%)",
             }}
           >
             <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-1">

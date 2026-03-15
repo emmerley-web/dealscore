@@ -8,11 +8,11 @@ interface CategoryBreakdownProps {
 }
 
 const categoryColors = [
-  { bar: "#3b82f6", bg: "#eff6ff", text: "#1d4ed8" },   // blue – platform
-  { bar: "#8b5cf6", bg: "#f5f3ff", text: "#5b21b6" },   // purple – manuscript
-  { bar: "#f43f5e", bg: "#fff1f2", text: "#be123c" },   // rose – uniqueness
-  { bar: "#f59e0b", bg: "#fffbeb", text: "#b45309" },   // amber – commercial
-  { bar: "#14b8a6", bg: "#f0fdfa", text: "#0f766e" },   // teal – timeliness
+  { bar: "#44403c", bg: "#f5f5f4", text: "#1c1917" },   // stone-dark – platform
+  { bar: "#c4a030", bg: "#fefce8", text: "#92400e" },   // gold – manuscript
+  { bar: "#78716c", bg: "#f5f5f4", text: "#44403c" },   // stone-mid – uniqueness
+  { bar: "#a8861a", bg: "#fefce8", text: "#78350f" },   // gold-dark – commercial
+  { bar: "#292524", bg: "#f5f5f4", text: "#1c1917" },   // stone-deep – timeliness
 ];
 
 function scoreColor(score: number): string {

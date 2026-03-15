@@ -62,7 +62,7 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
       summary:
         "Hybrid publishers offer professional production, real distribution, and credibility, without requiring the platform a Big Five deal demands. You share costs but retain far more control. For business authors and memoirists with modest platforms, this is often the most realistic serious path.",
       realities: [
-        "Author shares production costs (typically $5,000-$25,000 depending on publisher)",
+        "Author shares production costs with the publisher",
         "Professional editing, design, and distribution included",
         "Books appear in major retail channels and are taken seriously by press",
         "You retain more rights and higher royalty rates than traditional deals",

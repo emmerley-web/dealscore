@@ -7,24 +7,22 @@ import {
 } from "./types";
 import { ASSESSMENT_QUESTIONS } from "./questions";
 
-// Platform gets 20% more weight than the other four categories
+// All four categories weighted equally at 25% each
 const CATEGORY_WEIGHTS: Record<CategoryKey, number> = {
-  platform: 1.2,
-  manuscriptQuality: 1.0,
-  conceptUniqueness: 1.0,
-  conceptCommercialPotential: 1.0,
-  conceptTimeliness: 1.0,
+  platform: 1.0,
+  uniquenessAndTimeliness: 1.0,
+  writing: 1.0,
+  audience: 1.0,
 };
 
 const TOTAL_WEIGHT = Object.values(CATEGORY_WEIGHTS).reduce((a, b) => a + b, 0);
-// = 1.2 + 1.0 * 4 = 5.2
+// = 4.0
 
 const CATEGORY_ORDER: CategoryKey[] = [
   "platform",
-  "manuscriptQuality",
-  "conceptUniqueness",
-  "conceptCommercialPotential",
-  "conceptTimeliness",
+  "uniquenessAndTimeliness",
+  "writing",
+  "audience",
 ];
 
 export function calculateCategoryScore(

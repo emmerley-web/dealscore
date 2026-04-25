@@ -37,19 +37,18 @@ const FAQS: FAQItem[] = [
     answer: (
       <>
         <p>
-          PitchMark evaluates you across five variables that drive acquisition decisions
+          PitchMark evaluates you across four categories that drive acquisition decisions
           in nonfiction publishing:
         </p>
         <ul>
-          <li><strong>Platform:</strong> your existing audience, media presence, speaking profile, and reach. This is the single most heavily weighted variable for debut nonfiction authors.</li>
-          <li><strong>Manuscript quality:</strong> the strength, clarity, and completeness of your writing and proposal.</li>
-          <li><strong>Concept uniqueness:</strong> whether your idea is genuinely differentiated, and whether you&rsquo;re the only person who could have written this particular book.</li>
-          <li><strong>Commercial potential:</strong> the size of the likely market and whether publishers can identify a clear audience to sell to.</li>
-          <li><strong>Timeliness:</strong> how well your topic aligns with current cultural, professional, or market conversations.</li>
+          <li><strong>Platform:</strong> your existing audience, email list, press coverage, speaking history, and promotional plan. For debut nonfiction, publishers look at this first.</li>
+          <li><strong>Uniqueness &amp; Timeliness:</strong> whether your idea is genuinely differentiated, whether you&rsquo;re the only person who could have written this book, whether it addresses an urgent problem, and whether the timing is right.</li>
+          <li><strong>Writing:</strong> the quality and readiness of your manuscript and proposal. Nonfiction is acquired on proposal, not finished manuscript, but a weak proposal signals an unprepared author.</li>
+          <li><strong>Audience:</strong> the size and reading habits of your target audience, your visibility in the media they consume, and the strength of your personal network.</li>
         </ul>
         <p>
           These are not abstract criteria. They are the categories that agents and editors
-          explicitly or implicitly apply when they evaluate a submission.
+          explicitly or implicitly apply to every submission they evaluate.
         </p>
       </>
     ),
@@ -251,7 +250,7 @@ export default function FAQPage() {
                 Frequently asked questions
               </p>
               <h1 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-6 leading-tight">
-                Questions about PitchMark and the publishing process
+                Your questions about PitchMark and the publishing process
               </h1>
               <p className="text-lg text-stone-500 leading-relaxed">
                 What the score means, how publishing actually works, and what to do
@@ -291,7 +290,7 @@ export default function FAQPage() {
             Take the assessment
           </h2>
           <p className="text-stone-500 mb-8 leading-relaxed max-w-xl">
-            20 questions covering the five variables that drive nonfiction acquisition decisions.
+            20 questions across four categories that drive nonfiction acquisition decisions.
             A score out of 100, a category breakdown, and a clear read on which publishing
             route makes sense for where you are right now.
           </p>

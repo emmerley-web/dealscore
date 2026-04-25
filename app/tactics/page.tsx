@@ -12,14 +12,11 @@ import {
   ArrowRight,
   Users,
   PenLine,
-  Fingerprint,
-  TrendingUp,
-  Clock,
+  Layers,
 } from "lucide-react";
 import clsx from "clsx";
 import { AssessmentResult, CATEGORY_DISPLAY_NAMES, CategoryKey } from "@/lib/types";
-import { getLatestResult } from "@/lib/storage";
-import { getPendingResult } from "@/lib/storage";
+import { getLatestResult, getPendingResult } from "@/lib/storage";
 import {
   ALL_TACTICS,
   Tactic,
@@ -28,22 +25,22 @@ import {
 } from "@/lib/tactics";
 import { getWeakestCategories } from "@/lib/scoring";
 
+const TACTICS_PER_CATEGORY = 4;
+
 const CATEGORY_ORDER: CategoryKey[] = [
   "platform",
-  "manuscriptQuality",
-  "conceptUniqueness",
-  "conceptCommercialPotential",
-  "conceptTimeliness",
+  "uniquenessAndTimeliness",
+  "writing",
+  "audience",
 ];
 
 type LucideIcon = React.ComponentType<{ className?: string }>;
 
 const CATEGORY_ICONS: Record<CategoryKey, LucideIcon> = {
   platform: Users,
-  manuscriptQuality: PenLine,
-  conceptUniqueness: Fingerprint,
-  conceptCommercialPotential: TrendingUp,
-  conceptTimeliness: Clock,
+  uniquenessAndTimeliness: Layers,
+  writing: PenLine,
+  audience: Target,
 };
 
 function TacticCard({
@@ -76,12 +73,12 @@ function TacticCard({
       <div className="flex flex-wrap gap-2 mb-3">
         {(() => {
           const CatIcon = CATEGORY_ICONS[tactic.category];
-          return (
+          return CatIcon ? (
             <span className={`inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full font-medium border ${catColor}`}>
               <CatIcon className="w-3 h-3 flex-shrink-0" />
               {CATEGORY_DISPLAY_NAMES[tactic.category]}
             </span>
-          );
+          ) : null;
         })()}
         <span className={`text-xs px-2 py-0.5 rounded-full font-medium border ${effort.color}`}>
           {effort.label}
@@ -98,7 +95,7 @@ function TacticCard({
 
       <button
         onClick={() => setExpanded(!expanded)}
-        className="flex items-center gap-1.5 mt-3 text-xs font-semibold text-stone-700 hover:text-stone-700 transition-colors"
+        className="flex items-center gap-1.5 mt-3 text-xs font-semibold text-stone-700 hover:text-stone-900 transition-colors"
         aria-expanded={expanded}
       >
         {expanded ? (
@@ -130,6 +127,23 @@ function TacticCard({
   );
 }
 
+function ConsultBanner() {
+  return (
+    <Link
+      href="/consult"
+      className="flex items-center justify-between gap-4 bg-stone-900 text-white rounded-2xl px-6 py-5 hover:bg-stone-800 transition-colors group"
+    >
+      <div>
+        <p className="font-serif font-bold text-lg mb-1">Ready to take the next step?</p>
+        <p className="text-stone-400 text-sm">
+          Get a personal analysis and recommended next steps from Tim and Emily.
+        </p>
+      </div>
+      <ArrowRight className="w-5 h-5 text-gold-400 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+    </Link>
+  );
+}
+
 export default function TacticsPage() {
   const [latestResult, setLatestResult] = useState<AssessmentResult | null>(null);
   const [activeCategory, setActiveCategory] = useState<CategoryKey | "all">("all");
@@ -143,22 +157,31 @@ export default function TacticsPage() {
     ? getWeakestCategories(latestResult, 2).map((c) => c.key)
     : [];
 
-  const filteredTactics =
+  // Limit to TACTICS_PER_CATEGORY per category
+  const tacticsByCategory: Record<CategoryKey, Tactic[]> = {} as Record<CategoryKey, Tactic[]>;
+  for (const cat of CATEGORY_ORDER) {
+    const catTactics = ALL_TACTICS.filter((t) => t.category === cat);
+    // Prioritize weak-category tactics when sorting
+    const sorted = [...catTactics].sort((a, b) => {
+      if (!latestResult) return 0;
+      const aWeak = weakestKeys.includes(a.category) ? 0 : 1;
+      const bWeak = weakestKeys.includes(b.category) ? 0 : 1;
+      return aWeak - bWeak;
+    });
+    tacticsByCategory[cat] = sorted.slice(0, TACTICS_PER_CATEGORY);
+  }
+
+  const displayTactics =
     activeCategory === "all"
-      ? ALL_TACTICS
-      : ALL_TACTICS.filter((t) => t.category === activeCategory);
+      ? CATEGORY_ORDER.flatMap((cat) => tacticsByCategory[cat])
+      : tacticsByCategory[activeCategory] || [];
 
-  const sorted = [...filteredTactics].sort((a, b) => {
-    const aP = weakestKeys.includes(a.category) ? 0 : 1;
-    const bP = weakestKeys.includes(b.category) ? 0 : 1;
-    return aP - bP;
-  });
+  const priorityTactics = displayTactics.filter((t) => weakestKeys.includes(t.category));
+  const otherTactics = displayTactics.filter((t) => !weakestKeys.includes(t.category));
 
-  const priorityTactics = sorted.filter((t) =>
-    weakestKeys.includes(t.category)
-  );
-  const otherTactics = sorted.filter(
-    (t) => !weakestKeys.includes(t.category)
+  const totalDisplayed = CATEGORY_ORDER.reduce(
+    (sum, cat) => sum + tacticsByCategory[cat].length,
+    0
   );
 
   return (
@@ -179,6 +202,9 @@ export default function TacticsPage() {
           </p>
         </div>
 
+        {/* Top consult CTA */}
+        <ConsultBanner />
+
         {/* No result banner */}
         {!latestResult && (
           <div className="bg-stone-50 border border-stone-200 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -189,8 +215,7 @@ export default function TacticsPage() {
                   Want personalized recommendations?
                 </p>
                 <p className="text-sm text-stone-700">
-                  Take the assessment so we can highlight the tactics that
-                  matter most for your book.
+                  Take the assessment so we can highlight the tactics that matter most for your book.
                 </p>
               </div>
             </div>
@@ -216,16 +241,15 @@ export default function TacticsPage() {
             </div>
             <div className="flex flex-wrap gap-2">
               {weakestKeys.map((k) => {
-                const cat = latestResult.categoryScores.find(
-                  (c) => c.key === k
-                );
+                const cat = latestResult.categoryScores.find((c) => c.key === k);
+                const I = CATEGORY_ICONS[k];
                 return (
                   <button
                     key={k}
                     onClick={() => setActiveCategory(k)}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border border-amber-300 rounded-full text-sm font-medium text-amber-800 hover:bg-amber-100 transition-colors"
                   >
-                    {(() => { const I = CATEGORY_ICONS[k]; return I ? <I className="w-3.5 h-3.5 flex-shrink-0" /> : null; })()}
+                    {I ? <I className="w-3.5 h-3.5 flex-shrink-0" /> : null}
                     {CATEGORY_DISPLAY_NAMES[k]}
                     <span className="ml-1 text-xs text-amber-600 font-bold">
                       {cat ? Math.round(cat.score) : "?"}/100
@@ -250,11 +274,12 @@ export default function TacticsPage() {
                 : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:text-stone-700"
             )}
           >
-            All&nbsp;({ALL_TACTICS.length})
+            All&nbsp;({totalDisplayed})
           </button>
           {CATEGORY_ORDER.map((cat) => {
-            const count = ALL_TACTICS.filter((t) => t.category === cat).length;
+            const count = tacticsByCategory[cat].length;
             const isWeak = weakestKeys.includes(cat);
+            const I = CATEGORY_ICONS[cat];
             return (
               <button
                 key={cat}
@@ -270,9 +295,9 @@ export default function TacticsPage() {
                     : "bg-white text-stone-600 border-stone-200 hover:border-stone-400 hover:text-stone-700"
                 )}
               >
-                {(() => { const I = CATEGORY_ICONS[cat]; return I ? <I className="w-3.5 h-3.5 inline-block mr-1 flex-shrink-0" /> : null; })()}
+                {I ? <I className="w-3.5 h-3.5 inline-block mr-1" /> : null}
                 {CATEGORY_DISPLAY_NAMES[cat].split(" ")[0]}
-                {isWeak && " ·"} ({count})
+                {isWeak ? " ·" : ""} ({count})
               </button>
             );
           })}
@@ -303,26 +328,25 @@ export default function TacticsPage() {
             </h2>
           )}
           <div className="grid sm:grid-cols-2 gap-4">
-            {(activeCategory === "all" ? otherTactics : filteredTactics).map(
-              (t) => (
-                <TacticCard
-                  key={t.id}
-                  tactic={t}
-                  isPriority={
-                    activeCategory !== "all" && weakestKeys.includes(t.category)
-                  }
-                />
-              )
-            )}
+            {(activeCategory === "all" ? otherTactics : displayTactics).map((t) => (
+              <TacticCard
+                key={t.id}
+                tactic={t}
+                isPriority={activeCategory !== "all" && weakestKeys.includes(t.category)}
+              />
+            ))}
           </div>
         </div>
 
-        {filteredTactics.length === 0 && (
+        {displayTactics.length === 0 && (
           <div className="text-center py-12 text-stone-400">
             <Lightbulb className="w-8 h-8 mx-auto mb-3 opacity-40" />
             <p>No tactics for this category yet.</p>
           </div>
         )}
+
+        {/* Bottom consult CTA */}
+        <ConsultBanner />
       </div>
     </div>
   );

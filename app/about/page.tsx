@@ -78,9 +78,9 @@ export default function AboutPage() {
                   built careers, companies, and reputations routinely arrived believing that
                   a strong idea and the right connections were enough to secure a deal. Many
                   had no idea that a publisher's decision rests on a small set of concrete,
-                  measurable variables: platform, manuscript readiness, concept differentiation,
-                  commercial hook, timeliness, and whether the author is the only person who
-                  could have written this particular book.
+                  measurable variables: platform, uniqueness and timeliness, writing quality,
+                  and audience — and whether the author is the only person who could have
+                  written this particular book.
                 </p>
                 <p>
                   The misunderstanding comes down to access, not intelligence. Publishing
@@ -106,7 +106,7 @@ export default function AboutPage() {
               {[
                 {
                   heading: "The framework is real",
-                  body: "Every submission to a Big Five editor is evaluated against the same set of variables. Platform, concept, commercial hook, timeliness, manuscript quality. Most authors never know to ask about them.",
+                  body: "Every submission to a Big Five editor is evaluated against the same set of variables. Platform, uniqueness and timeliness, writing quality, and audience. Most authors never know to ask about them.",
                 },
                 {
                   heading: "Access, not intelligence",

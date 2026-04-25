@@ -16,7 +16,7 @@ const FEATURES = [
     icon: BarChart3,
     title: "The variables publishers actually use",
     description:
-      "Platform, manuscript quality, concept uniqueness, commercial potential, and timeliness. These are the real inputs. Most authors never know to ask about them.",
+      "Platform, uniqueness & timeliness, writing quality, and audience. These are the four categories agents and editors evaluate on every nonfiction submission. Most authors never know to ask about them.",
   },
   {
     icon: Star,
@@ -40,16 +40,16 @@ const FEATURES = [
 
 const SPECTRUM_PREVIEW = [
   { range: "0\u201320", label: "Just Getting Started", color: "#a8a29e" },
-  { range: "21\u201340", label: "Early Explorer", color: "#78716c" },
-  { range: "41\u201360", label: "Rising Contender", color: "#57534e" },
-  { range: "61\u201375", label: "Strong Candidate", color: "#44403c" },
+  { range: "21\u201340", label: "Minimal Chance of Deal", color: "#78716c" },
+  { range: "41\u201360", label: "More Development Needed", color: "#57534e" },
+  { range: "61\u201375", label: "Fifty-Fifty Chance", color: "#44403c" },
   { range: "76\u201388", label: "Near Deal-Ready", color: "#292524" },
   { range: "89\u2013100", label: "Deal-Ready", color: "#1c1917" },
 ];
 
 const WHAT_YOU_GET = [
-  "Your PitchMark out of 100",
-  "Scores across the five key publishing variables",
+  "Your PitchMark score out of 100",
+  "Scores across four key publishing categories",
   "Where you sit on the readiness spectrum",
   "Which publication path fits your current position",
   "Tactics and resources matched to your weakest areas",
@@ -161,7 +161,7 @@ export default function Home() {
                 </Link>
               </div>
               <p className="mt-5 text-sm text-stone-400">
-                5 minutes &middot; 20 questions &middot; For nonfiction authors at any stage
+                5 minutes &middot; 20 questions across 4 categories &middot; For nonfiction authors at any stage
               </p>
             </div>
 
@@ -282,10 +282,9 @@ export default function Home() {
               <div className="space-y-4">
                 {[
                   { name: "Platform", score: 45 },
-                  { name: "Manuscript", score: 80 },
-                  { name: "Uniqueness", score: 75 },
-                  { name: "Commercial", score: 85 },
-                  { name: "Timeliness", score: 70 },
+                  { name: "Uniqueness & Timeliness", score: 78 },
+                  { name: "Writing", score: 82 },
+                  { name: "Audience", score: 85 },
                 ].map((cat) => (
                   <div key={cat.name}>
                     <div className="flex justify-between text-sm mb-1.5">

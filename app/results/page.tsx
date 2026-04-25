@@ -11,6 +11,7 @@ import {
   CheckCircle,
   Loader2,
   ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 
 import { AssessmentResult, getSpectrumLevel } from "@/lib/types";
@@ -154,6 +155,18 @@ export default function ResultsPage() {
           </div>
         </div>
 
+        {/* Consult CTA */}
+        <Link
+          href="/consult"
+          className="flex items-center justify-between gap-4 bg-gold-400/10 border border-gold-400/30 rounded-2xl px-5 py-4 hover:bg-gold-400/20 transition-colors group"
+        >
+          <div>
+            <p className="font-semibold text-stone-900 text-sm">Ready to take the next step?</p>
+            <p className="text-stone-500 text-xs mt-0.5">Get a personal analysis from Tim and Emily.</p>
+          </div>
+          <ArrowRight className="w-4 h-4 text-stone-500 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+        </Link>
+
         {/* Spectrum */}
         <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
           <h2 className="font-serif text-lg font-bold text-stone-900 mb-4">
@@ -164,12 +177,7 @@ export default function ResultsPage() {
 
         {/* Category Breakdown */}
         <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
-          <h2 className="font-serif text-lg font-bold text-stone-900 mb-1">Category breakdown</h2>
-          <p className="text-sm text-stone-500 mb-5">
-            Platform carries 20% more weight in the final score. But a genuinely
-            irreplaceable author position can offset a thin platform; your
-            uniqueness score matters more than it might appear.
-          </p>
+          <h2 className="font-serif text-lg font-bold text-stone-900 mb-5">Category breakdown</h2>
           <CategoryBreakdown categoryScores={result.categoryScores} />
         </div>
 
@@ -267,45 +275,48 @@ export default function ResultsPage() {
           </p>
         </div>
 
-        {/* Actions */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <button
-            onClick={handleSave}
-            disabled={saved}
-            className={`flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm transition-all ${
-              saved
-                ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
-                : "bg-stone-900 hover:bg-stone-700 text-white"
-            }`}
-          >
-            {saved ? (
-              <>
-                <CheckCircle className="w-4 h-4" />
-                Saved
-              </>
-            ) : (
-              <>
-                <BookmarkPlus className="w-4 h-4" />
-                Save Results
-              </>
-            )}
-          </button>
-
+        {/* Primary CTA */}
+        <div className="space-y-3">
           <Link
             href="/tactics"
-            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-400 text-stone-700 font-semibold text-sm rounded-xl transition-all"
+            className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-stone-900 hover:bg-stone-700 text-white font-semibold text-base rounded-xl transition-all group"
           >
-            <Lightbulb className="w-4 h-4" />
-            View Tactics
+            <Lightbulb className="w-5 h-5" />
+            Next: Tactical Recommendations
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </Link>
 
-          <Link
-            href="/assessment"
-            className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 text-stone-600 font-semibold text-sm rounded-xl transition-all"
-          >
-            <RotateCcw className="w-4 h-4" />
-            Retake
-          </Link>
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              onClick={handleSave}
+              disabled={saved}
+              className={`flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm transition-all ${
+                saved
+                  ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                  : "bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-400 text-stone-700"
+              }`}
+            >
+              {saved ? (
+                <>
+                  <CheckCircle className="w-4 h-4" />
+                  Saved
+                </>
+              ) : (
+                <>
+                  <BookmarkPlus className="w-4 h-4" />
+                  Save Results
+                </>
+              )}
+            </button>
+
+            <Link
+              href="/assessment"
+              className="flex items-center justify-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-stone-300 text-stone-600 font-semibold text-sm rounded-xl transition-all"
+            >
+              <RotateCcw className="w-4 h-4" />
+              Retake
+            </Link>
+          </div>
         </div>
 
         {/* Next steps */}

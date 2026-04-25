@@ -136,7 +136,7 @@ export const ALL_TACTICS: Tactic[] = [
   // ── MANUSCRIPT QUALITY ────────────────────────────────────────────────────
   {
     id: "mq1",
-    category: "manuscriptQuality",
+    category: "writing",
     title: "Hire a Developmental Editor",
     description:
       "A developmental editor addresses structural issues before you refine prose, the single highest-ROI investment in your manuscript.",
@@ -151,7 +151,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "mq2",
-    category: "manuscriptQuality",
+    category: "writing",
     title: "Build and Use a Critique Partner Relationship",
     description:
       "A dedicated critique partner who reads your genre provides the most targeted ongoing feedback you can get.",
@@ -166,7 +166,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "mq3",
-    category: "manuscriptQuality",
+    category: "writing",
     title: "Take a Targeted Craft Workshop",
     description:
       "Focused workshops on your manuscript's specific weakness (structure, dialogue, pacing) accelerate craft faster than general writing courses.",
@@ -181,7 +181,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "mq4",
-    category: "manuscriptQuality",
+    category: "writing",
     title: "Research and Lock In Your Comparable Titles",
     description:
       "Precise, current comps are one of the most practical signals of market readiness and help you pitch with confidence.",
@@ -196,7 +196,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "mq5",
-    category: "manuscriptQuality",
+    category: "writing",
     title: "Run Targeted Beta Reader Passes",
     description:
       "Strategically chosen beta readers who represent your ideal reader give you the clearest signal of what's working.",
@@ -211,7 +211,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "mq6",
-    category: "manuscriptQuality",
+    category: "writing",
     title: "Study the Structure of 5 Bestsellers in Your Genre",
     description:
       "Reverse-engineering books that succeeded in your market teaches you the structural expectations your reader has, and how to subvert them effectively.",
@@ -228,7 +228,7 @@ export const ALL_TACTICS: Tactic[] = [
   // ── CONCEPT UNIQUENESS ────────────────────────────────────────────────────
   {
     id: "cu1",
-    category: "conceptUniqueness",
+    category: "uniquenessAndTimeliness",
     title: "Write Your 'Only I Could Write This' Document",
     description:
       "Publishers buy books from the intersection of great concept AND the right author. Document why you are the uniquely credentialed person to write this book.",
@@ -243,7 +243,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "cu2",
-    category: "conceptUniqueness",
+    category: "uniquenessAndTimeliness",
     title: "Conduct a Thorough Market Gap Analysis",
     description:
       "Articulating what's missing from your genre's current shelf is one of the most compelling things you can put in a pitch.",
@@ -258,7 +258,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "cu3",
-    category: "conceptUniqueness",
+    category: "uniquenessAndTimeliness",
     title: "Sharpen Your One-Sentence Differentiator",
     description:
       "Your book's differentiation should be expressible in a single, memorable sentence that makes people immediately want to read it.",
@@ -273,7 +273,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "cu4",
-    category: "conceptUniqueness",
+    category: "uniquenessAndTimeliness",
     title: "Identify and Amplify Your Structural Innovation",
     description:
       "Books that offer a fresh structural approach stand out to editors who read thousands of conventional manuscripts.",
@@ -290,7 +290,7 @@ export const ALL_TACTICS: Tactic[] = [
   // ── CONCEPT COMMERCIAL POTENTIAL ──────────────────────────────────────────
   {
     id: "ccp1",
-    category: "conceptCommercialPotential",
+    category: "audience",
     title: "Quantify and Define Your Target Audience",
     description:
       "Publishers want to know exactly who will buy your book and how many of them exist. The more specific and large your answer, the stronger your pitch.",
@@ -305,7 +305,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "ccp2",
-    category: "conceptCommercialPotential",
+    category: "audience",
     title: "Develop a Series or Expansion Plan",
     description:
       "Even if your book is standalone, publishers appreciate knowing there's a potential for continuation. A series bible signals commercial ambition.",
@@ -320,7 +320,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "ccp3",
-    category: "conceptCommercialPotential",
+    category: "audience",
     title: "Craft an Irresistible Commercial Hook",
     description:
       "A strong commercial hook is the difference between a pass and a request. Every pitch needs a sentence that makes any reader say 'wait, tell me more.'",
@@ -335,7 +335,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "ccp4",
-    category: "conceptCommercialPotential",
+    category: "audience",
     title: "Research Adaptation and Cross-Media Potential",
     description:
       "Books with obvious adaptation potential attract publishers who think beyond the book itself. Understanding your book's cross-media angle adds commercial weight.",
@@ -352,7 +352,7 @@ export const ALL_TACTICS: Tactic[] = [
   // ── CONCEPT TIMELINESS ────────────────────────────────────────────────────
   {
     id: "ct1",
-    category: "conceptTimeliness",
+    category: "uniquenessAndTimeliness",
     title: "Build Your 'Why Now' Argument",
     description:
       "Every strong pitch needs a compelling 'why now': the cultural, social, or market forces that make this the perfect moment for your book.",
@@ -367,7 +367,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "ct2",
-    category: "conceptTimeliness",
+    category: "uniquenessAndTimeliness",
     title: "Find the Evergreen Core Beneath the Timely Hook",
     description:
       "The best books are timely enough to sell now and timeless enough to have a long backlist life. Identifying both layers strengthens your pitch.",
@@ -382,7 +382,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "ct3",
-    category: "conceptTimeliness",
+    category: "uniquenessAndTimeliness",
     title: "Connect Your Book to a Trending Conversation Right Now",
     description:
       "Publishing moves slowly, but if you can connect your book to a trend that's building now, your pitch will feel urgent to publishers who are thinking 18 to 24 months ahead.",
@@ -397,7 +397,7 @@ export const ALL_TACTICS: Tactic[] = [
   },
   {
     id: "ct4",
-    category: "conceptTimeliness",
+    category: "uniquenessAndTimeliness",
     title: "Research and Articulate Your Market Gap",
     description:
       "Showing publishers that your book fills a clear, current gap is more powerful than any other commercial argument you can make.",
@@ -445,8 +445,7 @@ export const EFFORT_LABELS = {
 
 export const CATEGORY_COLORS: Record<CategoryKey, string> = {
   platform: "text-blue-700 bg-blue-50 border-blue-200",
-  manuscriptQuality: "text-purple-700 bg-purple-50 border-purple-200",
-  conceptUniqueness: "text-rose-700 bg-rose-50 border-rose-200",
-  conceptCommercialPotential: "text-amber-700 bg-amber-50 border-amber-200",
-  conceptTimeliness: "text-teal-700 bg-teal-50 border-teal-200",
+  uniquenessAndTimeliness: "text-rose-700 bg-rose-50 border-rose-200",
+  writing: "text-purple-700 bg-purple-50 border-purple-200",
+  audience: "text-amber-700 bg-amber-50 border-amber-200",
 };

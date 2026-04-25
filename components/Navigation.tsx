@@ -30,7 +30,7 @@ export default function Navigation() {
           <Link href="/" className="flex items-center gap-3 group">
             <LogoMark className="scale-110 origin-left" />
             <span className="font-serif font-bold text-stone-900 text-2xl tracking-tight">
-              Deal<span className="text-gold-400">Score</span>
+              Pitch<span className="text-gold-400">Mark</span>
             </span>
           </Link>
 

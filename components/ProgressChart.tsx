@@ -50,7 +50,7 @@ export default function ProgressChart({ results }: ProgressChartProps) {
     .reverse()
     .map((r) => ({
       date: formatDate(r.date),
-      score: r.dealScore,
+      score: r.pitchScore,
       label: r.label,
       genre: r.genre,
     }));

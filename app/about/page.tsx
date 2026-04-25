@@ -25,13 +25,13 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
-                About DealScore
+                About PitchMark
               </p>
               <h1 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-6 leading-tight">
                 Why we built this
               </h1>
               <p className="text-lg text-stone-500 leading-relaxed">
-                DealScore was built by two ghostwriters: Tim Vandehey, who has
+                PitchMark was built by two ghostwriters: Tim Vandehey, who has
                 spent two decades working directly with publishers and agents,
                 and Emily Liao, who brought the product and technical foundation
                 that makes it work at scale.
@@ -96,7 +96,7 @@ export default function AboutPage() {
                   needed long before they ever engaged a ghostwriter or a consultant. Together
                   they refined it, tested it against real acquisition patterns, and built it
                   into a tool that any author can use at the start of their journey. That tool
-                  is DealScore.
+                  is PitchMark.
                 </p>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function AboutPage() {
                   Working directly with publishers and agents on hundreds of projects
                   over two decades, Tim developed a clear understanding of the variables
                   that drive acquisition decisions and the ones authors consistently
-                  misunderstand or overlook. DealScore is his attempt to make that
+                  misunderstand or overlook. PitchMark is his attempt to make that
                   framework available to authors before they start querying, not after
                   they've spent years wondering why the answer was no.
                 </p>
@@ -221,7 +221,7 @@ export default function AboutPage() {
                   platform catches up.
                 </p>
                 <p>
-                  She brought the product and technical foundation that makes DealScore
+                  She brought the product and technical foundation that makes PitchMark
                   work, applying the systems thinking from her AI startup background to
                   the challenge of making Tim's publishing framework accessible at scale.
                 </p>
@@ -239,7 +239,7 @@ export default function AboutPage() {
             What we believe
           </p>
           <h2 className="font-serif text-3xl font-bold text-stone-900 mb-12">
-            The principles behind DealScore
+            The principles behind PitchMark
           </h2>
           <div className="grid sm:grid-cols-3 gap-10">
             <div>
@@ -248,7 +248,7 @@ export default function AboutPage() {
                 There aren't universal rules in publishing. The right editor,
                 a well-timed submission, an agent who connects with your voice:
                 these matter enormously and no tool can predict them.
-                DealScore gives you a framework, not a verdict.
+                PitchMark gives you a framework, not a verdict.
               </p>
             </div>
             <div>
@@ -265,7 +265,7 @@ export default function AboutPage() {
               <p className="text-base text-stone-500 leading-relaxed">
                 Nonfiction authors can ask anyone whether they have a chance.
                 The problem is they don't know which variables matter most.
-                That knowledge gap is what DealScore is designed to close.
+                That knowledge gap is what PitchMark is designed to close.
               </p>
             </div>
           </div>

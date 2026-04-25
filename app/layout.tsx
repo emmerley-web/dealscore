@@ -4,9 +4,9 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "DealScore: Know Your Chances of Getting a Traditional Book Deal",
+  title: "PitchMark: Know Your Chances of Getting a Traditional Book Deal",
   description:
-    "Take the DealScore assessment to understand your readiness for a traditional nonfiction book deal, get personalised coaching, and track your progress over time.",
+    "Take the PitchMark assessment to understand your readiness for a traditional nonfiction book deal, get personalised coaching, and track your progress over time.",
 };
 
 export const viewport: Viewport = {

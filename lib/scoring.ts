@@ -44,7 +44,7 @@ export function calculateCategoryScore(
   return Math.round(((total - minRaw) / (maxRaw - minRaw)) * 100);
 }
 
-export function calculateDealScore(categoryScores: CategoryScore[]): number {
+export function calculatePitchScore(categoryScores: CategoryScore[]): number {
   const weightedSum = categoryScores.reduce((sum, cat) => {
     const w = CATEGORY_WEIGHTS[cat.key];
     return sum + cat.score * w;
@@ -63,15 +63,15 @@ export function buildAssessmentResult(
     weight: CATEGORY_WEIGHTS[key],
   }));
 
-  const dealScore = calculateDealScore(categoryScores);
-  const level = getSpectrumLevel(dealScore);
+  const pitchScore = calculatePitchScore(categoryScores);
+  const level = getSpectrumLevel(pitchScore);
 
   return {
     id: Date.now().toString(),
     date: new Date().toISOString(),
     answers,
     categoryScores,
-    dealScore,
+    pitchScore,
     genre,
     label: level.label,
   };

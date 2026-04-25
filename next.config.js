@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const basePath = process.env.GITHUB_ACTIONS ? "/dealscore" : "";
+const basePath = process.env.GITHUB_ACTIONS ? "/pitchmark" : "";
 
 const nextConfig = {
   output: "export",

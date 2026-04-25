@@ -48,7 +48,7 @@ const SPECTRUM_PREVIEW = [
 ];
 
 const WHAT_YOU_GET = [
-  "Your DealScore out of 100",
+  "Your PitchMark out of 100",
   "Scores across the five key publishing variables",
   "Where you sit on the readiness spectrum",
   "Which publication path fits your current position",
@@ -148,7 +148,7 @@ export default function Home() {
               </h1>
               <p className="text-lg sm:text-xl text-stone-500 mb-10 leading-relaxed">
                 Agents and publishers evaluate every nonfiction submission against the same
-                framework. DealScore gives you access to it, so you know exactly where you
+                framework. PitchMark gives you access to it, so you know exactly where you
                 stand on every variable that drives traditional acquisition decisions.
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -184,7 +184,7 @@ export default function Home() {
       <section className="py-14 px-4 sm:px-6 bg-stone-50 border-b border-stone-200">
         <div className="max-w-6xl mx-auto">
           <p className="text-center text-sm font-semibold text-stone-500 uppercase tracking-[0.18em] mb-8">
-            The DealScore Readiness Spectrum
+            The PitchMark Readiness Spectrum
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-stone-200 border border-stone-200">
             {SPECTRUM_PREVIEW.map((item) => (
@@ -212,7 +212,7 @@ export default function Home() {
             </h2>
             <p className="text-lg text-stone-500 leading-relaxed">
               Most nonfiction authors want a traditional deal. Few understand the specific
-              variables agents and editors apply to every submission. DealScore gives you
+              variables agents and editors apply to every submission. PitchMark gives you
               that same framework, scored against your actual position, so you can see
               clearly whether traditional publishing is within reach right now and what
               it would take to get there.

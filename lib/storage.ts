@@ -2,8 +2,8 @@
 
 import { AssessmentResult } from "./types";
 
-const RESULTS_KEY = "dealscore_results";
-const PENDING_KEY = "dealscore_pending";
+const RESULTS_KEY = "pitchmark_results";
+const PENDING_KEY = "pitchmark_pending";
 
 export function getSavedResults(): AssessmentResult[] {
   if (typeof window === "undefined") return [];

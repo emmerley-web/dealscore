@@ -24,7 +24,7 @@ export interface AssessmentResult {
   date: string;
   answers: Record<string, number>;
   categoryScores: CategoryScore[];
-  dealScore: number;
+  pitchScore: number;
   genre: string;
   label: string;
 }

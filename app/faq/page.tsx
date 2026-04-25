@@ -11,7 +11,7 @@ type FAQItem = {
 
 const FAQS: FAQItem[] = [
   {
-    question: "Does a high DealScore guarantee a book deal?",
+    question: "Does a high PitchMark guarantee a book deal?",
     answer: (
       <>
         <p>
@@ -33,11 +33,11 @@ const FAQS: FAQItem[] = [
     ),
   },
   {
-    question: "What does DealScore actually measure?",
+    question: "What does PitchMark actually measure?",
     answer: (
       <>
         <p>
-          DealScore evaluates you across five variables that drive acquisition decisions
+          PitchMark evaluates you across five variables that drive acquisition decisions
           in nonfiction publishing:
         </p>
         <ul>
@@ -142,7 +142,7 @@ const FAQS: FAQItem[] = [
     answer: (
       <>
         <p>
-          DealScore is a framework tool, not a predictive model. It is based on the
+          PitchMark is a framework tool, not a predictive model. It is based on the
           variables that publishing professionals consistently apply when evaluating
           nonfiction submissions, and the scoring logic reflects patterns observed across
           hundreds of real acquisition processes.
@@ -154,7 +154,7 @@ const FAQS: FAQItem[] = [
           not get deals. Some with modest scores will.
         </p>
         <p>
-          The most useful way to use DealScore is to look at the category breakdown, not
+          The most useful way to use PitchMark is to look at the category breakdown, not
           just the overall number. The breakdown tells you which specific variables are
           working in your favour and which need attention before you start querying.
         </p>
@@ -174,7 +174,7 @@ const FAQS: FAQItem[] = [
     ),
   },
   {
-    question: "Is DealScore only for traditional publishing?",
+    question: "Is PitchMark only for traditional publishing?",
     answer: (
       <p>
         The scoring framework is calibrated against traditional publishing standards,
@@ -251,7 +251,7 @@ export default function FAQPage() {
                 Frequently asked questions
               </p>
               <h1 className="font-serif text-4xl sm:text-5xl font-bold text-stone-900 mb-6 leading-tight">
-                Questions about DealScore and the publishing process
+                Questions about PitchMark and the publishing process
               </h1>
               <p className="text-lg text-stone-500 leading-relaxed">
                 What the score means, how publishing actually works, and what to do

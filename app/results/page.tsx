@@ -124,9 +124,9 @@ export default function ResultsPage() {
     );
   }
 
-  const level = getSpectrumLevel(result.dealScore);
+  const level = getSpectrumLevel(result.pitchScore);
   const weakest = getWeakestCategories(result, 2);
-  const paths = getPublicationPaths(result.dealScore, result.genre);
+  const paths = getPublicationPaths(result.pitchScore, result.genre);
 
   return (
     <div className="min-h-screen bg-stone-50 py-10 px-4 sm:px-6">
@@ -134,11 +134,11 @@ export default function ResultsPage() {
         {/* Score Hero */}
         <div className="bg-stone-900 p-6 sm:p-8 text-center text-white">
           <p className="text-stone-400 text-sm font-semibold uppercase tracking-[0.18em] mb-4">
-            Your DealScore
+            Your PitchMark Score
           </p>
           <div className="flex items-end justify-center gap-2 mb-3">
             <span className="font-serif text-7xl sm:text-8xl font-bold leading-none text-white">
-              {result.dealScore}
+              {result.pitchScore}
             </span>
             <span className="text-2xl sm:text-3xl text-stone-600 mb-2 sm:mb-3">/100</span>
           </div>
@@ -159,7 +159,7 @@ export default function ResultsPage() {
           <h2 className="font-serif text-lg font-bold text-stone-900 mb-4">
             Where you fall on the spectrum
           </h2>
-          <ScoreSpectrum score={result.dealScore} />
+          <ScoreSpectrum score={result.pitchScore} />
         </div>
 
         {/* Category Breakdown */}
@@ -255,11 +255,11 @@ export default function ResultsPage() {
             <strong className="text-stone-700">Important:</strong> There are no universal rules in publishing.
             The right acquisitions editor, a timely cultural moment, an agent who connects with your
             specific voice: these factors are real and outside any scoring tool&apos;s ability to
-            predict. DealScore gives you a structured framework for understanding where you
+            predict. PitchMark gives you a structured framework for understanding where you
             stand, not a definitive verdict. Use it as a starting point, not an endpoint.
           </p>
           <p className="text-xs text-stone-500 leading-relaxed">
-            <strong className="text-stone-700">A note on scores:</strong> A high DealScore doesn&rsquo;t
+            <strong className="text-stone-700">A note on scores:</strong> A high PitchMark doesn&rsquo;t
             guarantee a book deal. It means you&rsquo;re well-positioned on the variables that
             consistently matter to agents and publishers. Publishing involves subjectivity,
             timing, and factors no framework can fully account for. Use your score to

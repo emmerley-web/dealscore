@@ -93,7 +93,7 @@ export default function DashboardPage() {
   const latest = results[0];
   const previous = results[1];
   const improvement =
-    previous ? latest.dealScore - previous.dealScore : null;
+    previous ? latest.pitchScore - previous.pitchScore : null;
 
   return (
     <div className="min-h-screen bg-stone-50 py-10 px-4 sm:px-6">
@@ -131,11 +131,11 @@ export default function DashboardPage() {
             </p>
             <div className="flex items-end gap-1 mb-2">
               <span className="text-5xl font-extrabold text-gold-400">
-                {latest.dealScore}
+                {latest.pitchScore}
               </span>
               <span className="text-xl text-white/40 mb-1">/100</span>
             </div>
-            <ScoreBadge score={latest.dealScore} />
+            <ScoreBadge score={latest.pitchScore} />
             <p className="text-xs text-white/50 mt-2">
               {formatDate(latest.date)}
             </p>
@@ -217,7 +217,7 @@ export default function DashboardPage() {
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <div className="font-bold text-stone-900 text-lg">
-                      {r.dealScore}/100
+                      {r.pitchScore}/100
                     </div>
                     <div className="text-xs text-stone-500 flex items-center gap-1 mt-0.5">
                       <Calendar className="w-3 h-3" aria-hidden="true" />
@@ -228,7 +228,7 @@ export default function DashboardPage() {
                     </div>
                   </div>
                   <div className="flex flex-col items-end gap-2">
-                    <ScoreBadge score={r.dealScore} />
+                    <ScoreBadge score={r.pitchScore} />
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -258,9 +258,9 @@ export default function DashboardPage() {
               </div>
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-4xl font-extrabold text-stone-700">
-                  {selected.dealScore}
+                  {selected.pitchScore}
                 </span>
-                <ScoreBadge score={selected.dealScore} />
+                <ScoreBadge score={selected.pitchScore} />
               </div>
               <CategoryBreakdown
                 categoryScores={selected.categoryScores}

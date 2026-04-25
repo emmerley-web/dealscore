@@ -174,7 +174,7 @@ export default function TacticsPage() {
           </h1>
           <p className="text-stone-500 text-base">
             {latestResult
-              ? `Sorted for your latest score (${latestResult.dealScore}/100 in ${latestResult.genre}). The tactics that will move your score the most appear first.`
+              ? `Sorted for your latest score (${latestResult.pitchScore}/100 in ${latestResult.genre}). The tactics that will move your score the most appear first.`
               : "Concrete strategies for improving every part of your book deal readiness. Take the assessment first and we'll prioritize them for you."}
           </p>
         </div>

@@ -1,4 +1,4 @@
-# DealScore — Scoring Methodology Review
+# PitchMark — Scoring Methodology Review
 
 **How to use this document**
 
@@ -15,7 +15,7 @@ Anything in `[FILL IN]` is waiting for your input. Anything shown is the current
 1. The assessment has 20 questions across 5 categories (4 questions each).
 2. Each answer is scored 1–5.
 3. Each category's 4 answers are summed and normalized to a 0–100 scale.
-4. The 5 category scores are averaged using weights (see Section 2) to produce the final DealScore (0–100).
+4. The 5 category scores are averaged using weights (see Section 2) to produce the final PitchMark (0–100).
 5. The final score maps to one of 6 spectrum bands (see Section 4).
 
 **The 5 categories:**
@@ -512,7 +512,7 @@ Fill in any rules that feel important. Be specific about the condition and the c
 ```
 Rule 1: [FILL IN]
 Condition: [e.g. "Platform category score is under 25 AND genre is Business/Finance or Self-Help"]
-Consequence: [e.g. "Cap the recommended outcome at Band 2 (Early Stage) regardless of total DealScore"]
+Consequence: [e.g. "Cap the recommended outcome at Band 2 (Early Stage) regardless of total PitchMark"]
 Reason: [e.g. "Business publishers won't touch a self-help book without demonstrated reach"]
 
 Rule 2: [FILL IN]

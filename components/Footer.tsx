@@ -8,14 +8,14 @@ export default function Footer() {
         <div className="flex items-center gap-2.5">
           <LogoMark />
           <span className="font-serif font-bold text-white text-lg tracking-tight">
-            Deal<span className="text-gold-400">Score</span>
+            Pitch<span className="text-gold-400">Mark</span>
           </span>
         </div>
         <div className="flex flex-wrap gap-6 text-sm text-stone-500">
           <Link href="/about" className="hover:text-white transition-colors">About</Link>
           <Link href="/assessment" className="hover:text-white transition-colors">Assessment</Link>
           <Link href="/tactics" className="hover:text-white transition-colors">Tactics</Link>
-          <Link href="/faq" className="hover:text-white transition-colors">FAQ</Link>
+          <Link href="/faq" className="hover:text-white transition-colors">FAQs</Link>
         </div>
         <p className="text-stone-600 text-sm">Built by Tim Vandehey and Emily Liao.</p>
       </div>

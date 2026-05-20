@@ -17,11 +17,11 @@ export const PLANS: Plan[] = [
   {
     id: "learn",
     name: "Learn",
-    tagline: "Understand the framework. Go at your own pace.",
+    tagline: "Understand the framework at your own pace.",
     price: "$197",
     priceNote: "one-time",
     forWho:
-      "For authors who are still building foundations and want to understand what publishers actually evaluate — before committing to a bigger investment.",
+      "For authors who are still building foundations and want to understand what publishers actually evaluate before committing to a bigger investment.",
     features: [
       "Live webinar with Tim and Emily (recorded)",
       "Full access to the content library",
@@ -40,7 +40,7 @@ export const PLANS: Plan[] = [
     price: "$497",
     priceNote: "one-time",
     forWho:
-      "For authors who are ready to act and want a clear, personalised plan — but prefer to execute it on their own terms.",
+      "For authors who are ready to act and want a clear, personalised plan but prefer to execute it on their own terms.",
     features: [
       "Written analysis of your PitchMark results",
       "Category-by-category breakdown with specific recommendations",
@@ -60,7 +60,7 @@ export const PLANS: Plan[] = [
     price: "From $2,500",
     priceNote: "per engagement",
     forWho:
-      "For authors who are near-ready and want hands-on support. Start with a discovery conversation — tell us where you are and we'll take it from there.",
+      "For authors who are near-ready and want hands-on support. Start with a discovery conversation and we'll take it from there.",
     features: [
       "Everything in Report",
       "1:1 strategy sessions with Tim and/or Emily",

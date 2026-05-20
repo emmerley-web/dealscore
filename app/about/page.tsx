@@ -106,7 +106,7 @@ export default function AboutPage() {
               {[
                 {
                   heading: "The framework is real",
-                  body: "Every submission to a Big Five editor is evaluated against the same set of variables. Platform, uniqueness and timeliness, writing quality, and audience. Most authors never know to ask about them.",
+                  body: "Every submission to a Big Five editor is evaluated against the same set of variables. Platform, uniqueness and timeliness, writing quality, and audience. Most authors never know to focus on them.",
                 },
                 {
                   heading: "Access, not intelligence",
@@ -178,9 +178,7 @@ export default function AboutPage() {
                   Working directly with publishers and agents on hundreds of projects
                   over two decades, Tim developed a clear understanding of the variables
                   that drive acquisition decisions and the ones authors consistently
-                  misunderstand or overlook. PitchMark is his attempt to make that
-                  framework available to authors before they start querying, not after
-                  they've spent years wondering why the answer was no.
+                  misunderstand or overlook.
                 </p>
               </div>
             </div>
@@ -209,14 +207,13 @@ export default function AboutPage() {
               </div>
               <div className="space-y-4 text-stone-600 leading-relaxed text-base">
                 <p>
-                  Emily Liao is a ghostwriter and memoirist specialising in business
-                  memoirs for traditional publishing. Before pivoting to writing full-time
+                  Emily Liao is a ghostwriter specialising in business and legacy memoirs. Before pivoting to writing full-time
                   in 2021, she worked at an AI startup, bringing a product and technology
                   perspective to how authors navigate the publishing process.
                 </p>
                 <p>
                   She's worked with clients across four continents on memoirs, narrative
-                  business books, and proposals aimed at traditional publishers, with a
+                  business books, and proposals, with a
                   particular focus on helping authors whose stories are ready before their
                   platform catches up.
                 </p>
@@ -247,25 +244,23 @@ export default function AboutPage() {
               <p className="text-base text-stone-500 leading-relaxed">
                 There aren't universal rules in publishing. The right editor,
                 a well-timed submission, an agent who connects with your voice:
-                these matter enormously and no tool can predict them.
-                PitchMark gives you a framework, not a verdict.
+                these matter enormously and no tool can predict them with 100% accuracy.
               </p>
             </div>
             <div>
               <h3 className="font-serif font-bold text-stone-900 mb-3 text-lg">The right path, not the dream path</h3>
               <p className="text-base text-stone-500 leading-relaxed">
-                Traditional publishing is one route. Hybrid and self-publishing
-                are serious, legitimate alternatives. The honest value is pointing
+                Traditional publishing is one route; however, hybrid and self-publishing
+                can be serious, legitimate alternatives. The honest value is pointing
                 authors toward the path that fits their situation, whatever that
                 turns out to be.
               </p>
             </div>
             <div>
-              <h3 className="font-serif font-bold text-stone-900 mb-3 text-lg">Knowledge is the gap</h3>
+              <h3 className="font-serif font-bold text-stone-900 mb-3 text-lg">Bridging the knowledge gap</h3>
               <p className="text-base text-stone-500 leading-relaxed">
-                Nonfiction authors can ask anyone whether they have a chance.
-                The problem is they don't know which variables matter most.
-                That knowledge gap is what PitchMark is designed to close.
+                Nonfiction authors often don&apos;t know which variables matter most.
+                PitchMark has been designed to close that knowledge gap.
               </p>
             </div>
           </div>

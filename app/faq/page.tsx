@@ -22,8 +22,8 @@ const FAQS: FAQItem[] = [
         <p>
           Publishing involves subjectivity, timing, and factors no framework can fully
           account for. The right editor at the right moment, an agent who connects with
-          your voice, a cultural window that opens unexpectedly: these are real and
-          meaningful, and they sit outside what any scoring tool can predict.
+          your voice, a cultural window that opens unexpectedly are all real and
+          meaningful, and they sit outside what any scoring tool can accurately predict.
         </p>
         <p>
           Use your score to understand your strengths and gaps, and to identify where
@@ -46,10 +46,6 @@ const FAQS: FAQItem[] = [
           <li><strong>Writing:</strong> the quality and readiness of your manuscript and proposal. Nonfiction is acquired on proposal, not finished manuscript, but a weak proposal signals an unprepared author.</li>
           <li><strong>Audience:</strong> the size and reading habits of your target audience, your visibility in the media they consume, and the strength of your personal network.</li>
         </ul>
-        <p>
-          These are not abstract criteria. They are the categories that agents and editors
-          explicitly or implicitly apply to every submission they evaluate.
-        </p>
       </>
     ),
   },

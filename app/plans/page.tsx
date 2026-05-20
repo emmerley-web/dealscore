@@ -84,7 +84,7 @@ export default function PlansPage() {
             </h1>
             <p className="text-lg text-stone-500 leading-relaxed">
               The assessment is free and always will be. Once you have your score, we can
-              help you act on it — at whatever level of support makes sense for where you are.
+              help you act on it at whatever level of support makes sense for where you are.
             </p>
           </div>
         </div>
@@ -116,8 +116,7 @@ export default function PlansPage() {
       {/* What the assessment tells you */}
       <section className="py-20 px-4 sm:px-6 border-t border-stone-200">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            <div>
+          <div className="max-w-2xl">
               <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-5">
                 Why start with the assessment
               </p>
@@ -140,35 +139,6 @@ export default function PlansPage() {
                 Take the Free Assessment
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </Link>
-            </div>
-
-            <div className="space-y-5">
-              {[
-                {
-                  score: "0–40",
-                  label: "Just Getting Started / Minimal Chance",
-                  rec: "Start with Learn. Build the foundations the framework requires before investing in a personalised report.",
-                },
-                {
-                  score: "41–75",
-                  label: "More Development Needed / Fifty-Fifty",
-                  rec: "Report is the natural next step. You have real foundations — a personalised plan will show you exactly what to fix before querying.",
-                },
-                {
-                  score: "76–100",
-                  label: "Near Deal-Ready / Deal-Ready",
-                  rec: "Consult. The gaps are small and the variables outside your control — timing, agent fit — now matter as much as preparation. We can help you navigate them.",
-                },
-              ].map((item) => (
-                <div key={item.score} className="border-l-2 border-gold-400 pl-5">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-serif font-bold text-stone-900">{item.score}</span>
-                    <span className="text-stone-400 text-sm">{item.label}</span>
-                  </div>
-                  <p className="text-sm text-stone-500 leading-relaxed">{item.rec}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

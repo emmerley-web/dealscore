@@ -16,19 +16,19 @@ const FEATURES = [
     icon: BarChart3,
     title: "The variables publishers actually use",
     description:
-      "Platform, uniqueness & timeliness, writing quality, and audience. These are the four categories agents and editors evaluate on every nonfiction submission. Most authors never know to ask about them.",
+      "Platform, uniqueness & timeliness, writing quality, and audience: the four categories agents and editors evaluate on every nonfiction submission. Most authors never know to focus on them.",
   },
   {
     icon: Star,
     title: "An honest score, not a pep talk",
     description:
-      "You get a number from 0 to 100, broken down by category. If your platform is thin or your concept isn't differentiated enough, the score will show it. That honesty is the point.",
+      "You get a number from 0 to 100, broken down by category. If your platform is thin or your concept isn't differentiated enough, the score will show it.",
   },
   {
     icon: Lightbulb,
     title: "A clear path forward",
     description:
-      "Traditional publishing is one path. Hybrid publishers and self-publishing are others. Your score and breakdown tell you which route fits your actual position.",
+      "Traditional publishing is one path, but hybrid publishing and self-publishing could be viable options. Your score and breakdown tell you which route fits your actual position.",
   },
   {
     icon: TrendingUp,
@@ -85,7 +85,7 @@ function NewsletterSignup() {
             </h2>
             <p className="text-stone-500 text-base leading-relaxed">
               Practical guidance on platform building, proposals, and navigating the
-              publishing landscape. No noise. Sent occasionally.
+              publishing landscape.
             </p>
           </div>
           <div>
@@ -208,11 +208,11 @@ export default function Home() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <EyebrowLabel>How it works</EyebrowLabel>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-5">
-              The knowledge gap is the problem
+              Bridging the knowledge gap
             </h2>
             <p className="text-lg text-stone-500 leading-relaxed">
-              Most nonfiction authors want a traditional deal. Few understand the specific
-              variables agents and editors apply to every submission. PitchMark gives you
+              Most nonfiction authors want a traditional deal, but few understand the variables
+              agents and editors apply to every submission. PitchMark gives you
               that same framework, scored against your actual position, so you can see
               clearly whether traditional publishing is within reach right now and what
               it would take to get there.

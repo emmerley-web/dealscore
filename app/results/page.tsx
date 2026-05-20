@@ -178,7 +178,7 @@ export default function ResultsPage() {
         {/* Category Breakdown */}
         <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
           <h2 className="font-serif text-lg font-bold text-stone-900 mb-5">Category breakdown</h2>
-          <CategoryBreakdown categoryScores={result.categoryScores} />
+          <CategoryBreakdown categoryScores={result.categoryScores} showDescriptions={false} />
         </div>
 
         {/* Weakest Areas */}

@@ -21,7 +21,6 @@ export default function CategoryBreakdown({
   return (
     <div className="space-y-5">
       {categoryScores.map((cat) => {
-        const isWeighted = cat.key === "platform";
         return (
           <div key={cat.key}>
             <div className="flex items-center justify-between mb-1.5">
@@ -29,11 +28,6 @@ export default function CategoryBreakdown({
                 <span className="text-sm font-semibold text-stone-800 truncate">
                   {cat.name}
                 </span>
-                {isWeighted && (
-                  <span className="text-xs px-1.5 py-0.5 bg-stone-50 text-stone-500 border border-stone-200 rounded-full font-medium flex-shrink-0">
-                    +20% weight
-                  </span>
-                )}
               </div>
               <span
                 className="text-sm font-bold tabular-nums flex-shrink-0 ml-3"

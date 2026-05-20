@@ -19,6 +19,7 @@ import { getPendingResult, saveResult, getLatestResult } from "@/lib/storage";
 import ScoreSpectrum from "@/components/ScoreSpectrum";
 import CategoryBreakdown from "@/components/CategoryBreakdown";
 import { getWeakestCategories } from "@/lib/scoring";
+import { PLANS_BY_ID, getRecommendedPlanIds, Plan } from "@/lib/plans";
 
 type PublicationPath = {
   id: "traditional" | "hybrid" | "self";
@@ -87,6 +88,50 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
       examples: "Amazon KDP, IngramSpark, Draft2Digital",
     },
   ];
+}
+
+function PlanMiniCard({ plan, primary }: { plan: Plan; primary: boolean }) {
+  return (
+    <div
+      className={`flex flex-col p-5 rounded-xl border ${
+        primary
+          ? "bg-stone-900 border-stone-700 text-white"
+          : "bg-white border-stone-200"
+      }`}
+    >
+      <div className="flex items-start justify-between gap-3 mb-2">
+        <div>
+          <p
+            className={`text-xs font-semibold tracking-[0.15em] uppercase mb-1 ${
+              primary ? "text-gold-400" : "text-gold-500"
+            }`}
+          >
+            {plan.name}
+          </p>
+          <p className={`font-serif font-bold text-lg leading-snug ${primary ? "text-white" : "text-stone-900"}`}>
+            {plan.price}
+            <span className={`text-sm font-normal ml-1 ${primary ? "text-stone-400" : "text-stone-400"}`}>
+              {plan.priceNote}
+            </span>
+          </p>
+        </div>
+      </div>
+      <p className={`text-sm leading-relaxed mb-4 flex-1 ${primary ? "text-stone-400" : "text-stone-500"}`}>
+        {plan.tagline}
+      </p>
+      <Link
+        href={plan.ctaHref}
+        className={`flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-semibold transition-colors group ${
+          primary
+            ? "bg-gold-400 hover:bg-gold-500 text-stone-900"
+            : "bg-stone-900 hover:bg-stone-700 text-white"
+        }`}
+      >
+        {plan.cta}
+        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+      </Link>
+    </div>
+  );
 }
 
 const FIT_CONFIG = {
@@ -256,6 +301,35 @@ export default function ResultsPage() {
             })}
           </div>
         </div>
+
+        {/* Plans recommendation */}
+        {(() => {
+          const [primaryId, secondaryId] = getRecommendedPlanIds(result.pitchScore);
+          const primary = PLANS_BY_ID[primaryId];
+          const secondary = PLANS_BY_ID[secondaryId];
+          return (
+            <div>
+              <div className="mb-4">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-gold-500 mb-1">
+                  Get personalised support
+                </p>
+                <h2 className="font-serif text-lg font-bold text-stone-900">
+                  Here&rsquo;s where to go next
+                </h2>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3 mb-3">
+                <PlanMiniCard plan={primary} primary />
+                <PlanMiniCard plan={secondary} primary={false} />
+              </div>
+              <Link
+                href="/plans"
+                className="text-sm text-stone-400 hover:text-stone-700 underline underline-offset-2 transition-colors"
+              >
+                Compare all options →
+              </Link>
+            </div>
+          );
+        })()}
 
         {/* Disclaimer */}
         <div className="bg-white border border-stone-200 rounded-2xl p-5 space-y-3">

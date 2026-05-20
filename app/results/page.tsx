@@ -202,12 +202,12 @@ export default function ResultsPage() {
 
         {/* Consult CTA */}
         <Link
-          href="/consult"
+          href="/plans"
           className="flex items-center justify-between gap-4 bg-gold-400/10 border border-gold-400/30 rounded-2xl px-5 py-4 hover:bg-gold-400/20 transition-colors group"
         >
           <div>
             <p className="font-semibold text-stone-900 text-sm">Ready to take the next step?</p>
-            <p className="text-stone-500 text-xs mt-0.5">Get a personal analysis from Tim and Emily.</p>
+            <p className="text-stone-500 text-xs mt-0.5">See how Tim and Emily can help you get to the deal.</p>
           </div>
           <ArrowRight className="w-4 h-4 text-stone-500 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
         </Link>

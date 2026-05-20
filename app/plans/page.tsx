@@ -84,7 +84,7 @@ export default function PlansPage() {
             </h1>
             <p className="text-lg text-stone-500 leading-relaxed">
               The assessment is free and always will be. Once you have your score, we can
-              help you act on it at whatever level of support makes sense for where you are.
+              help you act on it, at whatever level of support makes sense for where you are.
             </p>
           </div>
         </div>

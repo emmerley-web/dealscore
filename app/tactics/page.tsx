@@ -202,31 +202,59 @@ export default function TacticsPage() {
           </p>
         </div>
 
-        {/* Top consult CTA */}
-        <ConsultBanner />
+        {/* Top consult CTA — only relevant once there's a score */}
+        {latestResult && <ConsultBanner />}
 
-        {/* No result banner */}
+        {/* No-score intro — replaces the small banner, explains the library */}
         {!latestResult && (
-          <div className="bg-stone-50 border border-stone-200 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="flex items-start gap-3">
-              <Target className="w-5 h-5 text-stone-700 mt-0.5" />
-              <div>
-                <p className="font-semibold text-stone-900">
-                  Want personalized recommendations?
-                </p>
-                <p className="text-sm text-stone-700">
-                  Take the assessment so we can highlight the tactics that matter most for your book.
+          <div className="bg-white border border-stone-200 rounded-2xl overflow-hidden">
+            <div className="p-8 sm:p-10">
+              <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-4">
+                How it works
+              </p>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mb-4">
+                Concrete tactics for every part of your book deal readiness
+              </h2>
+              <p className="text-stone-500 leading-relaxed mb-6">
+                This library covers the four variables agents and editors evaluate on every
+                nonfiction submission. Browse everything below — or take the free assessment
+                first and we&rsquo;ll sort these by what matters most for your specific book.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                {CATEGORY_ORDER.map((cat) => {
+                  const I = CATEGORY_ICONS[cat];
+                  return (
+                    <span
+                      key={cat}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-stone-50 border border-stone-200 rounded-full text-sm font-medium text-stone-700"
+                    >
+                      {I && <I className="w-3.5 h-3.5 flex-shrink-0" />}
+                      {CATEGORY_DISPLAY_NAMES[cat]}
+                    </span>
+                  );
+                })}
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                <Link
+                  href="/assessment"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-stone-900 hover:bg-stone-700 text-white font-semibold text-sm transition-colors group"
+                >
+                  Take the Free Assessment
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+                <p className="text-xs text-stone-400 leading-relaxed">
+                  5 minutes &middot; 20 questions &middot; we&rsquo;ll highlight the tactics
+                  that matter most for your book
                 </p>
               </div>
             </div>
-            <Link
-              href="/assessment"
-              className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2.5 bg-stone-900 hover:bg-stone-700 text-white font-semibold text-sm transition-colors"
-            >
-              <BookOpen className="w-4 h-4" />
-              Take Assessment
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            <div className="bg-stone-900 px-8 sm:px-10 py-4 flex items-center gap-3">
+              <Lightbulb className="w-4 h-4 text-gold-400 flex-shrink-0" />
+              <p className="text-sm text-stone-400">
+                <span className="text-white font-medium">Or browse the full library below.</span>
+                {" "}All {totalDisplayed} tactics are available without taking the assessment.
+              </p>
+            </div>
           </div>
         )}
 

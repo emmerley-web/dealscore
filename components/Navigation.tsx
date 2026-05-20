@@ -9,10 +9,10 @@ import { LogoMark } from "./Logo";
 
 const NAV_LINKS = [
   { href: "/", label: "How It Works" },
+  { href: "/about", label: "About" },
+  { href: "/faq", label: "FAQ" },
   { href: "/tactics", label: "Tactics" },
   { href: "/plans", label: "Work With Us" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/about", label: "About" },
 ];
 
 export default function Navigation() {

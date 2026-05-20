@@ -10,7 +10,6 @@ import {
   TrendingUp,
   CheckCircle,
   Loader2,
-  ExternalLink,
   ArrowRight,
 } from "lucide-react";
 
@@ -393,31 +392,25 @@ export default function ResultsPage() {
           </div>
         </div>
 
-        {/* Next steps */}
-        <div className="bg-stone-50 border border-stone-200 rounded-2xl p-5">
-          <p className="text-sm font-semibold text-stone-900 mb-3">Useful next steps</p>
-          <div className="space-y-2">
-            {[
-              { label: "Browse the Tactics library for your weakest areas", href: "/tactics", internal: true },
-              { label: "Search for literary agents at QueryTracker", href: "https://querytracker.net", internal: false },
-              { label: "Research hybrid publishers at IBPA's member directory", href: "https://www.ibpa-online.org", internal: false },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                target={item.internal ? undefined : "_blank"}
-                rel={item.internal ? undefined : "noopener noreferrer"}
-                className="flex items-center gap-2 text-sm text-stone-700 hover:text-stone-900 font-medium transition-colors"
-              >
-                {item.internal ? (
-                  <Lightbulb className="w-3.5 h-3.5 flex-shrink-0" />
-                ) : (
-                  <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
-                )}
-                {item.label}
-              </Link>
-            ))}
-          </div>
+        {/* Discovery CTA */}
+        <div className="bg-stone-900 text-white rounded-2xl p-7 text-center">
+          <p className="text-xs font-semibold tracking-[0.18em] uppercase text-gold-400 mb-3">
+            Not sure where to start?
+          </p>
+          <h3 className="font-serif text-xl font-bold text-white mb-3">
+            Tell us about your book
+          </h3>
+          <p className="text-stone-400 text-sm leading-relaxed mb-6 max-w-sm mx-auto">
+            If you&rsquo;re not sure which option fits your situation, tell us where you are.
+            We&rsquo;ll get back to you with our read on fit and where to start.
+          </p>
+          <Link
+            href="/consult"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gold-400 hover:bg-gold-500 text-stone-900 font-semibold text-sm transition-colors group"
+          >
+            Talk to Tim and Emily
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
         </div>
       </div>
     </div>

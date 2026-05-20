@@ -60,7 +60,7 @@ export const PLANS: Plan[] = [
     price: "From $2,500",
     priceNote: "per engagement",
     forWho:
-      "For authors who are near-ready and want hands-on support — from refining the proposal to preparing for agent conversations.",
+      "For authors who are near-ready and want hands-on support. Start with a discovery conversation — tell us where you are and we'll take it from there.",
     features: [
       "Everything in Report",
       "1:1 strategy sessions with Tim and/or Emily",

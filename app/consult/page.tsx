@@ -39,14 +39,16 @@ export default function ConsultPage() {
             <CheckCircle className="w-8 h-8 text-gold-400" />
           </div>
           <h1 className="font-serif text-3xl font-bold text-stone-900 mb-4">
-            We&rsquo;ve received your submission.
+            We&rsquo;ve received your message.
           </h1>
           <p className="text-stone-500 leading-relaxed mb-4">
-            Tim and Emily will review your results and get back to you with a personal analysis
-            and recommended next steps — typically within 2–3 business days.
+            Tim and Emily will review your submission and get back to you — typically within
+            2–3 business days. If we think we&rsquo;re the right fit, we&rsquo;ll reach out to
+            schedule a conversation. If you&rsquo;d be better served starting somewhere else,
+            we&rsquo;ll tell you that too.
           </p>
           <p className="text-stone-400 text-sm">
-            You can close this page. Check your inbox for a confirmation shortly.
+            You can close this page.
           </p>
         </div>
       </div>
@@ -60,15 +62,16 @@ export default function ConsultPage() {
         {/* Header */}
         <div className="mb-10">
           <p className="text-sm font-semibold tracking-[0.18em] uppercase text-gold-500 mb-4">
-            Ready to take the next step?
+            Work with us
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mb-4 leading-tight">
-            Get a personal analysis from Tim and Emily
+            Tell us about your book
           </h1>
           <p className="text-stone-500 text-lg leading-relaxed">
-            Share your project and goals. We&rsquo;ll review your assessment results and reply
-            with a personal analysis and specific next steps — plus details on how we can
-            help you get to the deal.
+            We work with a small number of authors at a time. If you&rsquo;re considering the
+            consulting route — or you&rsquo;re not sure which option fits your situation — start
+            here. Tell us where you are, what you&rsquo;re working on, and what you&rsquo;re hoping
+            to achieve. We&rsquo;ll get back to you with our read on fit and where to start.
           </p>
         </div>
 
@@ -133,7 +136,7 @@ export default function ConsultPage() {
 
           <div>
             <label htmlFor="summary" className="block text-sm font-semibold text-stone-700 mb-1.5">
-              Describe your book and your goals
+              What are you working on and what do you need?
             </label>
             <textarea
               id="summary"
@@ -155,12 +158,14 @@ export default function ConsultPage() {
             type="submit"
             className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-stone-900 hover:bg-stone-700 text-white font-semibold text-base transition-colors group"
           >
-            Submit for Personal Review
+            Send My Details
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
           <p className="text-xs text-stone-400 text-center leading-relaxed">
-            We respond to every submission personally. Your information will never be shared with third parties.
+            We reply to every submission personally. If we&rsquo;re a good fit, we&rsquo;ll suggest
+            next steps. If you&rsquo;d be better served starting somewhere else, we&rsquo;ll tell you
+            that too. Your information will never be shared with third parties.
           </p>
         </form>
 

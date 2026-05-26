@@ -7,7 +7,7 @@ import { AssessmentResult, CategoryScore, CATEGORY_DISPLAY_NAMES } from "@/lib/t
 
 export default function ConsultPage() {
   const [result, setResult] = useState<AssessmentResult | null>(null);
-  const [form, setForm] = useState({ name: "", email: "", summary: "" });
+  const [form, setForm] = useState({ name: "", email: "", summary: "", _honeypot: "" });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
@@ -21,6 +21,8 @@ export default function ConsultPage() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    // Honeypot: reject bots that fill the hidden field
+    if (form._honeypot) return;
     if (!form.name.trim() || !form.email.trim() || !form.summary.trim()) {
       setError("Please fill in all fields before submitting.");
       return;
@@ -149,6 +151,18 @@ export default function ConsultPage() {
               className="w-full px-4 py-3 border border-stone-300 bg-white text-stone-900 placeholder-stone-400 text-base focus:outline-none focus:border-stone-500 focus:ring-1 focus:ring-stone-500 resize-none"
             />
           </div>
+
+          {/* Honeypot — hidden from real users, filled only by bots */}
+          <input
+            type="text"
+            name="_honeypot"
+            value={form._honeypot}
+            onChange={handleChange}
+            style={{ display: "none" }}
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+          />
 
           {error && (
             <p className="text-red-600 text-sm font-medium">{error}</p>

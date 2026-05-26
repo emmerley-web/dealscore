@@ -65,7 +65,7 @@ export function buildAssessmentResult(
   const level = getSpectrumLevel(pitchScore);
 
   return {
-    id: Date.now().toString(),
+    id: crypto.randomUUID(),
     date: new Date().toISOString(),
     answers,
     categoryScores,

@@ -8,17 +8,17 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read  # default: read-only for all steps
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af  # v4.1.0
         with:
           node-version: 20
           cache: "npm"
@@ -32,7 +32,9 @@ jobs:
           GITHUB_ACTIONS: true
 
       - name: Deploy to gh-pages branch
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: JamesIves/github-pages-deploy-action@65b5dfd4f5bcd3a7403bbc2959c144256167464e  # v4.6.8
+        permissions:
+          contents: write  # scoped only to this step
         with:
           folder: out
           branch: gh-pages

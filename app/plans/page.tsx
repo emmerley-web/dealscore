@@ -98,7 +98,7 @@ export default function PlansPage() {
               <PlanCard
                 key={plan.id}
                 plan={plan}
-                featured={plan.id === "report"}
+                featured={plan.id === "consult"}
               />
             ))}
           </div>
@@ -124,7 +124,7 @@ export default function PlansPage() {
                 Your score tells us where to focus
               </h2>
               <p className="text-stone-500 leading-relaxed mb-5">
-                Every report and consulting engagement starts from your PitchMark score.
+                Every analysis and partnership starts from your PitchMark score.
                 It gives us — and you — a structured read on exactly which variables are
                 working in your favour and which need attention before you start querying.
               </p>

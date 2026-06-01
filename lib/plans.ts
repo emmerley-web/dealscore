@@ -1,4 +1,4 @@
-export type PlanId = "learn" | "report" | "consult";
+export type PlanId = "learn" | "consult" | "partner";
 
 export type Plan = {
   id: PlanId;
@@ -18,7 +18,7 @@ export const PLANS: Plan[] = [
     id: "learn",
     name: "Learn",
     tagline: "Understand the framework at your own pace.",
-    price: "$197",
+    price: "$250",
     priceNote: "one-time",
     forWho:
       "For authors who are still building foundations and want to understand what publishers actually evaluate before committing to a bigger investment.",
@@ -34,10 +34,10 @@ export const PLANS: Plan[] = [
     ctaHref: "#", // TODO: replace with Stripe / signup link
   },
   {
-    id: "report",
-    name: "Report",
-    tagline: "A personalised analysis of your results. You do the work.",
-    price: "$497",
+    id: "consult",
+    name: "Consult",
+    tagline: "A personalised analysis and action plan. You do the work.",
+    price: "$2,500",
     priceNote: "one-time",
     forWho:
       "For authors who are ready to act and want a clear, personalised plan but prefer to execute it on their own terms.",
@@ -47,27 +47,28 @@ export const PLANS: Plan[] = [
       "Prioritised action plan matched to your score and genre",
       "Resource and tool recommendations for your weakest areas",
       "Publishing path recommendation with rationale",
-      "Delivered within 5 business days",
+      "Delivered within 10 business days",
     ],
-    cta: "Order Your Report",
+    cta: "Get Your Analysis",
     ctaHref: "#", // TODO: replace with Stripe / payment link
     badge: "Most Popular",
   },
   {
-    id: "consult",
-    name: "Consult",
-    tagline: "We work through it with you.",
-    price: "From $2,500",
+    id: "partner",
+    name: "Partner",
+    tagline: "Full-service. We do 95% of the work.",
+    price: "$25,000",
     priceNote: "per engagement",
     forWho:
-      "For authors who are near-ready and want hands-on support. Start with a discovery conversation and we'll take it from there.",
+      "For authors who are ready to pursue a deal and want Tim and Emily to drive the process — from building platform to writing the proposal, targeting agents, and managing the submission.",
     features: [
-      "Everything in Report",
-      "1:1 strategy sessions with Tim and/or Emily",
-      "Proposal review and detailed feedback",
-      "Query letter development",
-      "Agent targeting and submission strategy",
-      "Ongoing support through the querying process",
+      "Everything in Consult",
+      "Platform strategy and hands-on execution",
+      "Full book proposal written by Tim and/or Emily",
+      "Query letter and all submission materials",
+      "Agent identification and personalised outreach strategy",
+      "Submission management through the full querying process",
+      "Direct involvement from Tim and/or Emily at every stage",
     ],
     cta: "Book a Discovery Call",
     ctaHref: "/consult",
@@ -79,7 +80,7 @@ export const PLANS_BY_ID: Record<PlanId, Plan> = Object.fromEntries(
 ) as Record<PlanId, Plan>;
 
 export function getRecommendedPlanIds(score: number): [PlanId, PlanId] {
-  if (score <= 40) return ["learn", "report"];
-  if (score <= 75) return ["report", "consult"];
-  return ["consult", "report"];
+  if (score <= 40) return ["learn", "consult"];
+  if (score <= 75) return ["consult", "partner"];
+  return ["partner", "consult"];
 }

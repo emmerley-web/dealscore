@@ -33,8 +33,7 @@ export default function AboutPage() {
               <p className="text-lg text-stone-500 leading-relaxed">
                 PitchMark was built by two ghostwriters: Tim Vandehey, who has
                 spent two decades working directly with publishers and agents,
-                and Emily Liao, who brought the product and technical foundation
-                that makes it work at scale.
+                and Emily Liao, who took Tim's private framework and turned it into something any author can use.
               </p>
             </div>
             <div className="hidden lg:block">
@@ -217,9 +216,7 @@ export default function AboutPage() {
                   platform catches up.
                 </p>
                 <p>
-                  She brought the product and technical foundation that makes PitchMark
-                  work, applying the systems thinking from her AI startup background to
-                  the problem of making Tim's private scoring framework usable by any author.
+                  She worked with Tim to develop and build PitchMark, bringing a background in both writing and technology to the project.
                 </p>
               </div>
             </div>

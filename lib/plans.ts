@@ -50,7 +50,7 @@ export const PLANS: Plan[] = [
       "Delivered within 10 business days",
     ],
     cta: "Get Your Analysis",
-    ctaHref: "#", // TODO: replace with Stripe / payment link
+    ctaHref: "/consult",
     badge: "Most Popular",
   },
   {

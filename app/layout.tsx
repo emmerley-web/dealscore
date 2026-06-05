@@ -43,7 +43,7 @@ export default function RootLayout({
         {/* Security headers — GitHub Pages cannot set HTTP headers, so we use meta tags */}
         <meta
           httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://images.unsplash.com https://lucindaliterary.com https://i0.wp.com https://memoirist.co.uk; connect-src 'self'; frame-ancestors 'none';"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://images.unsplash.com https://lucindaliterary.com; connect-src 'self'; frame-ancestors 'none';"
         />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
       </head>

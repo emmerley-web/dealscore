@@ -191,7 +191,7 @@ export default function AboutPage() {
                 <div className="w-36 h-36 overflow-hidden flex-shrink-0 bg-stone-200">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://i0.wp.com/memoirist.co.uk/wp-content/uploads/2024/03/C8C3B095-70D7-402C-9E47-675039590218_1_105_c.jpeg?fit=400%2C400&ssl=1"
+                    src="/images/emily-headshot.jpg"
                     alt="Emily Liao"
                     className="w-full h-full object-cover object-top"
                   />

@@ -212,7 +212,7 @@ export default function Home() {
             <p className="text-lg text-stone-500 leading-relaxed">
               Most nonfiction authors want a traditional deal, but few understand the variables
               agents and editors apply to every submission. PitchMark gives you
-              that same framework, scored against your actual position, so you can see
+              that framework, scored against your actual position, so you can see
               clearly whether traditional publishing is within reach right now and what
               it would take to get there.
             </p>

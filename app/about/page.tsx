@@ -95,7 +95,7 @@ export default function AboutPage() {
                   they started querying. Emily recognised that it addressed something authors
                   needed long before they ever engaged a ghostwriter or a consultant. Together
                   they refined it, tested it against real acquisition patterns, and built it
-                  into a tool that any author can use at the start of their journey. That tool
+                  into a tool that any author can use during their journey. That tool
                   is PitchMark.
                 </p>
               </div>
@@ -106,7 +106,7 @@ export default function AboutPage() {
               {[
                 {
                   heading: "The framework is real",
-                  body: "Every submission to a Big Five editor is evaluated against the same set of variables. Platform, uniqueness and timeliness, writing quality, and audience. Most authors never know to focus on them.",
+                  body: "Every submission to a Big Five editor is evaluated against the same set of variables: platform, uniqueness and timeliness, writing quality, and audience.",
                 },
                 {
                   heading: "Access, not intelligence",

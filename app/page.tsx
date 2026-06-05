@@ -274,7 +274,7 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 border border-stone-700 px-3 py-1 mb-8">
                 <div className="w-1.5 h-1.5 rounded-full bg-gold-400" />
                 <span className="text-sm font-medium text-stone-300 tracking-wide">
-                  Strong Candidate
+                  Fifty-Fifty Chance
                 </span>
               </div>
 

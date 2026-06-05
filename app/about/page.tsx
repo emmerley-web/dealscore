@@ -165,7 +165,7 @@ export default function AboutPage() {
                   who has worked on more than 70 nonfiction books, with over 20 published
                   by Big Five houses including HarperCollins, Penguin Random House,
                   Simon &amp; Schuster, and Hachette. He's been a full-time ghostwriter
-                  since 2005.
+                  since 2004.
                 </p>
                 <p>
                   His work spans memoir, business, prescriptive self-help, cultural

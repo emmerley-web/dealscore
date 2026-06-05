@@ -191,7 +191,7 @@ export default function DashboardPage() {
               <h2 className="font-bold text-stone-900">Score over time</h2>
             </div>
             <p className="text-xs text-stone-500 mb-4">
-              The dashed line marks 75 (Strong Candidate).
+              The dashed line marks 75 (Fifty-Fifty Chance).
             </p>
             <ProgressChart results={results} />
           </div>

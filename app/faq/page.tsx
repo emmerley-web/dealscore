@@ -103,9 +103,9 @@ const FAQS: FAQItem[] = [
           into directly.
         </p>
         <p>
-          None of these routes is inherently better than the others. The right path
-          depends on your goals, your timeline, your platform, and what you&rsquo;re willing
-          to invest.
+          None of these routes is inherently better than the others. The right choice
+          depends on where your platform actually is, what your book needs, and how
+          much of the process you want to control.
         </p>
       </>
     ),

@@ -54,7 +54,7 @@ export const SPECTRUM_LEVELS: SpectrumLevel[] = [
     color: "#78716c",
     bgColor: "#f5f5f4",
     description:
-      "Key variables need significant development before traditional publishing is realistic. Hybrid publishing is a viable path right now. A focused strategy on your weakest areas over 12–18 months could change this picture considerably.",
+      "Key variables need significant development before traditional publishing is realistic. Hybrid publishing is a viable path right now. A focused 12–18 months on your weakest areas can move this score meaningfully.",
   },
   {
     min: 41,

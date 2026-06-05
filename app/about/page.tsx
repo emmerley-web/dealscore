@@ -220,7 +220,7 @@ export default function AboutPage() {
                 <p>
                   She brought the product and technical foundation that makes PitchMark
                   work, applying the systems thinking from her AI startup background to
-                  the challenge of making Tim's publishing framework accessible at scale.
+                  the problem of making Tim's private scoring framework usable by any author.
                 </p>
               </div>
             </div>

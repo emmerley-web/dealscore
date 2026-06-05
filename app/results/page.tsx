@@ -62,7 +62,7 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
       label: "Hybrid Publishing",
       fit: hybridFit,
       summary:
-        "Hybrid publishers offer professional production, real distribution, and credibility, without requiring the platform a Big Five deal demands. You share costs but retain far more control. For business authors and memoirists with modest platforms, this is often the most realistic serious path.",
+        "Hybrid publishers offer professional production, real distribution, and credibility, without requiring the platform a Big Five deal demands. You share costs but retain far more control. For business authors and memoirists with modest platforms, it's often the most achievable route to a professionally produced book.",
       realities: [
         "Author shares production costs with the publisher",
         "Professional editing, design, and distribution included",
@@ -77,7 +77,7 @@ function getPublicationPaths(score: number, genre: string): PublicationPath[] {
       label: "Self-Publishing",
       fit: "possible",
       summary:
-        "Full control, full cost, full marketing responsibility. The right choice if you have an existing audience to sell to directly, need to move quickly, or are testing a concept before pursuing other routes. The quality ceiling is as high as you make it, but distribution and discoverability require real work.",
+        "Full control, full cost, full marketing responsibility. The right choice if you have an existing audience to sell to directly, need to move quickly, or are testing a concept before pursuing other routes. Production quality can be as high as you want it, but distribution and discoverability require real work.",
       realities: [
         "No gatekeeping. You publish when you're ready.",
         "All production costs are yours: editing, design, formatting, distribution",
@@ -217,7 +217,7 @@ export default function ResultsPage() {
           className="print:hidden flex items-center justify-between gap-4 bg-gold-400/10 border border-gold-400/30 rounded-2xl px-5 py-4 hover:bg-gold-400/20 transition-colors group"
         >
           <div>
-            <p className="font-semibold text-stone-900 text-sm">Ready to take the next step?</p>
+            <p className="font-semibold text-stone-900 text-sm">Want help acting on your score?</p>
             <p className="text-stone-500 text-xs mt-0.5">See how Tim and Emily can help you get to the deal.</p>
           </div>
           <ArrowRight className="w-4 h-4 text-stone-500 flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />

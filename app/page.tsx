@@ -26,9 +26,9 @@ const FEATURES = [
   },
   {
     icon: Lightbulb,
-    title: "A clear path forward",
+    title: "Not just a score — a direction",
     description:
-      "Traditional publishing is one path, but hybrid publishing and self-publishing could be viable options. Your score and breakdown tell you which route fits your actual position.",
+      "Traditional publishing is one route, but hybrid and self-publishing are serious alternatives. Your breakdown tells you which path fits your actual position right now.",
   },
   {
     icon: TrendingUp,
@@ -84,8 +84,7 @@ function NewsletterSignup() {
               Publishing insights for nonfiction authors
             </h2>
             <p className="text-stone-500 text-base leading-relaxed">
-              Practical guidance on platform building, proposals, and navigating the
-              publishing landscape.
+              Practical guidance on platform building, proposals, and how publishing decisions actually get made.
             </p>
           </div>
           <div>

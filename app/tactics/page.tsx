@@ -134,7 +134,7 @@ function ConsultBanner() {
       className="flex items-center justify-between gap-4 bg-stone-900 text-white rounded-2xl px-6 py-5 hover:bg-stone-800 transition-colors group"
     >
       <div>
-        <p className="font-serif font-bold text-lg mb-1">Ready to take the next step?</p>
+        <p className="font-serif font-bold text-lg mb-1">Want help acting on your results?</p>
         <p className="text-stone-400 text-sm">
           See how Tim and Emily can help you act on your results.
         </p>

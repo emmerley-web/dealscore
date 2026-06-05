@@ -74,7 +74,7 @@ export default function ScoreSpectrum({
                   {lvl.min}–{lvl.max}
                 </div>
                 <div
-                  className={`text-[8px] leading-tight mt-0.5 hidden sm:block ${
+                  className={`text-[8px] leading-tight mt-0.5 hidden sm:block print:block ${
                     isActive ? "text-stone-300" : "text-stone-300"
                   }`}
                   style={{ color: isActive ? "#d6d3d1" : lvl.color }}

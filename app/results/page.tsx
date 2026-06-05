@@ -175,8 +175,8 @@ export default function ResultsPage() {
   const paths = getPublicationPaths(result.pitchScore, result.genre);
 
   return (
-    <div className="min-h-screen bg-stone-50 py-10 px-4 sm:px-6">
-      <div className="max-w-3xl mx-auto space-y-8">
+    <div className="min-h-screen bg-stone-50 py-10 px-4 sm:px-6 print:py-2 print:px-0 print:bg-white">
+      <div className="max-w-3xl mx-auto space-y-8 print:space-y-4">
 
         {/* Print-only header */}
         <div className="hidden print:flex items-center justify-between pb-4 border-b border-stone-200">
@@ -189,12 +189,12 @@ export default function ResultsPage() {
         </div>
 
         {/* Score Hero */}
-        <div className="bg-stone-900 p-6 sm:p-8 text-center text-white">
+        <div className="bg-stone-900 p-6 sm:p-8 text-center text-white print:p-5">
           <p className="text-stone-400 text-sm font-semibold uppercase tracking-[0.18em] mb-4">
             Your PitchMark Score
           </p>
           <div className="flex items-end justify-center gap-2 mb-3">
-            <span className="font-serif text-7xl sm:text-8xl font-bold leading-none text-white">
+            <span className="font-serif text-7xl sm:text-8xl font-bold leading-none text-white print:text-6xl">
               {result.pitchScore}
             </span>
             <span className="text-2xl sm:text-3xl text-stone-600 mb-2 sm:mb-3">/100</span>
@@ -224,7 +224,7 @@ export default function ResultsPage() {
         </Link>
 
         {/* Spectrum */}
-        <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+        <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm print:p-4">
           <h2 className="font-serif text-lg font-bold text-stone-900 mb-4">
             Where you fall on the spectrum
           </h2>
@@ -232,7 +232,7 @@ export default function ResultsPage() {
         </div>
 
         {/* Category Breakdown */}
-        <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+        <div className="bg-white rounded-2xl border border-stone-200 p-6 shadow-sm print:p-4">
           <h2 className="font-serif text-lg font-bold text-stone-900 mb-5">Category breakdown</h2>
           <CategoryBreakdown categoryScores={result.categoryScores} showDescriptions={false} />
         </div>
@@ -254,7 +254,7 @@ export default function ResultsPage() {
               {weakest.map((cat) => (
                 <div
                   key={cat.key}
-                  className="bg-white rounded-xl p-4 border border-stone-200"
+                  className="bg-white rounded-xl p-4 border border-stone-200 print:p-3"
                 >
                   <div className="font-semibold text-stone-900 mb-1">
                     {cat.name}
@@ -284,7 +284,7 @@ export default function ResultsPage() {
               return (
                 <div
                   key={path.id}
-                  className={`bg-white rounded-2xl border p-6 shadow-sm ${
+                  className={`bg-white rounded-2xl border p-6 shadow-sm print:p-4 ${
                     path.fit === "strong" ? "border-stone-300" : "border-stone-200"
                   }`}
                 >

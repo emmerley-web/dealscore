@@ -54,9 +54,25 @@
   /* Preserve dark backgrounds and gold accents */
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 
-  /* Tighten page margins */
-  @page { margin: 1.5cm 2cm; }
+  /* Page setup */
+  @page { margin: 1.5cm 2cm; size: A4 portrait; }
 
-  /* Avoid awkward page breaks mid-card */
-  .rounded-2xl, .rounded-xl { page-break-inside: avoid; }
+  /* Remove scrollable min-heights */
+  .min-h-screen { min-height: 0 !important; }
+
+  /* Tighter vertical rhythm — screen spacing wastes paper */
+  .space-y-8 > * + * { margin-top: 1.25rem !important; }
+  .space-y-4 > * + * { margin-top: 0.625rem !important; }
+
+  /* No decorative shadows */
+  .shadow-sm, .shadow-md { box-shadow: none !important; }
+
+  /* Cards stay together */
+  .rounded-2xl, .rounded-xl { break-inside: avoid; page-break-inside: avoid; }
+
+  /* Headings don't orphan at bottom of page */
+  h2, h3 { break-after: avoid; page-break-after: avoid; }
+
+  /* Prevent lone lines */
+  p { orphans: 2; widows: 2; }
 }

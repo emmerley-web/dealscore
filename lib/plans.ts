@@ -60,7 +60,7 @@ export const PLANS: Plan[] = [
     price: "$25,000",
     priceNote: "per engagement",
     forWho:
-      "For authors who are ready to pursue a deal and want Tim and Emily to drive the process — from building platform to writing the proposal, targeting agents, and managing the submission.",
+      "For authors who are ready to pursue a deal and want Tim and Emily to drive the process, from building platform to writing the proposal, targeting agents, and managing the submission.",
     features: [
       "Everything in Consult",
       "Platform strategy and hands-on execution",

@@ -79,8 +79,7 @@ export default function AboutPage() {
                   a strong idea and the right connections were enough to secure a deal. Many
                   had no idea that a publisher's decision rests on a small set of concrete,
                   measurable variables: platform, uniqueness and timeliness, writing quality,
-                  and audience — and whether the author is the only person who could have
-                  written this particular book.
+                  and audience.
                 </p>
                 <p>
                   The misunderstanding comes down to access, not intelligence. Publishing

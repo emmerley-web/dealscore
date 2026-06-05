@@ -26,7 +26,7 @@ const FEATURES = [
   },
   {
     icon: Lightbulb,
-    title: "Not just a score — a direction",
+    title: "A clear path forward",
     description:
       "Traditional publishing is one route, but hybrid and self-publishing are serious alternatives. Your breakdown tells you which path fits your actual position right now.",
   },
@@ -246,9 +246,7 @@ export default function Home() {
                 Know where you stand before you query
               </h2>
               <p className="text-stone-500 mb-10 leading-relaxed text-base">
-                20 questions. A score out of 100. A breakdown showing exactly
-                which variables are holding you back and which publishing
-                path makes sense for your book right now.
+                In five minutes, you'll have a clear picture of where you actually stand:
               </p>
               <ul className="space-y-4">
                 {WHAT_YOU_GET.map((item) => (
@@ -341,9 +339,7 @@ export default function Home() {
             Ready to find out where you stand?
           </h2>
           <p className="text-stone-500 text-lg mb-10 leading-relaxed">
-            Five minutes and 20 questions. A score out of 100, a breakdown across every
-            variable, and a clear sense of which publishing route makes sense for your
-            book right now.
+            Five minutes. A score out of 100. A clear read on which publishing route fits your book right now.
           </p>
           <Link
             href="/assessment"

@@ -6,7 +6,6 @@ import Link from "next/link";
 import {
   BookmarkPlus,
   RotateCcw,
-  Lightbulb,
   TrendingUp,
   CheckCircle,
   Loader2,
@@ -20,6 +19,7 @@ import ScoreSpectrum from "@/components/ScoreSpectrum";
 import CategoryBreakdown from "@/components/CategoryBreakdown";
 import { getWeakestCategories } from "@/lib/scoring";
 import { PLANS_BY_ID, getRecommendedPlanIds, Plan } from "@/lib/plans";
+import { ALL_TACTICS } from "@/lib/tactics";
 
 type PublicationPath = {
   id: "traditional" | "hybrid" | "self";
@@ -313,6 +313,45 @@ export default function ResultsPage() {
           </div>
         </div>
 
+        {/* Priority tactics preview */}
+        <div className="print:hidden">
+          {(() => {
+            const primaryTactics = ALL_TACTICS.filter(t => t.category === weakest[0]?.key).slice(0, 2);
+            const secondaryTactics = ALL_TACTICS.filter(t => t.category === weakest[1]?.key).slice(0, 1);
+            const previewTactics = [...primaryTactics, ...secondaryTactics];
+            return (
+              <div>
+                <div className="mb-4">
+                  <p className="text-xs font-semibold tracking-[0.18em] uppercase text-gold-500 mb-1">
+                    What to work on
+                  </p>
+                  <h2 className="font-serif text-lg font-bold text-stone-900">
+                    Top tactics for your score
+                  </h2>
+                </div>
+                <div className="space-y-3">
+                  {previewTactics.map(t => (
+                    <div key={t.id} className="bg-white rounded-xl border border-stone-200 p-5">
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <h3 className="font-semibold text-stone-900 text-sm leading-snug">{t.title}</h3>
+                        <span className="text-xs text-stone-400 flex-shrink-0 mt-0.5">{t.timeframe}</span>
+                      </div>
+                      <p className="text-sm text-stone-600 leading-relaxed">{t.description}</p>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="/tactics"
+                  className="inline-flex items-center gap-1.5 mt-4 text-sm font-semibold text-stone-600 hover:text-stone-900 transition-colors group"
+                >
+                  See all tactics
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </Link>
+              </div>
+            );
+          })()}
+        </div>
+
         {/* Plans recommendation */}
         <div className="print:hidden">
         {(() => {
@@ -365,15 +404,6 @@ export default function ResultsPage() {
 
         {/* Primary CTA */}
         <div className="print:hidden space-y-3">
-          <Link
-            href="/tactics"
-            className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-stone-900 hover:bg-stone-700 text-white font-semibold text-base rounded-xl transition-all group"
-          >
-            <Lightbulb className="w-5 h-5" />
-            Next: Tactical Recommendations
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </Link>
-
           <div className="grid grid-cols-2 gap-3">
             <button
               onClick={handleSave}

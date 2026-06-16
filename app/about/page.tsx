@@ -168,7 +168,7 @@ export default function AboutPage() {
                 <p>
                   His work spans memoir, business, prescriptive self-help, cultural
                   commentary, and true crime. Among his credited titles are{" "}
-                  <em>The Wait</em> (Simon &amp; Schuster, NYT bestseller, with DeVon
+                  <em>The Wait</em>{" "}(Simon &amp; Schuster, NYT bestseller, with DeVon
                   Franklin and Meagan Good) and{" "}
                   <em>Saturday Night, Sunday Morning</em> with P.J. Morton (Hachette).
                 </p>
